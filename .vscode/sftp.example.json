@@ -1,0 +1,9 @@
+{
+  "name": "Example only — upload dist contents after review",
+  "host": "example.invalid",
+  "protocol": "sftp",
+  "port": 22,
+  "username": "YOUR_USERNAME",
+  "remotePath": "/path/to/public-site",
+  "uploadOnSave": false
+}

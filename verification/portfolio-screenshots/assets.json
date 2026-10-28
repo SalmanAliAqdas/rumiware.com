@@ -1,0 +1,128 @@
+[
+  {
+    "id": "stock-market",
+    "original": "reference/project-captures/streamlit/stock-market.png",
+    "originalWidth": 1280,
+    "originalHeight": 800,
+    "originalBytes": 112559,
+    "outputs": [
+      {
+        "file": "images/projects/stock-market-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 20030
+      },
+      {
+        "file": "images/projects/stock-market.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 56658
+      }
+    ]
+  },
+  {
+    "id": "pdf-toolkit",
+    "original": "reference/project-captures/streamlit/pdf-toolkit.png",
+    "originalWidth": 1440,
+    "originalHeight": 900,
+    "originalBytes": 201307,
+    "outputs": [
+      {
+        "file": "images/projects/pdf-toolkit-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 15366
+      },
+      {
+        "file": "images/projects/pdf-toolkit.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 44858
+      }
+    ]
+  },
+  {
+    "id": "weather",
+    "original": "reference/project-captures/streamlit/weather.png",
+    "originalWidth": 1440,
+    "originalHeight": 900,
+    "originalBytes": 300170,
+    "outputs": [
+      {
+        "file": "images/projects/weather-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 13772
+      },
+      {
+        "file": "images/projects/weather.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 36846
+      }
+    ]
+  },
+  {
+    "id": "expense-tracker",
+    "original": "reference/project-captures/streamlit/expense-tracker.png",
+    "originalWidth": 1440,
+    "originalHeight": 900,
+    "originalBytes": 100611,
+    "outputs": [
+      {
+        "file": "images/projects/expense-tracker-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 13608
+      },
+      {
+        "file": "images/projects/expense-tracker.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 40280
+      }
+    ]
+  },
+  {
+    "id": "qr-code-studio",
+    "original": "reference/project-captures/streamlit/qr-code-studio.png",
+    "originalWidth": 1440,
+    "originalHeight": 900,
+    "originalBytes": 115083,
+    "outputs": [
+      {
+        "file": "images/projects/qr-code-studio-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 10660
+      },
+      {
+        "file": "images/projects/qr-code-studio.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 24638
+      }
+    ]
+  },
+  {
+    "id": "movies",
+    "original": "reference/project-captures/streamlit/movies.png",
+    "originalWidth": 1440,
+    "originalHeight": 900,
+    "originalBytes": 1132985,
+    "outputs": [
+      {
+        "file": "images/projects/movies-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 43502
+      },
+      {
+        "file": "images/projects/movies.webp",
+        "width": 1280,
+        "height": 800,
+        "bytes": 127754
+      }
+    ]
+  }
+]

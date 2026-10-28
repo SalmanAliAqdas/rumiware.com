@@ -1,0 +1,47 @@
+[
+  {
+    "id": "starter",
+    "label": "Starter",
+    "price": "PKR 50,000",
+    "qualifier": "starting from",
+    "description": "For small businesses and personal brands getting online.",
+    "features": [
+      "Up to 5 pages",
+      "Mobile-friendly design",
+      "Contact form and WhatsApp button",
+      "Basic SEO setup",
+      "1 month included support"
+    ],
+    "summary": "Up to 5 pages, starting from PKR 50,000, with 1 month included support."
+  },
+  {
+    "id": "business",
+    "label": "Business",
+    "price": "PKR 150,000",
+    "qualifier": "starting from",
+    "description": "For a larger website or a small web app.",
+    "features": [
+      "Up to 15 pages or a small web app",
+      "Custom design and animation where useful",
+      "Booking, blog or online store options",
+      "Advanced SEO; analytics configuration agreed in the quote",
+      "3 months included support"
+    ],
+    "summary": "Up to 15 pages or a small web app, starting from PKR 150,000, with 3 months included support."
+  },
+  {
+    "id": "enterprise",
+    "label": "Enterprise / Custom",
+    "price": "Custom",
+    "qualifier": "quote after discovery",
+    "description": "For apps, SaaS products, AI solutions and larger systems.",
+    "features": [
+      "Web, mobile and AI solutions",
+      "Custom features and integrations",
+      "Cloud hosting and DevOps",
+      "Dedicated project lead",
+      "Monthly support plan"
+    ],
+    "summary": "Custom features and integrations, priced after discovery; monthly support scope is agreed in the quote."
+  }
+]

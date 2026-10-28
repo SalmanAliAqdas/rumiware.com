@@ -1,0 +1,382 @@
+[
+  {
+    "name": "index",
+    "width": 375,
+    "theme": "dark",
+    "documentHeight": 7034,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 287,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "portfolio",
+    "width": 375,
+    "theme": "dark",
+    "documentHeight": 3802,
+    "resourceBytes": 186767,
+    "imageBytes": 68308,
+    "domElements": 186,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "web-development",
+    "width": 375,
+    "theme": "dark",
+    "documentHeight": 4753,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 219,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "width": 375,
+    "theme": "dark",
+    "documentHeight": 4282,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 203,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "team",
+    "width": 375,
+    "theme": "dark",
+    "documentHeight": 3336,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 173,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "index",
+    "width": 375,
+    "theme": "light",
+    "documentHeight": 7034,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 287,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "portfolio",
+    "width": 375,
+    "theme": "light",
+    "documentHeight": 3802,
+    "resourceBytes": 186767,
+    "imageBytes": 68308,
+    "domElements": 186,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "web-development",
+    "width": 375,
+    "theme": "light",
+    "documentHeight": 4753,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 219,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "width": 375,
+    "theme": "light",
+    "documentHeight": 4282,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 203,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "team",
+    "width": 375,
+    "theme": "light",
+    "documentHeight": 3336,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 173,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "index",
+    "width": 1440,
+    "theme": "dark",
+    "documentHeight": 4160,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 287,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "portfolio",
+    "width": 1440,
+    "theme": "dark",
+    "documentHeight": 3016,
+    "resourceBytes": 186767,
+    "imageBytes": 68308,
+    "domElements": 186,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "web-development",
+    "width": 1440,
+    "theme": "dark",
+    "documentHeight": 3450,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 219,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "width": 1440,
+    "theme": "dark",
+    "documentHeight": 2568,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 203,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "team",
+    "width": 1440,
+    "theme": "dark",
+    "documentHeight": 2037,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 173,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "index",
+    "width": 1440,
+    "theme": "light",
+    "documentHeight": 4160,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 287,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "portfolio",
+    "width": 1440,
+    "theme": "light",
+    "documentHeight": 3016,
+    "resourceBytes": 186767,
+    "imageBytes": 68308,
+    "domElements": 186,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "web-development",
+    "width": 1440,
+    "theme": "light",
+    "documentHeight": 3450,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 219,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "width": 1440,
+    "theme": "light",
+    "documentHeight": 2568,
+    "resourceBytes": 121389,
+    "imageBytes": 2930,
+    "domElements": 203,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  },
+  {
+    "name": "team",
+    "width": 1440,
+    "theme": "light",
+    "documentHeight": 2037,
+    "resourceBytes": 149959,
+    "imageBytes": 31500,
+    "domElements": 173,
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque",
+        "status": "loaded"
+      },
+      {
+        "family": "DM Sans",
+        "status": "loaded"
+      }
+    ]
+  }
+]

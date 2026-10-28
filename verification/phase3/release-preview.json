@@ -1,0 +1,202 @@
+[
+  {
+    "path": "/404.html",
+    "status": 200
+  },
+  {
+    "path": "/about.html",
+    "status": 200
+  },
+  {
+    "path": "/ai-solutions.html",
+    "status": 200
+  },
+  {
+    "path": "/blog-post.html",
+    "status": 200
+  },
+  {
+    "path": "/blog.html",
+    "status": 200
+  },
+  {
+    "path": "/careers.html",
+    "status": 200
+  },
+  {
+    "path": "/contact.html",
+    "status": 200
+  },
+  {
+    "path": "/faq.html",
+    "status": 200
+  },
+  {
+    "path": "/full-stack.html",
+    "status": 200
+  },
+  {
+    "path": "/get-quote.html",
+    "status": 200
+  },
+  {
+    "path": "/index.html",
+    "status": 200
+  },
+  {
+    "path": "/mobile-apps.html",
+    "status": 200
+  },
+  {
+    "path": "/portfolio.html",
+    "status": 200
+  },
+  {
+    "path": "/pricing.html",
+    "status": 200
+  },
+  {
+    "path": "/privacy.html",
+    "status": 200
+  },
+  {
+    "path": "/process.html",
+    "status": 200
+  },
+  {
+    "path": "/services.html",
+    "status": 200
+  },
+  {
+    "path": "/team.html",
+    "status": 200
+  },
+  {
+    "path": "/terms.html",
+    "status": 200
+  },
+  {
+    "path": "/web-development.html",
+    "status": 200
+  },
+  {
+    "path": "/nested/missing",
+    "status": 404
+  },
+  {
+    "path": "/head.html",
+    "status": 404
+  },
+  {
+    "path": "/header.html",
+    "status": 404
+  },
+  {
+    "path": "/footer.html",
+    "status": 404
+  },
+  {
+    "path": "/get-quote-preview.html",
+    "status": 404
+  },
+  {
+    "path": "/rumiware.com/404.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/about.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/ai-solutions.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/blog-post.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/blog.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/careers.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/contact.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/faq.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/full-stack.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/get-quote.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/index.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/mobile-apps.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/portfolio.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/pricing.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/privacy.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/process.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/services.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/team.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/terms.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/web-development.html",
+    "status": 200
+  },
+  {
+    "path": "/rumiware.com/nested/missing",
+    "status": 404
+  },
+  {
+    "path": "/rumiware.com/head.html",
+    "status": 404
+  },
+  {
+    "path": "/rumiware.com/header.html",
+    "status": 404
+  },
+  {
+    "path": "/rumiware.com/footer.html",
+    "status": 404
+  },
+  {
+    "path": "/rumiware.com/get-quote-preview.html",
+    "status": 404
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mani-bakes",
+    "visible": true,
+    "name": "Mani Bakes",
+    "status": "Website demo · source available",
+    "summary": "A bakery website with a product menu and a WhatsApp order handoff.",
+    "scope": "A responsive, single-page bakery website with menu categories, product selection and an order brief.",
+    "contribution": "Website implementation, as recorded in Rumiware’s existing portfolio and public project repository.",
+    "deliverables": "Menu interface, baker introduction, order form and WhatsApp contact links. The form prepares an order message; it is not an online payment checkout.",
+    "url": "https://github.com/Rumi-Ware/Mani-Bakes",
+    "linkLabel": "Explore the project source",
+    "image": "mani-bakes.webp",
+    "alt": "Mani Bakes website preview: bakery heading, cake illustration and product menu",
+    "caption": "Preview rendered from the unchanged public project source. The deployed demo could not be verified during this check."
+  },
+  {
+    "id": "rumi-dental-care",
+    "visible": true,
+    "name": "Rumi Dental Care",
+    "status": "Published website",
+    "summary": "A clinic website presenting dental procedures and appointment contact information.",
+    "scope": "Clinic information, dental procedure sections and contact details for appointment enquiries.",
+    "contribution": "Website work listed in Rumiware’s existing portfolio.",
+    "deliverables": "Public procedure information, clinic location and telephone appointment links.",
+    "url": "https://rumidentalcare.com/",
+    "linkLabel": "Visit the clinic website",
+    "image": null,
+    "alt": null,
+    "caption": null
+  }
+]

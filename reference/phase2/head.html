@@ -1,0 +1,58 @@
+<!-- ===== PASTE INSIDE <head> OF EVERY PAGE (change title + description per page) ===== -->
+<!-- Your opening tag must be: <html lang="en" data-theme="dark">  (dark is the default theme) -->
+
+<head>
+    <meta charset="UTF-8">
+<script data-theme-init>
+// Apply the saved theme before styles paint; storage may be blocked.
+try { document.documentElement.setAttribute('data-theme', localStorage.getItem('rw-theme') === 'light' ? 'light' : 'dark'); } catch (e) {}
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO -->
+    <title>Rumi-Ware | AI Solutions & Web Development</title>
+    <meta name="description" content="Rumi-Ware provides AI solutions, web development, mobile applications, and full-stack software services for modern businesses.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rumiware.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph: social sharing -->
+    <meta property="og:site_name" content="Rumi-Ware">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rumiware.com/">
+    <meta property="og:title" content="Rumi-Ware | AI Solutions &amp; Web Development">
+    <meta property="og:description" content="Rumi-Ware provides AI solutions, web development, mobile applications, and full-stack software services for modern businesses.">
+    <meta property="og:image" content="https://rumiware.com/images/social-preview.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Rumiware — Websites, mobile apps and AI solutions. Lahore, Pakistan.">
+<meta name="twitter:card" content="summary_large_image">
+
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Rumi-Ware",
+      "url": "https://rumiware.com/",
+      "email": "info@rumiware.com",
+      "telephone": "+923335767687",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressCountry": "PK"
+      },
+      "sameAs": [
+        "https://github.com/rumi-ware"
+      ]
+    }
+    </script>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>

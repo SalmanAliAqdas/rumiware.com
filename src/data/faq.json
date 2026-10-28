@@ -1,0 +1,109 @@
+[
+  {
+    "@type": "Question",
+    "name": "What does Rumiware do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We are a software house in Lahore building websites, web apps, mobile apps, full-stack products and AI solutions, plus design, support and SEO."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Who will work on my project?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Our own team of four. You talk directly to the people building your product, not a middle layer."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Do you work with clients outside Pakistan?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. We work worldwide and communicate by email, WhatsApp and video calls."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "I am not technical. Is that a problem?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not at all. We explain everything in plain language and guide you at every step."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How much does a project cost?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It depends on what you need. See our pricing packages for starting points, then request a free, fixed quote."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do payments work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually a deposit to start, a payment at a middle milestone and the balance on launch. We agree the plan in writing first."
+    },
+    "commercial": "payment"
+  },
+  {
+    "@type": "Question",
+    "name": "Are there hidden costs?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Your quote lists what is included. Domain, hosting and paid third-party tools are shown separately so you always know the total."
+    },
+    "commercial": "costs"
+  },
+  {
+    "@type": "Question",
+    "name": "How long will my project take?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A simple website takes two to three weeks. Apps and larger systems take longer. You get a clear timeline before we start. See our process."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can I see progress while you build?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. We share working demos and updates regularly so you can give feedback early."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can I request changes?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Small changes during the project are welcome. Bigger changes are discussed and agreed with you before we start them."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Do you offer support after launch?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Every package includes a free support period, and monthly support plans are available after that."
+    },
+    "commercial": "support"
+  },
+  {
+    "@type": "Question",
+    "name": "Who owns the code and the website?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You do, once the project is paid for. We hand over the code, designs and account access."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "My site is already built. Can you improve it?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. We review it, tell you honestly what to keep, and then fix, extend or rebuild it."
+    }
+  }
+]

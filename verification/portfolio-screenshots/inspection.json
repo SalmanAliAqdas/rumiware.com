@@ -1,0 +1,709 @@
+[
+  {
+    "id": "stock-market",
+    "url": "https://rumiware-stock-market.streamlit.app/",
+    "title": "Market Atlas | Stock Price Tracker",
+    "captureUrl": "https://rumiware-stock-market.streamlit.app/~/+/",
+    "text": "Skip to main content\ndashboard\n\nDashboard\n\ncandlestick_chart\n\nStock Analysis\n\ncompare_arrows\n\nStock Comparison\n\nbookmarks\n\nWatchlist\n\npublic\n\nPakistan Stock Exchange\n\naccount_balance_wallet\n\nPortfolio Calculator\n\nhelp_outline\n\nAbout & Help\n\n↗\nMarket Atlas\nSTOCK INTELLIGENCE\n\nYOUR WORKSPACE\n\nFollowing AAPL\n\n0 stocks in your session watchlist\n\n0 Pakistan stocks · 0 portfolio lots\n\nBuilt for a thoughtful view\nDaily history, clear context, and simple research tools. International research needs no API key; PSX prices need a licensed connection.\n\nQuotes may be delayed. Watchlists last for this session; export a copy to keep them.\n\nYOUR MARKET, IN FOCUS\nA clearer view of the market.\n\nFollow the companies that matter to you. Explore price history, understand the momentum, and put performance in perspective.\n\nStock symbol\n\nsearch\n\nSearch\n\nApple Inc.\nAAPL\nUSD\nNMS\n\nYahoo Finance via yfinance · Latest available quote · may be delayed · 28 Oct 2026, 18:49:48 UTC\n\nPrice performance\n\nTime horizon\n\n1M\n\n3M\n\n6M\n\n1Y\n\n3Y\n\n5Y\n\n+28.79% adjusted return · 28 Oct 2025 – 28 Oct 2026\n\nDaily adjusted closes account for splits and dividends. The latest daily bar may still be in progress; this is not a live price chart.\n\nCompany snapshot\n\nSECTOR\n\nTechnology\n\nINDUSTRY\n\nConsumer Electronics\n\nEXCHANGE\n\nNasdaqGS\n\nCOUNTRY\n\nUnited States\n\nbookmark\n\nAdd to watchlist\n\nGo beyond the headline\nOpen Stock Analysis for candlesticks, moving averages, RSI, and a downloadable price history.\nkeyboard_arrow_right\n\nAbout Apple Inc.\n\nMARKET ATLAS   /   Research with perspective.\nData sources are shown with quotes · Data may be delayed or unavailable. For education only; not investment advice.",
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Collapse sidebar"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Stock symbol"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "search\n\nSearch"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "1M"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "3M"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "6M"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "1Y"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "3Y"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "5Y"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "bookmark\n\nAdd to watchlist"
+      }
+    ]
+  },
+  {
+    "id": "pdf-toolkit",
+    "url": "https://rumiware-pdf-toolkit.streamlit.app/",
+    "title": "RumiWare PDF Toolkit",
+    "captureUrl": "https://rumiware-pdf-toolkit.streamlit.app/~/+/",
+    "text": "Skip to main content\nRumiWare\nPDF TOOLKIT\n\nYOUR WORKSPACE\n\nDashboard\n\nPDF to Text\n\nMerge PDFs\n\nSplit PDF\n\nCompress PDF\n\nPDF to Word\n\nWord to PDF\n\nPDF to Images\n\nImages to PDF\n\nRotate PDF\n\nDelete or Reorder Pages\n\nAdd Watermark\n\nAdd Page Numbers\n\nProtect PDF\n\nUnlock PDF\n\nPDF Information\n\ndelete_sweep\n\nClear workspace\n\nUp to 20 MB per file · 200 PDF pages\n\nkeyboard_arrow_right\n\nPrivacy & processing\n\nMade for a calmer document day.\n\nRumiWare PDF Toolkit\n\nRUMIWARE PDF TOOLKIT\nYOUR EVERYDAY DOCUMENT WORKSPACE\nBig ideas.\nLess paperwork.\n\nYour Complete PDF Workspace — Convert, Merge, Split, Compress, and Manage PDFs.\n\n15 essential tools\nNo paid APIs\nFiles processed in memory\nJump right in\nA few everyday favorites\n\nPDF to Text\n\nMerge PDFs\n\nCompress PDF\n\nPDF to Word\n\nEvery tool, one place\nChoose a tool to get started\n\nAll tools\n\nConvert\n\nOrganize\n\nOptimize\n\nSecure\n\nPDF to Text\n\nTurn PDF pages into searchable, reusable text.\n\ntext_snippet\n\nOpen tool\n\nMerge PDFs\n\nBring multiple documents together in your order.\n\nmerge\n\nOpen tool\n\nSplit PDF\n\nKeep the pages you need, or split every page.\n\ncall_split\n\nOpen tool\n\nLossless\nCompress PDF\n\nOptimize PDF size while keeping image quality.\n\ncompress\n\nOpen tool\n\nText mode\nPDF to Word\n\nMake embedded PDF text editable in Word.\n\narticle\n\nOpen tool\n\nBasic text\nWord to PDF\n\nReflow DOCX body text into a clean PDF.\n\ndescription\n\nOpen tool\n\nPDF to Images\n\nExport your pages as crisp PNG or JPEG images.\n\nimage\n\nOpen tool\n\nImages to PDF\n\nCollect PNG and JPEG images in one document.\n\nphoto_library\n\nOpen tool\n\nRotate PDF\n\nGive all or selected pages the right orientation.\n\nrotate_right\n\nOpen tool\n\nDelete or Reorder Pages\n\nRemove extra pages and set a new reading order.\n\nsort\n\nOpen tool\n\nAdd Watermark\n\nAdd a subtle text stamp to selected PDF pages.\n\nbranding_watermark\n\nOpen tool\n\nAdd Page Numbers\n\nKeep your document in sequence with page numbers.\n\nformat_list_numbered\n\nOpen tool\n\nAES-256\nProtect PDF\n\nProtect access with an AES-256 opening password.\n\nlock\n\nOpen tool\n\nUnlock PDF\n\nRemove encryption using the existing password.\n\nlock_open\n\nOpen tool\n\nPDF Information\n\nSee page dimensions, document details, and metadata.\n\ninfo\n\nOpen tool\n\n↳\nYour files deserve care.\nChoose a tool, then drag a file into its upload area. Processing happens on the application server, in memory. Documents are not intentionally saved; your hosting provider’s policies still apply.\nRumiWare · A little less paperwork.\n15 thoughtful tools. One workspace.",
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Collapse sidebar"
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "delete_sweep\n\nClear workspace"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "delete_sweepClear workspace"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Main menu"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "PDF to Text"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Merge PDFs"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Compress PDF"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "PDF to Word"
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "text_snippet\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "merge\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "call_split\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "compress\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "article\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "description\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "image\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "photo_library\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "rotate_right\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "sort\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "branding_watermark\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "format_list_numbered\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "lock\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "lock_open\n\nOpen tool"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "info\n\nOpen tool"
+      }
+    ]
+  },
+  {
+    "id": "weather",
+    "url": "https://rumiware-weather-app.streamlit.app/",
+    "title": "Skyline · Weather",
+    "captureUrl": "https://rumiware-weather-app.streamlit.app/~/+/",
+    "text": "Skip to main content\nskyline.\nYOUR DAILY OUTLOOK\n\nSearch\n\n°C\n\n°F\n\nLahore, Pakistan\nWednesday, October 28\nUpdated 11:45 PM\nAsia/Karachi\nCURRENT CONDITIONS\nLahore\n19°C\nClear sky\nFeels like 20°C\nHigh 29°C\nLow 17°C\nHumidity\n75 %\nWind speed\n5.1 km/h\nSurface pressure\n989 hPa\nVisibility\n7.5 km\nSunrise\n6:14 AM\nSunset\n5:17 PM\nHourly outlook\nNext 24 hours · local time\n12 AM\n19°C\n0% rain\n1 AM\n18°C\n0% rain\n2 AM\n18°C\n0% rain\n3 AM\n18°C\n0% rain\n4 AM\n17°C\n0% rain\n5 AM\n17°C\n0% rain\nTemperature trend · °C\n5-day forecast\nHigh / low · °C\nToday\n28 Oct\nClear sky\n0% rain · 0.0 mm\n29°\n17°\nThu\n29 Oct\nMostly clear\n0% rain · 0.0 mm\n29°\n16°\nFri\n30 Oct\nClear sky\n0% rain · 0.0 mm\n28°\n17°\nSat\n31 Oct\nClear sky\n0% rain · 0.0 mm\n28°\n18°\nSun\n1 Nov\nClear sky\n0% rain · 0.0 mm\n28°\n17°\nWeather by Open-Meteo\nAll times are local to the city · Forecasts are estimates",
+    "controls": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Search city"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Search"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "°C"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "°F"
+      }
+    ]
+  },
+  {
+    "id": "expense-tracker",
+    "url": "https://rumiware-expense-tracker.streamlit.app/",
+    "title": "Expense Tracker",
+    "captureUrl": "https://rumiware-expense-tracker.streamlit.app/~/+/",
+    "text": "Skip to main content\nExpense Tracker\nMake room for clarity.\nWORKSPACE\nspace_dashboard\n\nDashboard\n\nadd_circle\n\nAdd Transaction\n\nreceipt_long\n\nTransactions\n\nbar_chart\n\nAnalytics\n\ntune\n\nSettings\n\nDemo workspace\nFictional data. Private to your session. Changes may disappear when the session ends.\nPKR currency · Simple money clarity\nWORKSPACE / OVERVIEW\nExpense Tracker\nKeep your money in focus. A little clarity goes a long way.\nREPORTING PERIOD\nAll time\n30 Jun 2026 – 27 Oct 2026\nFinancial overview\nadd\n\nAdd transaction\n\nTotal income\n↙\nPKR 220,000.00\nMoney received\nTotal expenses\n↗\nPKR 98,000.00\nMoney spent\nNet balance\n⇄\nPKR 122,000.00\nIncome minus expenses\nSavings rate\n%\n55.5%\nShare of income retained\nMonthly spending\nHow your expenses add up over time\nJul 26\nAug 26\nSep 26\nOct 26\nPKR 0\nPKR 10k\nPKR 20k\nPKR 30k\nPKR 40k\nExpenses by category\nWhere your money goes\nPKR 0\nPKR 10k\nPKR 20k\nPKR 30k\nPKR 40k\nBills\nFood\nShopping\nTransport\nHealth\nEntertainment\n\nThis month · PKR 41,700.00 spent · 4 expenses\n\nRecent transactions\narrow_forward\n\nView all",
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Collapse sidebar"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "space_dashboard\n\nDashboard"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "add_circle\n\nAdd Transaction"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "receipt_long\n\nTransactions"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "bar_chart\n\nAnalytics"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "tune\n\nSettings"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "add\n\nAdd transaction"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Show data: Monthly expenses in Pakistani rupees. Hover over a point for the exact amount."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Download as PNG: Monthly expenses in Pakistani rupees. Hover over a point for the exact amount."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Fullscreen: Monthly expenses in Pakistani rupees. Hover over a point for the exact amount."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Show data: Horizontal bars comparing category spending. Hover for category names and amounts."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Download as PNG: Horizontal bars comparing category spending. Hover for category names and amounts."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Fullscreen: Horizontal bars comparing category spending. Hover for category names and amounts."
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "arrow_forward\n\nView all"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Show/hide columns"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Download as CSV"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Search"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Fullscreen"
+      }
+    ]
+  },
+  {
+    "id": "qr-code-studio",
+    "url": "https://rumiware-qr-code-studio.streamlit.app/",
+    "title": "QR Code Studio",
+    "captureUrl": "https://rumiware-qr-code-studio.streamlit.app/~/+/",
+    "text": "Skip to main content\n\nNavigate\n\nGenerate QR\n\nScan QR\n\nQR Guide / Help\n\nAbout\n\nNo accounts, APIs, tracking, or permanent storage.\n\n▦ QR Code Studio\n\nCreate, customize, download, and safely inspect QR codes—entirely in memory.\n\nQR code type\n\nWebsite URL\n\nkeyboard_arrow_right\n\nCustomize\n\nPreview\n\nDownload PNG\n\nDownload SVG\n\nkeyboard_arrow_right\n\nPayload details",
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Collapse sidebar"
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Main menu"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "QR code type"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Website URL"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Foreground color picker"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Background color picker"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "PNG image size"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Quiet zone (modules)"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Error correction"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "label": "file upload"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Fullscreen"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Download PNG"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Download SVG"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Copy to clipboard"
+      }
+    ]
+  },
+  {
+    "id": "movies",
+    "url": "https://rumiware-movies.streamlit.app/",
+    "title": "CineMatch",
+    "captureUrl": "https://rumiware-movies.streamlit.app/~/+/",
+    "text": "Skip to main content\n🎬 CineMatch 2.0\n\nYour next great watch, explained.\n\nDiscover\n\nRecommendations\n\nSimilar Movies\n\nUpcoming\n\nLIVE TMDB\n\nkeyboard_double_arrow_right\n▶\nCineMatch\nDiscover your next great watch\nExplore Movies\nView details\nClayface\n2026\n★ 7.4\nView details\nWildwood\n2026\n★ 8.6\nView details\nYou Can See Everything\n2026\n★ 9.1\nView details\nMasterplan\n2026\n★ 7.0\nView details\nWhalefall\n2026\n★ 6.6\nView details\nStreet Fighter\n2026\n★ 6.4\nView details\nTherapy Done Right\n2026\n★ 7.7\nView details\nThe Storm\n2026\n★ 6.3\nView details\nTenzing\n2026\n★ 8.3\nView details\nAnimals\n2026\n★ 7.0\nView details\nOther Mommy\n2026\n★ 5.8\nView details\nThe Social Reckoning\n2026\n★ 7.0\nView details\nThe Spiral\n2026\n★ 7.4\nView details\nLove of Your Life\n2026\n★ 6.8\nView details\nA Man of His Time\n2026\n★ 6.7\nView details\nMatchbox the Movie\n2026\n★ 7.7\nView details\nDoing Life\n2026\n★ 7.8\nView details\nVerity\n2026\n★ 6.3\nView details\nDigger\n2026\n★ 7.5\nView details\nNAZA\n2026\n★ 8.1\n\nLoad more\n\nkeyboard_arrow_right\n\nAdvanced discovery\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB. Live metadata and images are supplied by TMDB. Demo titles are fictional; no poster or trailer media is redistributed.",
+    "controls": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Section"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Expand sidebar"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Main menu"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Search movies"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Sort by"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit",
+        "label": "Load more"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Genres"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Exclude genres"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Runtime where available — start"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Runtime where available — end"
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "label": "Family-Friendly mode"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Release years — start"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Release years — end"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Original language"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Country of origin"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Certification region"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "label": "Minimum TMDB rating"
+      },
+      {
+        "tag": "INPUT",
+        "type": "number",
+        "label": "Minimum vote count"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Decrement"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Increment"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "label": "Sort by"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "label": "Open"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "submit"
+      }
+    ]
+  }
+]

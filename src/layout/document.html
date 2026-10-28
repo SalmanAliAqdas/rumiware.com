@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+ <meta charset="utf-8">
+ <script data-theme-init>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('rw-theme') === 'light' ? 'light' : 'dark'); } catch (e) {}</script>
+ {{BASE}}
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>{{TITLE}}</title>
+ <meta name="description" content="{{DESCRIPTION}}">
+ {{CANONICAL}}
+ {{ROBOTS}}
+ <meta property="og:site_name" content="Rumiware">
+ <meta property="og:type" content="{{OG_TYPE}}"><meta property="og:title" content="{{TITLE}}">
+ <meta property="og:description" content="{{DESCRIPTION}}"><meta property="og:url" content="{{PAGE_URL}}">
+ <meta property="og:image" content="{{SOCIAL_IMAGE}}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+ <meta property="og:image:alt" content="Rumiware — Websites, mobile apps and AI solutions. Lahore, Pakistan.">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" type="image/png" href="images/favicon.png">
+ <link rel="preload" href="images/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preload" href="images/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+ {{FALLBACK_STYLE}}
+ <link rel="stylesheet" href="style.css">
+ {{SCHEMA}}
+</head>
+<body>
+ {{HEADER}}
+ <main id="main" tabindex="-1">{{CONTENT}}</main>
+ {{FOOTER}}
+</body>
+</html>

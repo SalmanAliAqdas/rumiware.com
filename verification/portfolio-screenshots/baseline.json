@@ -1,0 +1,72 @@
+{
+  "branch": "phase-1-production-readiness",
+  "files": {
+    "src/assets/script.js": "7a9399721f4f2110ae2b93cd411a94718eac9bdaede08e3c7b534d2dc76c4770",
+    "src/layout/document.html": "8fda7395472acf4ce96f8c92b1a6a0384af6fda6351edd60dd07e3510a97a565",
+    "src/data/site.json": "3fb37399ecc2a71f5947860582e837f8364d1d6f7057a4706137f823bb7acca1",
+    "src/pages/contact.html": "4080879640887c9672d9f2cd3866ccf75a648b35b5cfb5f2d0067f82a78a23f4",
+    "src/pages/get-quote.html": "6cdddabbfbd9a035f9ca622903e48312a480bfbf50ca5e414b277447f172888e"
+  },
+  "unrelatedProjects": [
+    {
+      "id": "schoolos",
+      "visible": true,
+      "name": "Rumiware SchoolOS",
+      "status": "Completed",
+      "category": "Business Applications",
+      "categoryId": "business-applications",
+      "subcategory": "Education",
+      "url": "https://rumiware-schoolos.vercel.app/",
+      "summary": "A school administration application designed to organize everyday school operations.",
+      "problem": "Designed to reduce scattered records and repetitive administration.",
+      "featured": true,
+      "presentation": "",
+      "linkLabel": "Open SchoolOS",
+      "image": "schoolos.png",
+      "width": 1440,
+      "height": 1000,
+      "alt": "SchoolOS public sign-in page",
+      "caption": "Public sign-in screen; school records and administration modules were not inspected."
+    },
+    {
+      "id": "portfolio-demo",
+      "visible": true,
+      "name": "Rumi Portfolio Demo",
+      "status": "Completed",
+      "category": "Websites",
+      "categoryId": "websites",
+      "subcategory": "Portfolio",
+      "url": "https://rumi-portfolio-demo.vercel.app/",
+      "summary": "A portfolio demo presenting an enquiry workflow through fictional examples.",
+      "problem": "Shows how an enquiry can move through classification, clarification and a draft for human review.",
+      "featured": false,
+      "presentation": "Portfolio demo",
+      "linkLabel": "Explore demo",
+      "image": "portfolio-demo.png",
+      "width": 1440,
+      "height": 1000,
+      "alt": "Enquiry workflow demo showing clearly fictional saved examples",
+      "caption": "Public fictional-example screen; no enquiry was processed or generated."
+    },
+    {
+      "id": "python-2d-platformer",
+      "visible": true,
+      "name": "Python 2D Platformer",
+      "status": "Completed",
+      "category": "Games",
+      "categoryId": "games",
+      "subcategory": "",
+      "url": "https://salmanaliaqdas.github.io/python-2d-game-super-mario/",
+      "summary": "A 2D platform-game project with a browser-game demonstration.",
+      "problem": "Demonstrates programming concepts through interactive gameplay.",
+      "featured": false,
+      "presentation": "Learning/game demo",
+      "linkLabel": "Play demo",
+      "image": "python-2d-platformer.png",
+      "width": 1440,
+      "height": 1000,
+      "alt": "Coin Runner browser-game start screen with keyboard instructions",
+      "caption": "Public browser-game start screen; gameplay was not exercised."
+    }
+  ]
+}

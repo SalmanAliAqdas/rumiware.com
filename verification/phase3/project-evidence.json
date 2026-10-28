@@ -1,0 +1,12 @@
+[
+  {
+    "id": "mani-bakes",
+    "requestedUrl": "https://rumi-ware.github.io/Mani-Bakes/",
+    "error": "page.goto: Timeout 30000ms exceeded."
+  },
+  {
+    "id": "rumi-dental-care",
+    "requestedUrl": "https://www.rumidentalcare.com/",
+    "error": "HTTP 403"
+  }
+]

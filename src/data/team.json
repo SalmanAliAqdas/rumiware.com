@@ -1,0 +1,34 @@
+[
+  {
+    "id": "salman",
+    "image": "salman",
+    "name": "Salman Ali Aqdas",
+    "role": "CEO & Founder",
+    "description": "Leads client relationships, project management and DevOps.",
+    "github": null
+  },
+  {
+    "id": "aamir",
+    "image": "amir",
+    "name": "Aamir Ashraf",
+    "role": "Data Scientist & CTO",
+    "description": "Guides technical direction and data science and AI work.",
+    "github": "https://github.com/Rumi-Ware/"
+  },
+  {
+    "id": "hassan",
+    "image": "hassan",
+    "name": "Hassan",
+    "role": "Python & full-stack developer",
+    "description": "Builds Python applications and backend systems.",
+    "github": "https://github.com/HafizHassanAlee"
+  },
+  {
+    "id": "hussain",
+    "image": "hussain",
+    "name": "Hussain",
+    "role": "Frontend & full-stack developer",
+    "description": "Builds frontend interfaces and full-stack applications.",
+    "github": "https://github.com/HafizHussainAli"
+  }
+]

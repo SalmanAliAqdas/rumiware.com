@@ -1,0 +1,58 @@
+[
+  {
+    "width": 375,
+    "theme": "dark",
+    "file": "index",
+    "images": 2,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "file": "portfolio",
+    "images": 6,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "file": "index",
+    "images": 2,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "file": "portfolio",
+    "images": 6,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "file": "index",
+    "images": 2,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "file": "portfolio",
+    "images": 6,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "file": "index",
+    "images": 2,
+    "geometryUnchangedAfterDecoding": true
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "file": "portfolio",
+    "images": 6,
+    "geometryUnchangedAfterDecoding": true
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "production": {
+    "domain": "https://rumiware.com/",
+    "localConfigPresent": true,
+    "protocol": "sftp",
+    "domainDocumentRoot": "domains/rumiware.com/public_html (account prefix omitted)",
+    "uploadOnSave": false,
+    "credentialsExcluded": true
+  },
+  "github": {
+    "repository": "SalmanAliAqdas/rumiware.com",
+    "hasPages": true,
+    "defaultBranch": "main",
+    "observedDeployment": {
+      "environment": "github-pages",
+      "ref": "main",
+      "sha": "31e50cc92dc022cc46542e3ab8da95b3145f1f0d",
+      "workflow": "dynamic/pages/pages-build-deployment",
+      "run": "https://github.com/SalmanAliAqdas/rumiware.com/actions/runs/40718121683"
+    },
+    "pagesSettingsApiStatus": 404,
+    "settingsFolderNotVerified": true
+  },
+  "checkedInWorkflow": "verification only; no deployment steps",
+  "remoteSettingsChanged": false
+}

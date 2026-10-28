@@ -1,0 +1,140 @@
+{
+  "404.html": {
+    "title": "Page Not Found | Rumiware",
+    "description": "Sorry, this page could not be found. Return to the Rumiware home page.",
+    "type": "website",
+    "schemas": []
+  },
+  "about.html": {
+    "title": "About Rumiware | Software House in Lahore, Pakistan",
+    "description": "Learn about Rumiware: our story, mission, values and culture. A small, dedicated software house in Lahore building web, mobile and AI solutions.",
+    "type": "website",
+    "schemas": []
+  },
+  "ai-solutions.html": {
+    "title": "AI Solutions - Chatbots, Automation & AI Agents | Rumiware",
+    "description": "AI chatbots, workflow automation, AI agents and machine-learning integration for businesses, built by Rumiware in Lahore, Pakistan.",
+    "type": "website",
+    "schemas": []
+  },
+  "blog-post.html": {
+    "title": "Why Your Business Needs a Fast Mobile Website | Rumiware Blog",
+    "description": "Most visitors browse on their phones. Learn why a fast mobile website decides whether customers stay or leave.",
+    "type": "article",
+    "schemas": [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Why Your Business Needs a Fast Mobile Website",
+        "description": "Most visitors browse on their phones. Learn why a fast mobile website decides whether customers stay or leave.",
+        "url": "https://rumiware.com/blog-post.html",
+        "mainEntityOfPage": "https://rumiware.com/blog-post.html",
+        "image": "https://rumiware.com/images/social-preview.png",
+        "author": {
+          "@type": "Organization",
+          "name": "Rumiware"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Rumiware"
+        }
+      }
+    ]
+  },
+  "blog.html": {
+    "title": "Blog | Rumiware - Web, Mobile & AI Tips for Business",
+    "description": "Practical tips on websites, mobile apps and AI automation from the Rumiware team in Lahore, Pakistan.",
+    "type": "website",
+    "schemas": []
+  },
+  "careers.html": {
+    "title": "Careers | Rumiware - Join Our Team in Lahore",
+    "description": "There are no current openings at Rumiware. Meet our team and check this page for future opportunities.",
+    "type": "website",
+    "schemas": []
+  },
+  "contact.html": {
+    "title": "Contact Rumiware | Lahore, Pakistan",
+    "description": "Contact Rumiware by form, WhatsApp, email or phone. Software house in Lahore, Pakistan. We reply within one working day.",
+    "type": "website",
+    "schemas": []
+  },
+  "faq.html": {
+    "title": "FAQ | Rumiware - Answers to Common Questions",
+    "description": "Answers to common questions about Rumiware pricing, payments, timelines, support and code ownership.",
+    "type": "website",
+    "schemas": []
+  },
+  "full-stack.html": {
+    "title": "Full-Stack Development - Products, APIs, Databases & DevOps | Rumiware",
+    "description": "Rumiware delivers end-to-end full-stack product development: frontend, backend, APIs, databases, cloud hosting and DevOps from Lahore, Pakistan.",
+    "type": "website",
+    "schemas": []
+  },
+  "get-quote.html": {
+    "title": "Get a Free Quote | Rumiware - Start Your Project",
+    "description": "Tell Rumiware about your website, app or AI project in four easy steps and get a free, clear quote within one working day.",
+    "type": "website",
+    "schemas": []
+  },
+  "index.html": {
+    "title": "Rumiware | Software House in Lahore - Web, Mobile & AI Solutions",
+    "description": "Rumiware is a modern software house in Lahore, Pakistan building websites, mobile apps, full-stack products and AI automation for growing businesses.",
+    "type": "website",
+    "schemas": []
+  },
+  "mobile-apps.html": {
+    "title": "Mobile App Development - Android, iOS & Flutter | Rumiware",
+    "description": "Rumiware builds Android, iOS and Flutter cross-platform mobile apps for businesses and startups in Pakistan and worldwide.",
+    "type": "website",
+    "schemas": []
+  },
+  "portfolio.html": {
+    "title": "Portfolio | Rumiware - Applications, Websites and Games",
+    "description": "Explore Rumiware projects across business applications, data applications, websites, productivity tools and games.",
+    "type": "website",
+    "schemas": []
+  },
+  "pricing.html": {
+    "title": "Pricing | Rumiware - Transparent Packages for Websites, Apps & AI",
+    "description": "Clear Rumiware pricing packages: Starter, Business and Enterprise. Get a free quote for your website, app or AI project.",
+    "type": "website",
+    "schemas": []
+  },
+  "privacy.html": {
+    "title": "Privacy Policy | Rumiware",
+    "description": "How Rumiware collects, uses and protects your information when you use rumiware.com.",
+    "type": "website",
+    "schemas": []
+  },
+  "process.html": {
+    "title": "Our Process | Rumiware - From Idea to Launch and Support",
+    "description": "See how Rumiware works: discovery, design, development, testing, launch and support. A clear, step-by-step process for every project.",
+    "type": "website",
+    "schemas": []
+  },
+  "services.html": {
+    "title": "Our Services | Rumiware - Web, Mobile, AI & Full-Stack Development",
+    "description": "Explore Rumiware services: AI solutions, web development, mobile apps, full-stack products, UI/UX design, maintenance and SEO from Lahore, Pakistan.",
+    "type": "website",
+    "schemas": []
+  },
+  "team.html": {
+    "title": "Meet the Team | Rumiware - Our People in Lahore",
+    "description": "Meet the Rumiware team: our CEO, data scientist and full-stack developers building web, mobile and AI solutions in Lahore, Pakistan.",
+    "type": "website",
+    "schemas": []
+  },
+  "terms.html": {
+    "title": "Terms of Service | Rumiware",
+    "description": "Terms of Service for using rumiware.com and working with Rumiware: quotes, payments, ownership, support and liability.",
+    "type": "website",
+    "schemas": []
+  },
+  "web-development.html": {
+    "title": "Web Development - Websites, Web Apps, E-commerce & SaaS | Rumiware",
+    "description": "Rumiware builds fast, responsive websites, custom web apps, online stores and SaaS platforms for businesses in Pakistan and worldwide.",
+    "type": "website",
+    "schemas": []
+  }
+}

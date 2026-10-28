@@ -1,0 +1,10 @@
+{
+  "unrelatedProjectRecordsUnchanged": 3,
+  "criticalFilesUnchanged": [
+    "src/assets/script.js",
+    "src/layout/document.html",
+    "src/data/site.json",
+    "src/pages/contact.html",
+    "src/pages/get-quote.html"
+  ]
+}

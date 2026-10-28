@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://rumiware-schoolos.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-schoolos.vercel.app/accounts/login/?next=/",
+    "title": "Sign in · RumiWare SchoolOS",
+    "text": "Skip to main content\nrumiware\nS C H O O L O S\nA LITTLE MORE CONNECTED.\nGreat schools.\nClearer days.\nBrighter futures.\n\nA considered workspace for the people\nwho make a school feel like a community.\n\nEvery connection matters.\nBuilt with care, by RumiWare.\nSchool, connected. ↗\nYOUR SCHOOL DAY STARTS HERE\nWelcome back.\n\nSign in to your RumiWare SchoolOS workspace.\n\nSign in to continue to your workspace.\nUsername *\nPassword *\nUse your school account\nForgot password?\nSign in to workspace\n↗\n\nNeed an account?\nContact your school administrator.\n\nExplore Demo as Visitor\n→\n\nBrowse a read-only fictional school. No account or password required.\n\nA private workspace for your school community."
+  },
+  {
+    "url": "https://rumi-portfolio-demo.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://rumi-portfolio-demo.vercel.app/explore",
+    "title": "Explore Demo · Rumi Enquiry Assistant",
+    "text": "Skip to content\nR\nRumi\nEnquiry Assistant\nExplore Demo\nPrivate dashboard\n\nNONCOMMERCIAL PORTFOLIO · FICTIONAL DATA ONLY\n\nExplore the enquiry workflow.\n\nFollow an idea from enquiry to classification, clarification, and a draft for human review. No reply is sent automatically.\n\nSaved examples below are hand-authored fictional fixtures shipped with the app. Simulated results use local rules. Live-generated results use Gemini only when explicitly enabled, within shared daily and total limits.\n\nLive generation available for these fixed fictional messages only.\n\nSave the enquiry before processing.\nClassify and summarize the request.\nAsk for missing details and prepare a draft.\nA private administrator reviews, edits, and explicitly applies retry candidates.\n\nSAVED EXAMPLE · HAND-AUTHORED FICTIONAL FIXTURE\n\nA bookshop website\n\nOur fictional bookshop needs a website to display reading events and a catalogue. Can we discuss which features to include?\n\nView saved example result\nSimulate this enquiry\nGenerate live with Gemini\n\nSends only this fictional message and approved fictional knowledge to Google. Uses the shared budget.\n\nSAVED EXAMPLE · HAND-AUTHORED FICTIONAL FIXTURE\n\nA workshop workflow\n\nOur fictional craft workshop wants to automate weekly stock reminders. We currently keep a spreadsheet and need help defining the workflow.\n\nView saved example result\nSimulate this enquiry\nGenerate live with Gemini\n\nSends only this fictional message and approved fictional knowledge to Google. Uses the shared budget.\n\nSAVED EXAMPLE · HAND-AUTHORED FICTIONAL FIXTURE\n\nAn idea needing clarification\n\nOur fictional community club needs an app and a website, but we have not decided what members should be able to do. How should we start?\n\nView saved example result\nSimulate this enquiry\nGenerate live with Gemini\n\nSends only this fictional message and approved fictional knowledge to Google. Uses the shared budget.\n\nThe public demo cannot retrieve private enquiries, drafts, attempts, or administrator configuration. It accepts no visitor message text. Saved examples are not live customer records.\n\nRumi Enquiry Assistant · Noncommercial fictional portfolio\nGemini processing — manual review required."
+  },
+  {
+    "url": "https://salmanaliaqdas.github.io/python-2d-game-super-mario/",
+    "status": 200,
+    "finalUrl": "https://salmanaliaqdas.github.io/python-2d-game-super-mario/",
+    "title": "Coin Runner — Browser Edition",
+    "text": "BROWSER EDITION\n\nCoin Runner\nLevels\nPause\nRestart\nSound on\nHow to play\n\nTEN STAGES. A WHOLE ADVENTURE.\n\nReady to run?\n\nCollect coins, stomp trouble, dodge hazards, and make it to the flag.\n\nStart game\n\nBest score: 0\n\nA D or arrows to move\nSpace / W / ↑ to jump\nP pause · M sound"
+  },
+  {
+    "url": "https://rumiware-stock-market.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-stock-market.streamlit.app/",
+    "title": "Streamlit",
+    "text": "Zzzz\n\nThis app has gone to sleep due to inactivity. Would you like to wake it back up?\n\nYes, get this app back up!\nIf you believe this is a bug, please contact us or visit the Streamlit forums."
+  },
+  {
+    "url": "https://rumiware-pdf-toolkit.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-pdf-toolkit.streamlit.app/",
+    "title": "Streamlit",
+    "text": ""
+  },
+  {
+    "url": "https://rumiware-weather-app.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-weather-app.streamlit.app/",
+    "title": "Streamlit",
+    "text": "Zzzz\n\nThis app has gone to sleep due to inactivity. Would you like to wake it back up?\n\nYes, get this app back up!\nIf you believe this is a bug, please contact us or visit the Streamlit forums."
+  },
+  {
+    "url": "https://rumiware-expense-tracker.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-expense-tracker.streamlit.app/",
+    "title": "Streamlit",
+    "text": ""
+  },
+  {
+    "url": "https://rumiware-qr-code-studio.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-qr-code-studio.streamlit.app/",
+    "title": "Streamlit",
+    "text": "Zzzz\n\nThis app has gone to sleep due to inactivity. Would you like to wake it back up?\n\nYes, get this app back up!\nIf you believe this is a bug, please contact us or visit the Streamlit forums."
+  },
+  {
+    "url": "https://rumiware-movies.streamlit.app/",
+    "status": 200,
+    "finalUrl": "https://rumiware-movies.streamlit.app/",
+    "title": "Streamlit",
+    "text": "Zzzz\n\nThis app has gone to sleep due to inactivity. Would you like to wake it back up?\n\nYes, get this app back up!\nIf you believe this is a bug, please contact us or visit the Streamlit forums."
+  }
+]

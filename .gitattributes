@@ -1,0 +1,3 @@
+# Keep upstream license text and archived third-party source unchanged.
+images/fonts/*-OFL.txt -whitespace
+reference/mani-bakes/style.css -whitespace

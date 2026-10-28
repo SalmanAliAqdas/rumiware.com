@@ -1,0 +1,14 @@
+node_modules/
+test-results/
+playwright-report/
+.npm-cache/
+dist/
+.vscode/sftp.json
+*.zip
+
+# Repeated browser captures are local evidence; retain the final approved website set.
+/verification/**/*.png
+!/verification/portfolio-screenshots/website/*.png
+
+# Downloaded third-party HTML is retained locally as research, not release source.
+/verification/phase3/dental-source.html

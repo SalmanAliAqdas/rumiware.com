@@ -1,0 +1,125 @@
+{
+  "conditions": "Chrome, localhost, no CPU/network throttling, fresh context per run, 750ms post-font observation, reduced motion; layout-shift sum over that observation window",
+  "results": [
+    {
+      "width": 375,
+      "run": 1,
+      "domContentLoadedMs": 103.19999992847443,
+      "loadMs": 372.6999999284744,
+      "lcpMs": 932,
+      "cls": 0,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "run": 2,
+      "domContentLoadedMs": 104.89999997615814,
+      "loadMs": 366.5,
+      "lcpMs": 576,
+      "cls": 0,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "run": 3,
+      "domContentLoadedMs": 109.19999992847443,
+      "loadMs": 397.5,
+      "lcpMs": 572,
+      "cls": 0,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "domContentLoadedMs": 101.19999992847443,
+      "loadMs": 459.1999999284744,
+      "lcpMs": 696,
+      "cls": 0,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "domContentLoadedMs": 120.20000004768372,
+      "loadMs": 414,
+      "lcpMs": 624,
+      "cls": 0,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "run": 3,
+      "domContentLoadedMs": 114.10000002384186,
+      "loadMs": 474,
+      "lcpMs": 512,
+      "cls": 0.0016541635437430343,
+      "decodedResourceBytes": 121389,
+      "requests": 5,
+      "fonts": [
+        {
+          "family": "Bricolage Grotesque",
+          "status": "loaded"
+        },
+        {
+          "family": "DM Sans",
+          "status": "loaded"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "candidateFiles": 212,
+  "candidateBytes": 13639528,
+  "filesOver1MB": [
+    {
+      "file": "reference/project-captures/streamlit/movies.png",
+      "bytes": 1132985
+    },
+    {
+      "file": "verification/portfolio-screenshots/website/portfolio-1440-dark.png",
+      "bytes": 1113231
+    },
+    {
+      "file": "verification/portfolio-screenshots/website/portfolio-1440-light.png",
+      "bytes": 1110380
+    }
+  ],
+  "findings": [],
+  "privateLocalConfigExcluded": true
+}

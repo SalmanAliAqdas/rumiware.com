@@ -1,0 +1,90 @@
+{
+  "name": "Rumiware",
+  "url": "https://rumiware.com",
+  "previewHost": "salmanaliaqdas.github.io",
+  "previewPath": "/rumiware.com/",
+  "email": "info@rumiware.com",
+  "telephone": "+923335767687",
+  "phoneDisplay": "+92 333 5767687",
+  "whatsapp": "https://wa.me/923335767687",
+  "location": "Lahore, Pakistan",
+  "address": "388 Block A Revenue Society, Johar Town, Lahore, Pakistan",
+  "hours": "Mon–Fri, 2:00–10:00 PM PKT",
+  "weekends": "Saturday and Sunday: closed",
+  "forms": {
+    "contact": "https://formspree.io/f/mvkzkdbv",
+    "quote": "https://formspree.io/f/mkjojozj"
+  },
+  "github": "https://github.com/Rumi-Ware",
+  "navigation": [
+    {
+      "file": "index.html",
+      "label": "Home",
+      "main": true
+    },
+    {
+      "file": "services.html",
+      "label": "Services",
+      "main": true
+    },
+    {
+      "file": "portfolio.html",
+      "label": "Portfolio",
+      "main": true,
+      "company": true
+    },
+    {
+      "file": "pricing.html",
+      "label": "Pricing",
+      "main": true,
+      "service": true
+    },
+    {
+      "file": "about.html",
+      "label": "About",
+      "main": true,
+      "company": true
+    },
+    {
+      "file": "team.html",
+      "label": "Meet the Team",
+      "main": true,
+      "company": true
+    },
+    {
+      "file": "contact.html",
+      "label": "Contact",
+      "main": true
+    },
+    {
+      "file": "careers.html",
+      "label": "Careers",
+      "company": true
+    },
+    {
+      "file": "blog.html",
+      "label": "Blog",
+      "company": true
+    },
+    {
+      "file": "web-development.html",
+      "label": "Web development",
+      "service": true
+    },
+    {
+      "file": "ai-solutions.html",
+      "label": "AI solutions",
+      "service": true
+    },
+    {
+      "file": "mobile-apps.html",
+      "label": "Mobile apps",
+      "service": true
+    },
+    {
+      "file": "full-stack.html",
+      "label": "Full-stack development",
+      "service": true
+    }
+  ]
+}

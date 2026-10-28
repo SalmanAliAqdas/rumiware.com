@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mani Bakes | Homemade Cakes, Pastries & Bakery</title>
+<meta name="description" content="Mani Bakes - fresh homemade cakes, pastries and bakery items made by a home chef. Order by call, WhatsApp or the form.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a href="#home" class="logo">Mani<span>Bakes</span></a>
+  <nav id="nav">
+    <a href="#menu">Menu</a><a href="#about">Our Chef</a><a href="#how">How to Order</a><a href="#order">Order</a>
+  </nav>
+  <div class="hbtns">
+    <a class="btn call" data-call href="#">Call</a>
+    <a class="btn wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-text">
+    <p class="tag">Baked at home, with love</p>
+    <h1>Cakes and pastries that taste like home.</h1>
+    <p>Fresh, small-batch bakes made to order in a clean home kitchen. Birthdays, weddings, tea parties or just because.</p>
+    <div class="cta">
+      <a class="btn big" href="#order">Place an order</a>
+      <a class="btn big ghost" href="#menu">See the menu</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="cake"><i class="cherry"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
+  </div>
+</section>
+
+<section class="facts">
+  <div>Made fresh to order</div><div>No preservatives</div><div>Custom designs</div><div>Home delivery</div>
+</section>
+
+<section id="menu" class="wrap">
+  <h2>Our Menu</h2>
+  <p class="sub">Tap Add to put an item in your order. Prices are in PKR and may change for custom designs.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="menuGrid"></div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap two">
+    <div class="photo" role="img" aria-label="Chef photo placeholder">
+      <!-- Replace this block with: <img src="chef.jpg" alt="Chef Mani"> -->
+      <span><img src="images/realchef.jpeg" alt="Chef Hajra Mani"></span>
+    </div>
+    <div>
+      <h2>Meet our chef</h2>
+      <p>Hi, I am Hajra Mani, the baker behind Mani Bakes. What started as baking for family has grown into a home kitchen that serves our neighbours and friends. Every cake is mixed, baked and decorated by hand.</p>
+      <p>We use fresh butter, real cream and quality chocolate. If you can imagine a design, we will try to bake it.</p>
+      <a href="https://www.instagram.com/manibakes4u/?hl=en" style="display:flex; align-items:center; gap:10px; text-decoration:none; ">
+        <img src="images/insta.png" alt="Instagram" height="60px" width="60px">
+        <h2 style="margin:0; height: 50px; width: 100%;">Explore us</h2>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="wrap">
+  <h2>How to order</h2>
+  <ol class="steps">
+    <li><b>Choose</b> items from the menu and fill in the order form.</li>
+    <li><b>Confirm</b> on WhatsApp. We reply with the final price and delivery charges.</li>
+    <li><b>Pay</b> by Easypaisa, JazzCash or cash.</li>
+    <li><b>Enjoy</b> your fresh order at your door or pick it up.</li>
+  </ol>
+  <p class="note">Please order custom cakes at least 2 days ahead. Same-day orders depend on availability.</p>
+</section>
+
+<section id="order" class="orderwrap">
+  <div class="wrap">
+    <h2>Order form</h2>
+    <p class="sub">Fill this in and tap Send. It opens WhatsApp with your order ready to send.</p>
+    <form id="orderForm" novalidate>
+      <div class="row">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Phone number<input name="phone" type="tel" required autocomplete="tel" placeholder="03XX XXXXXXX"></label>
+      </div>
+      <fieldset>
+        <legend>What would you like to order?</legend>
+        <div id="items" class="items"></div>
+      </fieldset>
+      <div class="row">
+        <label>Cake message or design (optional)<input name="msg" placeholder="e.g. Happy Birthday Ali, blue theme"></label>
+        <label>Needed on (date)<input name="date" type="date" required></label>
+      </div>
+      <fieldset>
+        <legend>Delivery</legend>
+        <label class="radio"><input type="radio" name="del" value="Home delivery" checked> Home delivery</label>
+        <label class="radio"><input type="radio" name="del" value="Pickup"> Pickup from home kitchen</label>
+        <label id="addrLbl">Delivery address<textarea name="addr" rows="2"></textarea></label>
+      </fieldset>
+      <fieldset>
+        <legend>Payment method</legend>
+        <label class="radio"><input type="radio" name="pay" value="Easypaisa" checked> Easypaisa</label>
+        <label class="radio"><input type="radio" name="pay" value="JazzCash"> JazzCash</label>
+        <label class="radio"><input type="radio" name="pay" value="Cash"> Cash</label>
+        <p class="note" id="payNote"></p>
+      </fieldset>
+      <label>Extra notes (allergies, special requests)<textarea name="notes" rows="2"></textarea></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn big" type="submit">Send order on WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap fgrid">
+    <div><div class="logo">Mani<span>Bakes</span></div><p>Homemade cakes, pastries and bakery items.</p></div>
+    <div><h3>Contact</h3><p>Phone: <a data-call href="tel:+923331902030" id="phoneTxt"></a></p><p>WhatsApp: <a data-wa target="_blank" rel="noopener" href="https://wa.me/923331902030">Chat with us</a></p><p>Address: Bahria Town, Rawalpindi</p></div>
+    <div><h3>Hours</h3><p>Mon to Sat: 02:00pm to 10:00pm</p><p>Sunday: by order only</p><p>Pay with Easypaisa, JazzCash or cash.</p></div>
+  </div>
+  <p class="copy">&copy; <span id="yr"></span> Mani Bakes. All rights reserved.</p>
+</footer>
+
+<a class="float wa" data-wa href="https://wa.me/923331902030" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+<a class="float call" data-call href="tel:+923331902030" aria-label="Call">Call</a>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>

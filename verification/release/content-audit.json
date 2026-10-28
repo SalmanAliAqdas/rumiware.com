@@ -1,0 +1,15 @@
+{
+  "projectUrlsMatchSuppliedList": 9,
+  "realPreviewsMatchSource": 9,
+  "enquiryAssistantCorrectlyNamed": true,
+  "categories": [
+    "Business Applications",
+    "Data Applications",
+    "Games",
+    "Productivity"
+  ],
+  "retiredMarketingEntriesAbsent": true,
+  "contactLocationRetained": true,
+  "careersNoFictionalVacancies": true,
+  "publicOutputExcludesDevelopmentFiles": true
+}

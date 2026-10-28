@@ -1,0 +1,22 @@
+{
+  "salman": {
+    "width": 256,
+    "height": 256,
+    "bytes": 11046
+  },
+  "amir": {
+    "width": 118,
+    "height": 256,
+    "bytes": 5948
+  },
+  "hassan": {
+    "width": 256,
+    "height": 256,
+    "bytes": 6108
+  },
+  "hussain": {
+    "width": 191,
+    "height": 256,
+    "bytes": 5468
+  }
+}

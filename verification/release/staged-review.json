@@ -1,0 +1,885 @@
+{
+  "stagedWhitespaceCheckPassed": true,
+  "trackedTreeFilesReviewed": 218,
+  "trackedTreeBytesReviewed": 13451343,
+  "credentialPatternFindings": [],
+  "privateConfigExcluded": true,
+  "generatedOutputExcluded": true,
+  "repeatedCapturesExcluded": true,
+  "researchHtmlExcluded": true,
+  "publicOutputManifestStillMatches": true,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 150
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "bytes": 797
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 375
+    },
+    {
+      "path": ".vscode/sftp.example.json",
+      "bytes": 228
+    },
+    {
+      "path": "README.md",
+      "bytes": 14245
+    },
+    {
+      "path": "images/amir.jpeg",
+      "bytes": 93920
+    },
+    {
+      "path": "images/favicon.png",
+      "bytes": 2930
+    },
+    {
+      "path": "images/fonts/bricolage-latin.woff2",
+      "bytes": 41344
+    },
+    {
+      "path": "images/fonts/bricolagegrotesque-OFL.txt",
+      "bytes": 4403
+    },
+    {
+      "path": "images/fonts/dm-sans-latin.woff2",
+      "bytes": 36932
+    },
+    {
+      "path": "images/fonts/dmsans-OFL.txt",
+      "bytes": 4390
+    },
+    {
+      "path": "images/hassan.jpeg",
+      "bytes": 424687
+    },
+    {
+      "path": "images/hussain.jpeg",
+      "bytes": 222485
+    },
+    {
+      "path": "images/logo.png",
+      "bytes": 2930
+    },
+    {
+      "path": "images/portraits/amir.webp",
+      "bytes": 5948
+    },
+    {
+      "path": "images/portraits/hassan.webp",
+      "bytes": 6108
+    },
+    {
+      "path": "images/portraits/hussain.webp",
+      "bytes": 5468
+    },
+    {
+      "path": "images/portraits/salman.webp",
+      "bytes": 11046
+    },
+    {
+      "path": "images/projects/expense-tracker-640.webp",
+      "bytes": 13608
+    },
+    {
+      "path": "images/projects/expense-tracker.svg",
+      "bytes": 988
+    },
+    {
+      "path": "images/projects/expense-tracker.webp",
+      "bytes": 40280
+    },
+    {
+      "path": "images/projects/mani-bakes.webp",
+      "bytes": 65378
+    },
+    {
+      "path": "images/projects/movies-640.webp",
+      "bytes": 43502
+    },
+    {
+      "path": "images/projects/movies.svg",
+      "bytes": 972
+    },
+    {
+      "path": "images/projects/movies.webp",
+      "bytes": 127754
+    },
+    {
+      "path": "images/projects/pdf-toolkit-640.webp",
+      "bytes": 15366
+    },
+    {
+      "path": "images/projects/pdf-toolkit.svg",
+      "bytes": 973
+    },
+    {
+      "path": "images/projects/pdf-toolkit.webp",
+      "bytes": 44858
+    },
+    {
+      "path": "images/projects/portfolio-demo.png",
+      "bytes": 101357
+    },
+    {
+      "path": "images/projects/python-2d-platformer.png",
+      "bytes": 499830
+    },
+    {
+      "path": "images/projects/qr-code-studio-640.webp",
+      "bytes": 10660
+    },
+    {
+      "path": "images/projects/qr-code-studio.svg",
+      "bytes": 971
+    },
+    {
+      "path": "images/projects/qr-code-studio.webp",
+      "bytes": 24638
+    },
+    {
+      "path": "images/projects/schoolos.png",
+      "bytes": 92302
+    },
+    {
+      "path": "images/projects/stock-market-640.webp",
+      "bytes": 20030
+    },
+    {
+      "path": "images/projects/stock-market.svg",
+      "bytes": 976
+    },
+    {
+      "path": "images/projects/stock-market.webp",
+      "bytes": 56658
+    },
+    {
+      "path": "images/projects/weather-640.webp",
+      "bytes": 13772
+    },
+    {
+      "path": "images/projects/weather.svg",
+      "bytes": 971
+    },
+    {
+      "path": "images/projects/weather.webp",
+      "bytes": 36846
+    },
+    {
+      "path": "images/salman.jpeg",
+      "bytes": 630757
+    },
+    {
+      "path": "images/social-preview.png",
+      "bytes": 34959
+    },
+    {
+      "path": "images/social-preview.svg",
+      "bytes": 2459
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 9023
+    },
+    {
+      "path": "package.json",
+      "bytes": 1087
+    },
+    {
+      "path": "playwright.config.cjs",
+      "bytes": 648
+    },
+    {
+      "path": "reference/font-source.css",
+      "bytes": 2406
+    },
+    {
+      "path": "reference/mani-bakes/images/chef.jpeg",
+      "bytes": 99006
+    },
+    {
+      "path": "reference/mani-bakes/images/insta.png",
+      "bytes": 340511
+    },
+    {
+      "path": "reference/mani-bakes/images/realchef.jpeg",
+      "bytes": 166064
+    },
+    {
+      "path": "reference/mani-bakes/index.html",
+      "bytes": 6341
+    },
+    {
+      "path": "reference/mani-bakes/script.js",
+      "bytes": 5297
+    },
+    {
+      "path": "reference/mani-bakes/style.css",
+      "bytes": 6533
+    },
+    {
+      "path": "reference/phase2/404.html",
+      "bytes": 8258
+    },
+    {
+      "path": "reference/phase2/about.html",
+      "bytes": 11323
+    },
+    {
+      "path": "reference/phase2/ai-solutions.html",
+      "bytes": 11040
+    },
+    {
+      "path": "reference/phase2/blog-post.html",
+      "bytes": 9497
+    },
+    {
+      "path": "reference/phase2/blog.html",
+      "bytes": 8634
+    },
+    {
+      "path": "reference/phase2/careers.html",
+      "bytes": 8323
+    },
+    {
+      "path": "reference/phase2/contact.html",
+      "bytes": 11734
+    },
+    {
+      "path": "reference/phase2/faq.html",
+      "bytes": 14001
+    },
+    {
+      "path": "reference/phase2/footer.html",
+      "bytes": 4147
+    },
+    {
+      "path": "reference/phase2/full-stack.html",
+      "bytes": 11166
+    },
+    {
+      "path": "reference/phase2/get-quote-preview.html",
+      "bytes": 14180
+    },
+    {
+      "path": "reference/phase2/get-quote.html",
+      "bytes": 14141
+    },
+    {
+      "path": "reference/phase2/head.html",
+      "bytes": 2726
+    },
+    {
+      "path": "reference/phase2/header.html",
+      "bytes": 1157
+    },
+    {
+      "path": "reference/phase2/index.html",
+      "bytes": 17824
+    },
+    {
+      "path": "reference/phase2/mobile-apps.html",
+      "bytes": 11029
+    },
+    {
+      "path": "reference/phase2/portfolio.html",
+      "bytes": 11366
+    },
+    {
+      "path": "reference/phase2/pricing.html",
+      "bytes": 10915
+    },
+    {
+      "path": "reference/phase2/privacy.html",
+      "bytes": 10353
+    },
+    {
+      "path": "reference/phase2/process.html",
+      "bytes": 11233
+    },
+    {
+      "path": "reference/phase2/robots.txt",
+      "bytes": 66
+    },
+    {
+      "path": "reference/phase2/script.js",
+      "bytes": 16932
+    },
+    {
+      "path": "reference/phase2/services.html",
+      "bytes": 12063
+    },
+    {
+      "path": "reference/phase2/sitemap.xml",
+      "bytes": 2248
+    },
+    {
+      "path": "reference/phase2/style.css",
+      "bytes": 18650
+    },
+    {
+      "path": "reference/phase2/team.html",
+      "bytes": 15349
+    },
+    {
+      "path": "reference/phase2/terms.html",
+      "bytes": 10977
+    },
+    {
+      "path": "reference/phase2/web-development.html",
+      "bytes": 11101
+    },
+    {
+      "path": "reference/portfolio-before-nine-projects.json",
+      "bytes": 1654
+    },
+    {
+      "path": "reference/project-captures/mani-bakes-source.png",
+      "bytes": 95440
+    },
+    {
+      "path": "reference/project-captures/portfolio-update/portfolio-demo.png",
+      "bytes": 101357
+    },
+    {
+      "path": "reference/project-captures/portfolio-update/python-2d-platformer.png",
+      "bytes": 499830
+    },
+    {
+      "path": "reference/project-captures/portfolio-update/schoolos.png",
+      "bytes": 92302
+    },
+    {
+      "path": "reference/project-captures/streamlit/expense-tracker.png",
+      "bytes": 100611
+    },
+    {
+      "path": "reference/project-captures/streamlit/movies.png",
+      "bytes": 1132985
+    },
+    {
+      "path": "reference/project-captures/streamlit/pdf-toolkit.png",
+      "bytes": 201307
+    },
+    {
+      "path": "reference/project-captures/streamlit/qr-code-studio.png",
+      "bytes": 115083
+    },
+    {
+      "path": "reference/project-captures/streamlit/stock-market.png",
+      "bytes": 112559
+    },
+    {
+      "path": "reference/project-captures/streamlit/weather.png",
+      "bytes": 300170
+    },
+    {
+      "path": "reference/projects-before-streamlit-screenshots.json",
+      "bytes": 6716
+    },
+    {
+      "path": "scripts/build.cjs",
+      "bytes": 10472
+    },
+    {
+      "path": "scripts/capture-phase3.cjs",
+      "bytes": 2189
+    },
+    {
+      "path": "scripts/capture-portfolio-public.cjs",
+      "bytes": 834
+    },
+    {
+      "path": "scripts/capture-portfolio.cjs",
+      "bytes": 1368
+    },
+    {
+      "path": "scripts/capture-projects.cjs",
+      "bytes": 1616
+    },
+    {
+      "path": "scripts/capture-streamlit.cjs",
+      "bytes": 3264
+    },
+    {
+      "path": "scripts/check.cjs",
+      "bytes": 3451
+    },
+    {
+      "path": "scripts/form-inventory.cjs",
+      "bytes": 2105
+    },
+    {
+      "path": "scripts/inspect-portfolio.cjs",
+      "bytes": 1429
+    },
+    {
+      "path": "scripts/inspect-streamlit.cjs",
+      "bytes": 1304
+    },
+    {
+      "path": "scripts/measure-performance.cjs",
+      "bytes": 2229
+    },
+    {
+      "path": "scripts/optimize-images.py",
+      "bytes": 1003
+    },
+    {
+      "path": "scripts/optimize-project-previews.py",
+      "bytes": 1395
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "bytes": 2749
+    },
+    {
+      "path": "scripts/social-preview.cjs",
+      "bytes": 1866
+    },
+    {
+      "path": "scripts/validate-html.cjs",
+      "bytes": 831
+    },
+    {
+      "path": "src/assets/robot.svg",
+      "bytes": 1645
+    },
+    {
+      "path": "src/assets/script.js",
+      "bytes": 17901
+    },
+    {
+      "path": "src/assets/style.css",
+      "bytes": 23757
+    },
+    {
+      "path": "src/data/commercial.json",
+      "bytes": 454
+    },
+    {
+      "path": "src/data/faq.json",
+      "bytes": 3448
+    },
+    {
+      "path": "src/data/icons.json",
+      "bytes": 1000
+    },
+    {
+      "path": "src/data/pages.json",
+      "bytes": 6226
+    },
+    {
+      "path": "src/data/portraits.json",
+      "bytes": 299
+    },
+    {
+      "path": "src/data/pricing.json",
+      "bytes": 1559
+    },
+    {
+      "path": "src/data/projects.json",
+      "bytes": 7428
+    },
+    {
+      "path": "src/data/services.json",
+      "bytes": 2707
+    },
+    {
+      "path": "src/data/site.json",
+      "bytes": 1962
+    },
+    {
+      "path": "src/data/team.json",
+      "bytes": 947
+    },
+    {
+      "path": "src/dev/get-quote-preview.reference.html",
+      "bytes": 14180
+    },
+    {
+      "path": "src/dev/index.reference.html",
+      "bytes": 17824
+    },
+    {
+      "path": "src/layout/document.html",
+      "bytes": 1460
+    },
+    {
+      "path": "src/layout/footer.html",
+      "bytes": 2186
+    },
+    {
+      "path": "src/layout/header.html",
+      "bytes": 620
+    },
+    {
+      "path": "src/pages/404.html",
+      "bytes": 815
+    },
+    {
+      "path": "src/pages/about.html",
+      "bytes": 3811
+    },
+    {
+      "path": "src/pages/ai-solutions.html",
+      "bytes": 3643
+    },
+    {
+      "path": "src/pages/blog-post.html",
+      "bytes": 1567
+    },
+    {
+      "path": "src/pages/blog.html",
+      "bytes": 1317
+    },
+    {
+      "path": "src/pages/careers.html",
+      "bytes": 1022
+    },
+    {
+      "path": "src/pages/contact.html",
+      "bytes": 4176
+    },
+    {
+      "path": "src/pages/faq.html",
+      "bytes": 724
+    },
+    {
+      "path": "src/pages/full-stack.html",
+      "bytes": 3723
+    },
+    {
+      "path": "src/pages/get-quote.html",
+      "bytes": 6699
+    },
+    {
+      "path": "src/pages/index.html",
+      "bytes": 3486
+    },
+    {
+      "path": "src/pages/mobile-apps.html",
+      "bytes": 3650
+    },
+    {
+      "path": "src/pages/portfolio.html",
+      "bytes": 1202
+    },
+    {
+      "path": "src/pages/pricing.html",
+      "bytes": 1483
+    },
+    {
+      "path": "src/pages/privacy.html",
+      "bytes": 3054
+    },
+    {
+      "path": "src/pages/process.html",
+      "bytes": 3792
+    },
+    {
+      "path": "src/pages/services.html",
+      "bytes": 1244
+    },
+    {
+      "path": "src/pages/team.html",
+      "bytes": 824
+    },
+    {
+      "path": "src/pages/terms.html",
+      "bytes": 3372
+    },
+    {
+      "path": "src/pages/web-development.html",
+      "bytes": 3931
+    },
+    {
+      "path": "tests/phase1.spec.cjs",
+      "bytes": 16021
+    },
+    {
+      "path": "tests/phase2.spec.cjs",
+      "bytes": 19529
+    },
+    {
+      "path": "tests/phase3.spec.cjs",
+      "bytes": 6213
+    },
+    {
+      "path": "tests/portfolio.spec.cjs",
+      "bytes": 7881
+    },
+    {
+      "path": "tests/stop-preview.cjs",
+      "bytes": 227
+    },
+    {
+      "path": "verification/PHASE1.md",
+      "bytes": 10762
+    },
+    {
+      "path": "verification/PHASE2.md",
+      "bytes": 15193
+    },
+    {
+      "path": "verification/PHASE3.md",
+      "bytes": 21139
+    },
+    {
+      "path": "verification/PORTFOLIO-SCREENSHOTS.md",
+      "bytes": 17429
+    },
+    {
+      "path": "verification/PORTFOLIO-UPDATE.md",
+      "bytes": 14447
+    },
+    {
+      "path": "verification/RELEASE-READINESS.md",
+      "bytes": 15468
+    },
+    {
+      "path": "verification/form-inventory.md",
+      "bytes": 3604
+    },
+    {
+      "path": "verification/phase2/axe-dark.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/phase2/axe-light.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/phase2/before.json",
+      "bytes": 1182
+    },
+    {
+      "path": "verification/phase2/contrast-dark.json",
+      "bytes": 794
+    },
+    {
+      "path": "verification/phase2/contrast-light.json",
+      "bytes": 801
+    },
+    {
+      "path": "verification/phase2/screenshots.md",
+      "bytes": 4927
+    },
+    {
+      "path": "verification/phase3/after/measurements.json",
+      "bytes": 7135
+    },
+    {
+      "path": "verification/phase3/axe-dark.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/phase3/axe-light.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/phase3/before/measurements.json",
+      "bytes": 3903
+    },
+    {
+      "path": "verification/phase3/contrast-dark.json",
+      "bytes": 794
+    },
+    {
+      "path": "verification/phase3/contrast-light.json",
+      "bytes": 801
+    },
+    {
+      "path": "verification/phase3/external-checks.json",
+      "bytes": 590
+    },
+    {
+      "path": "verification/phase3/font-sources.json",
+      "bytes": 484
+    },
+    {
+      "path": "verification/phase3/mani-preview.json",
+      "bytes": 3641
+    },
+    {
+      "path": "verification/phase3/performance.json",
+      "bytes": 2722
+    },
+    {
+      "path": "verification/phase3/project-evidence.json",
+      "bytes": 269
+    },
+    {
+      "path": "verification/phase3/release-preview.json",
+      "bytes": 3156
+    },
+    {
+      "path": "verification/phase3/screenshots.md",
+      "bytes": 2475
+    },
+    {
+      "path": "verification/portfolio-screenshots/asset-audit.json",
+      "bytes": 170
+    },
+    {
+      "path": "verification/portfolio-screenshots/assets.json",
+      "bytes": 2941
+    },
+    {
+      "path": "verification/portfolio-screenshots/axe-dark.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/portfolio-screenshots/axe-light.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/portfolio-screenshots/baseline.json",
+      "bytes": 3042
+    },
+    {
+      "path": "verification/portfolio-screenshots/captures.json",
+      "bytes": 11025
+    },
+    {
+      "path": "verification/portfolio-screenshots/contrast-dark.json",
+      "bytes": 794
+    },
+    {
+      "path": "verification/portfolio-screenshots/contrast-light.json",
+      "bytes": 801
+    },
+    {
+      "path": "verification/portfolio-screenshots/inspection.json",
+      "bytes": 23065
+    },
+    {
+      "path": "verification/portfolio-screenshots/layout-stability.json",
+      "bytes": 1058
+    },
+    {
+      "path": "verification/portfolio-screenshots/optimization.log",
+      "bytes": 6140
+    },
+    {
+      "path": "verification/portfolio-screenshots/preservation.json",
+      "bytes": 225
+    },
+    {
+      "path": "verification/portfolio-screenshots/regression.log",
+      "bytes": 24822
+    },
+    {
+      "path": "verification/portfolio-screenshots/screenshot-rerun.log",
+      "bytes": 2048
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/homepage-projects-1440-dark.png",
+      "bytes": 170319
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/homepage-projects-1440-light.png",
+      "bytes": 170342
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/homepage-projects-375-dark.png",
+      "bytes": 165729
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/homepage-projects-375-light.png",
+      "bytes": 166007
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/index-1440-dark.png",
+      "bytes": 573470
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/index-1440-light.png",
+      "bytes": 573994
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/index-375-dark.png",
+      "bytes": 537044
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/index-375-light.png",
+      "bytes": 536154
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/portfolio-1440-dark.png",
+      "bytes": 1113231
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/portfolio-1440-light.png",
+      "bytes": 1110380
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/portfolio-375-dark.png",
+      "bytes": 687557
+    },
+    {
+      "path": "verification/portfolio-screenshots/website/portfolio-375-light.png",
+      "bytes": 684614
+    },
+    {
+      "path": "verification/portfolio-update/axe-dark.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/portfolio-update/axe-light.json",
+      "bytes": 1294
+    },
+    {
+      "path": "verification/portfolio-update/contrast-dark.json",
+      "bytes": 794
+    },
+    {
+      "path": "verification/portfolio-update/contrast-light.json",
+      "bytes": 801
+    },
+    {
+      "path": "verification/portfolio-update/external-inspection.json",
+      "bytes": 5926
+    },
+    {
+      "path": "verification/portfolio-update/output-audit.json",
+      "bytes": 160
+    },
+    {
+      "path": "verification/portfolio-update/regression.log",
+      "bytes": 17432
+    },
+    {
+      "path": "verification/release/candidate-audit.json",
+      "bytes": 480
+    },
+    {
+      "path": "verification/release/content-audit.json",
+      "bytes": 386
+    },
+    {
+      "path": "verification/release/hosting-evidence.json",
+      "bytes": 853
+    },
+    {
+      "path": "verification/release/layout-and-axe.json",
+      "bytes": 2835
+    },
+    {
+      "path": "verification/release/output-manifest.json",
+      "bytes": 7938
+    },
+    {
+      "path": "verification/release/regression.log",
+      "bytes": 10468
+    },
+    {
+      "path": "verification/screenshots.md",
+      "bytes": 2502
+    }
+  ]
+}

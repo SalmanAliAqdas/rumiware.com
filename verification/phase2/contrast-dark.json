@@ -1,0 +1,38 @@
+[
+  {
+    "selector": ".eyebrow",
+    "color": "rgb(217, 182, 92)",
+    "bg": "rgb(11, 30, 45)",
+    "ratio": 8.721758246590479
+  },
+  {
+    "selector": "h1 em",
+    "color": "rgb(22, 166, 163)",
+    "bg": "rgb(11, 30, 45)",
+    "ratio": 5.669166572002751
+  },
+  {
+    "selector": ".tech span",
+    "color": "rgb(244, 238, 221)",
+    "bg": "rgb(16, 42, 67)",
+    "ratio": 12.633996279855374
+  },
+  {
+    "selector": ".logo span",
+    "color": "rgb(22, 166, 163)",
+    "bg": "rgb(11, 30, 45)",
+    "ratio": 5.669166572002751
+  },
+  {
+    "selector": "chip hover",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgb(0, 112, 110)",
+    "ratio": 5.927471454647437
+  },
+  {
+    "selector": "error",
+    "color": "rgb(255, 147, 132)",
+    "bg": "rgb(16, 42, 67)",
+    "ratio": 6.803946081957815
+  }
+]

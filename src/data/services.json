@@ -1,0 +1,100 @@
+[
+  {
+    "id": "web",
+    "file": "web-development.html",
+    "name": "Web development",
+    "icon": "code",
+    "description": "Business websites, menus, service information and enquiry forms. Explore the project collection.",
+    "featured": true,
+    "features": [
+      "Business and brand websites",
+      "Custom web apps and dashboards",
+      "E-commerce stores",
+      "SaaS platforms"
+    ]
+  },
+  {
+    "id": "fullstack",
+    "file": "full-stack.html",
+    "name": "Full-stack development",
+    "icon": "layers",
+    "description": "User interfaces, APIs and databases planned as one product.",
+    "featured": true,
+    "features": [
+      "End-to-end product development",
+      "APIs and integrations",
+      "Databases and data design",
+      "Cloud hosting and DevOps"
+    ]
+  },
+  {
+    "id": "ai",
+    "file": "ai-solutions.html",
+    "name": "AI solutions",
+    "icon": "spark",
+    "description": "Discuss a chatbot, document workflow or automation for a specific task.",
+    "featured": true,
+    "features": [
+      "AI chatbots for websites and WhatsApp",
+      "AI automation of daily workflows",
+      "AI agents that complete tasks for you",
+      "Machine-learning integration"
+    ]
+  },
+  {
+    "id": "mobile",
+    "file": "mobile-apps.html",
+    "name": "Mobile apps",
+    "icon": "phone",
+    "description": "Android, iOS and Flutter interfaces for your app idea.",
+    "featured": true,
+    "features": [
+      "Android apps",
+      "iOS apps",
+      "Flutter / cross-platform apps",
+      "App store publishing"
+    ]
+  },
+  {
+    "id": "design",
+    "file": "services.html#design",
+    "name": "UI/UX design",
+    "icon": "layers",
+    "description": "Layouts and interfaces planned around the people using them.",
+    "featured": false,
+    "features": [
+      "User research and flows",
+      "Wireframes and clickable prototypes",
+      "Brand-matched visual design",
+      "Design systems"
+    ]
+  },
+  {
+    "id": "support",
+    "file": "services.html#support",
+    "name": "Maintenance & support",
+    "icon": "check",
+    "description": "Updates, fixes and maintenance with scope agreed in the quote.",
+    "featured": false,
+    "features": [
+      "Bug fixes and updates",
+      "Security and backups",
+      "Performance monitoring",
+      "Monthly support plans"
+    ]
+  },
+  {
+    "id": "seo",
+    "file": "services.html#seo",
+    "name": "Marketing & SEO",
+    "icon": "spark",
+    "description": "Search visibility, content and reporting for your website.",
+    "featured": false,
+    "features": [
+      "Search engine optimization (SEO)",
+      "Local SEO and Google Business",
+      "Content and social media",
+      "Analytics and reporting"
+    ]
+  }
+]

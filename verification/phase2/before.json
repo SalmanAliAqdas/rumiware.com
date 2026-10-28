@@ -1,0 +1,58 @@
+{
+  "320": {
+    "overflow": false,
+    "headerWidth": 280,
+    "available": 280,
+    "menuDisplay": "block",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": true
+  },
+  "375": {
+    "overflow": false,
+    "headerWidth": 335,
+    "available": 335,
+    "menuDisplay": "block",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": true
+  },
+  "768": {
+    "overflow": false,
+    "headerWidth": 728,
+    "available": 728,
+    "menuDisplay": "block",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": true
+  },
+  "960": {
+    "overflow": false,
+    "headerWidth": 920,
+    "available": 920,
+    "menuDisplay": "none",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": false
+  },
+  "1024": {
+    "overflow": false,
+    "headerWidth": 984,
+    "available": 984,
+    "menuDisplay": "none",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": false
+  },
+  "1440": {
+    "overflow": false,
+    "headerWidth": 1160,
+    "available": 1160,
+    "menuDisplay": "none",
+    "breadcrumbDisplay": "block",
+    "headerOverlap": false
+  },
+  "quote": {
+    "focus": "LEGEND",
+    "package": "unverified"
+  },
+  "openMenuLabel": "Open menu",
+  "nojs": {
+    "opacity": "0"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "output": "dist/",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "bytes": 7964,
+      "sha256": "5e78cbf7f36c05cbbc15c751d5466a902bf20aa2333a976703340b7c0f0349f5"
+    },
+    {
+      "path": "about.html",
+      "bytes": 12141,
+      "sha256": "968b982ebebd4108eeeaa21565ab1cae432e3da056cf3292a5506971176ca6b6"
+    },
+    {
+      "path": "ai-solutions.html",
+      "bytes": 11505,
+      "sha256": "8a347d7c3b314002f761ce76bec2c0bc098e00744dd0ba76eee37e101cde96f6"
+    },
+    {
+      "path": "blog-post.html",
+      "bytes": 9031,
+      "sha256": "492106bfc53528ef8d3a05d6ebafaf9e5706b88a16f1dc3ed5e4836a41a98217"
+    },
+    {
+      "path": "blog.html",
+      "bytes": 8208,
+      "sha256": "e6cb0562f03fb7e8fb38e1157aa4772b154e81975d753acac905859229d37289"
+    },
+    {
+      "path": "careers.html",
+      "bytes": 7895,
+      "sha256": "1b67b9d9d5b86f8e3a968dd35fb86a3889bb8f62dbd01178d94f91095ba632d4"
+    },
+    {
+      "path": "contact.html",
+      "bytes": 12621,
+      "sha256": "a3eb42e2d4f56548c52d7dc2a8e628db00c37e8b63f30a068ae0e8ca7ed778fc"
+    },
+    {
+      "path": "faq.html",
+      "bytes": 12892,
+      "sha256": "159c7606df1cced56ce377c166adc7508db0f08dfed0b23c39560d6addab9992"
+    },
+    {
+      "path": "full-stack.html",
+      "bytes": 11631,
+      "sha256": "6e6719e92f573cff10a9724331a4b2c3b452bdf4b6de437708df51843282a908"
+    },
+    {
+      "path": "get-quote.html",
+      "bytes": 14309,
+      "sha256": "c09cd02427bd385944fdfe73c0797a3292a24a21c06da053a078625b6bc1fa87"
+    },
+    {
+      "path": "images/favicon.png",
+      "bytes": 2930,
+      "sha256": "e06c547d6db4c7561c053b7bbd2f5b81f23a2a7202d6ecdb636c8aafa23acc76"
+    },
+    {
+      "path": "images/fonts/bricolage-latin.woff2",
+      "bytes": 41344,
+      "sha256": "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c"
+    },
+    {
+      "path": "images/fonts/bricolagegrotesque-OFL.txt",
+      "bytes": 4496,
+      "sha256": "9e75de0268df02ccd432ce3e438b0a316c48a8170fd447aeadf0142541b667a6"
+    },
+    {
+      "path": "images/fonts/dm-sans-latin.woff2",
+      "bytes": 36932,
+      "sha256": "9fea608a947e67020c33cad9a6fe3d60c54119dfb8cff87768a8117a15ed7543"
+    },
+    {
+      "path": "images/fonts/dmsans-OFL.txt",
+      "bytes": 4390,
+      "sha256": "c6da9ab29436871bd4347b70607cf2fb2ab82a926a4afe84da0e7a02de4a189e"
+    },
+    {
+      "path": "images/portraits/amir.webp",
+      "bytes": 5948,
+      "sha256": "7295dbae3dd3f2659d3822f078b88b28d119a6b28f5e60900d3d86a9cd1899ee"
+    },
+    {
+      "path": "images/portraits/hassan.webp",
+      "bytes": 6108,
+      "sha256": "3d78bacd4bd13dbfe4312fe0ee9997a818d1b343a31cc8b891cd6c26fb1f52af"
+    },
+    {
+      "path": "images/portraits/hussain.webp",
+      "bytes": 5468,
+      "sha256": "ce0b90025cc236520b972f03d44d0dfacae75c69507533aea3425e89cd670b02"
+    },
+    {
+      "path": "images/portraits/salman.webp",
+      "bytes": 11046,
+      "sha256": "c4694370df03ff7d600949cc868c63008f2c6218834fc102b04e1fb852734f6e"
+    },
+    {
+      "path": "images/projects/expense-tracker-640.webp",
+      "bytes": 13608,
+      "sha256": "0c19e84162761af09a98087bc0b8701aff30d1e92165500c7b4c0e1ff10548e2"
+    },
+    {
+      "path": "images/projects/expense-tracker.webp",
+      "bytes": 40280,
+      "sha256": "dd3fdccbe196a0a455bee258e0725b07d115ca900c03b4549d2c1446336819f9"
+    },
+    {
+      "path": "images/projects/movies-640.webp",
+      "bytes": 43502,
+      "sha256": "140c901cd9e1132b97cad70ebc2c2d38af4be6a21342ba83da8a838c5f0692a7"
+    },
+    {
+      "path": "images/projects/movies.webp",
+      "bytes": 127754,
+      "sha256": "e177c67142ffa541803e5c3ddfc2f62cfb3c3bcaa8cc3c1a7b3e881fcf9126eb"
+    },
+    {
+      "path": "images/projects/pdf-toolkit-640.webp",
+      "bytes": 15366,
+      "sha256": "45724aa35b499fae1c0cb298520c811d45816c50e6b7465d89c4707b160d1b9c"
+    },
+    {
+      "path": "images/projects/pdf-toolkit.webp",
+      "bytes": 44858,
+      "sha256": "10f330519b5aaffaa4c16f66230caf2590ffe3234d5af372bc1dd1a4db1f03c6"
+    },
+    {
+      "path": "images/projects/portfolio-demo.png",
+      "bytes": 101357,
+      "sha256": "0edb1d23d4e344f825f02129a03ced842ceb40f4afe8259ede484194cef4580f"
+    },
+    {
+      "path": "images/projects/python-2d-platformer.png",
+      "bytes": 499830,
+      "sha256": "409e6c16c65e460fb50b5da608a797420f39c61df36346ef30e770fc2757bd04"
+    },
+    {
+      "path": "images/projects/qr-code-studio-640.webp",
+      "bytes": 10660,
+      "sha256": "b74ded7bf604af2cbd1a2b261836ae6307767cdd94b01c1171a1c6579bdd8ffb"
+    },
+    {
+      "path": "images/projects/qr-code-studio.webp",
+      "bytes": 24638,
+      "sha256": "f141afad694e8a43e2f879cfb04e9ba00dbf4792b30080cba9e149372921cfc8"
+    },
+    {
+      "path": "images/projects/schoolos.png",
+      "bytes": 92302,
+      "sha256": "d84aeeccb41b1ad64ff3643db38ecbb0dc129969958a15972c59fb312635c696"
+    },
+    {
+      "path": "images/projects/stock-market-640.webp",
+      "bytes": 20030,
+      "sha256": "e5bcd590e0e0129c6890a825820b046e5da076ad9ea3b4defd9adc3bcb11505f"
+    },
+    {
+      "path": "images/projects/stock-market.webp",
+      "bytes": 56658,
+      "sha256": "d9cccc2df3f8119775b89b96eb2f9c18f1e723e96eabf13c791cf6ec710c107c"
+    },
+    {
+      "path": "images/projects/weather-640.webp",
+      "bytes": 13772,
+      "sha256": "8f3f0823a06696b4f1e8e6e95ca3ec1559ab340c7e7d04e44bd07689522ac15e"
+    },
+    {
+      "path": "images/projects/weather.webp",
+      "bytes": 36846,
+      "sha256": "e7d5af264b82f0ca4f130873e9fa23ba2c590b29752c3035f544053fcebc2fe0"
+    },
+    {
+      "path": "images/social-preview.png",
+      "bytes": 34959,
+      "sha256": "80ff3a777930b666ef61a36b8338c2db8ac6c3dd8756373e3763e0c0bd009686"
+    },
+    {
+      "path": "index.html",
+      "bytes": 17633,
+      "sha256": "93f31f8c12b7e90db520b1dadb259f34f3d640662115f019eaae5f14db0549de"
+    },
+    {
+      "path": "mobile-apps.html",
+      "bytes": 11492,
+      "sha256": "7db7145ae43ce76e24584812c7f8832db8c61e7c22e40ef06be2a7ffa1bfc206"
+    },
+    {
+      "path": "portfolio.html",
+      "bytes": 19851,
+      "sha256": "331c42ac9dd35121bf9660f6cc104e9557ff0f14ef8a32caead9ae7a9599aa4d"
+    },
+    {
+      "path": "pricing.html",
+      "bytes": 10500,
+      "sha256": "b4a2948ecc3710892081a01935bb2c95cd99ff64ec330eaa9c628a255882eb6f"
+    },
+    {
+      "path": "privacy.html",
+      "bytes": 9873,
+      "sha256": "d9c626ceae7ac686c4b6b1f96e22adad0d39dff31c8dbb5efd4fb301979e4e99"
+    },
+    {
+      "path": "process.html",
+      "bytes": 11402,
+      "sha256": "3cda133cc7069dddcb5798d2da2a4b0d011435a8cc48cf623a21ebdbbedf7727"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 66,
+      "sha256": "ec27a7403cea3f384ff02340f33013b92fef1e4987930a87f572184958574f92"
+    },
+    {
+      "path": "script.js",
+      "bytes": 18205,
+      "sha256": "7a9399721f4f2110ae2b93cd411a94718eac9bdaede08e3c7b534d2dc76c4770"
+    },
+    {
+      "path": "services.html",
+      "bytes": 13139,
+      "sha256": "06c0262845788a41b4d9ed675875c9752884088c3dfcc8735e181721f9f20921"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 1155,
+      "sha256": "6dfebf6837180012a384714591bcf8b75a5c97594a93783ae114ca28566eb07f"
+    },
+    {
+      "path": "style.css",
+      "bytes": 24078,
+      "sha256": "bb7e8afc2792aa3b5b5df4846ca7b61154b53429ab5e4bbcf2a356e4a1c3b200"
+    },
+    {
+      "path": "team.html",
+      "bytes": 9321,
+      "sha256": "f24dc5e4f97bd629f40928a9604dfd78275802c5388bbbadf5727e742c71396c"
+    },
+    {
+      "path": "terms.html",
+      "bytes": 10260,
+      "sha256": "789c529afa8fe00d79dfcf7878a6185e71bcbf23dd9613ec36ad8e617aa85be6"
+    },
+    {
+      "path": "web-development.html",
+      "bytes": 11999,
+      "sha256": "12214349e756c10a3b172e948f0507b93146d9b49414acd011eb5b37cfd7948c"
+    }
+  ],
+  "totalBytes": 1572253
+}

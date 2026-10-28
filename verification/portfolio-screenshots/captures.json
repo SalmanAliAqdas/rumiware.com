@@ -1,0 +1,80 @@
+[
+  {
+    "id": "pdf-toolkit",
+    "requestedUrl": "https://rumiware-pdf-toolkit.streamlit.app/",
+    "captureUrl": "https://rumiware-pdf-toolkit.streamlit.app/~/+/",
+    "title": "RumiWare PDF Toolkit",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "capturedAt": "2026-10-28T18:51:36.718Z",
+    "original": "reference/project-captures/streamlit/pdf-toolkit.png",
+    "text": "Skip to main content\nRumiWare\nPDF TOOLKIT\n\nYOUR WORKSPACE\n\nDashboard\n\nPDF to Text\n\nMerge PDFs\n\nSplit PDF\n\nCompress PDF\n\nPDF to Word\n\nWord to PDF\n\nPDF to Images\n\nImages to PDF\n\nRotate PDF\n\nDelete or Reorder Pages\n\nAdd Watermark\n\nAdd Page Numbers\n\nProtect PDF\n\nUnlock PDF\n\nPDF Information\n\ndelete_sweep\n\nClear workspace\n\nUp to 20 MB per file · 200 PDF pages\n\nkeyboard_arrow_right\n\nPrivacy & processing\n\nMade for a calmer document day.\n\nRumiWare PDF Toolkit\n\nRUMIWARE PDF TOOLKIT\nYOUR EVERYDAY DOCUMENT WORKSPACE\nBig ideas.\nLess paperwork.\n\nYour Complete PDF Workspace — Convert, Merge, Split, Compress, and Manage PDFs.\n\n15 essential tools\nNo paid APIs\nFiles processed in memory\nJump right in\nA few everyday favorites\n\nPDF to Text\n\nMerge PDFs\n\nCompress PDF\n\nPDF to Word\n\nEvery tool, one place\nChoose a tool to get started\n\nAll tools\n\nConvert\n\nOrganize\n\nOptimize\n\nSecure\n\nPDF to Text\n\nTurn PDF pages into searchable, reusable text.\n\ntext_snippet\n\nOpen tool\n\nMerge PDFs\n\nBring multiple documents together in your order.\n\nmerge\n\nOpen tool\n\nSplit PDF\n\nKeep the pages you need, or split every page.\n\ncall_split\n\nOpen tool\n\nLossless\nCompress PDF\n\nOptimize PDF size while keeping image quality.\n\ncompress\n\nOpen tool\n\nText mode\nPDF to Word\n\nMake embedded PDF text editable in Word.\n\narticle\n\nOpen tool\n\nBasic text\nWord to PDF\n\nReflow DOCX body text into a clean PDF.\n\ndescription\n\nOpen tool\n\nPDF to Images\n\nExport your pages as crisp PNG or JPEG images.\n\nimage\n\nOpen tool\n\nImages to PDF\n\nCollect PNG and JPEG images in one document.\n\nphoto_library\n\nOpen tool\n\nRotate PDF\n\nGive all or selected pages the right orientation.\n\nrotate_right\n\nOpen tool\n\nDelete or Reorder Pages\n\nRemove extra pages and set a new reading order.\n\nsort\n\nOpen tool\n\nAdd Watermark\n\nAdd a subtle text stamp to selected PDF pages.\n\nbranding_watermark\n\nOpen tool\n\nAdd Page Numbers\n\nKeep your document in sequence with page numbers.\n\nformat_list_numbered\n\nOpen tool\n\nAES-256\nProtect PDF\n\nProtect access with an AES-256 opening password.\n\nlock\n\nOpen tool\n\nUnlock PDF\n\nRemove encryption using the existing password.\n\nlock_open\n\nOpen tool\n\nPDF Information\n\nSee page dimensions, document details, and metadata.\n\ninfo\n\nOpen tool\n\n↳\nYour files deserve care.\nChoose a tool, then drag a file into its upload area. Processing happens on the application server, in memory. Documents are not intentionally saved; your hosting provider’s policies still apply.\nRumiWare · A little less paperwork.\n15 thoughtful tools. One workspace."
+  },
+  {
+    "id": "weather",
+    "requestedUrl": "https://rumiware-weather-app.streamlit.app/",
+    "captureUrl": "https://rumiware-weather-app.streamlit.app/~/+/",
+    "title": "Skyline · Weather",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "capturedAt": "2026-10-28T18:51:48.845Z",
+    "original": "reference/project-captures/streamlit/weather.png",
+    "text": "Skip to main content\nskyline.\nYOUR DAILY OUTLOOK\n\nSearch\n\n°C\n\n°F\n\nLahore, Pakistan\nWednesday, October 28\nUpdated 11:45 PM\nAsia/Karachi\nCURRENT CONDITIONS\nLahore\n19°C\nClear sky\nFeels like 20°C\nHigh 29°C\nLow 17°C\nHumidity\n75 %\nWind speed\n5.1 km/h\nSurface pressure\n989 hPa\nVisibility\n7.5 km\nSunrise\n6:14 AM\nSunset\n5:17 PM\nHourly outlook\nNext 24 hours · local time\n12 AM\n19°C\n0% rain\n1 AM\n18°C\n0% rain\n2 AM\n18°C\n0% rain\n3 AM\n18°C\n0% rain\n4 AM\n17°C\n0% rain\n5 AM\n17°C\n0% rain\nTemperature trend · °C\n12 AM\n06 AM\n12 PM\n06 PM\n15°\n20°\n25°\n30°\n5-day forecast\nHigh / low · °C\nToday\n28 Oct\nClear sky\n0% rain · 0.0 mm\n29°\n17°\nThu\n29 Oct\nMostly clear\n0% rain · 0.0 mm\n29°\n16°\nFri\n30 Oct\nClear sky\n0% rain · 0.0 mm\n28°\n17°\nSat\n31 Oct\nClear sky\n0% rain · 0.0 mm\n28°\n18°\nSun\n1 Nov\nClear sky\n0% rain · 0.0 mm\n28°\n17°\nWeather by Open-Meteo\nAll times are local to the city · Forecasts are estimates"
+  },
+  {
+    "id": "expense-tracker",
+    "requestedUrl": "https://rumiware-expense-tracker.streamlit.app/",
+    "captureUrl": "https://rumiware-expense-tracker.streamlit.app/~/+/",
+    "title": "Expense Tracker",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "capturedAt": "2026-10-28T18:51:59.928Z",
+    "original": "reference/project-captures/streamlit/expense-tracker.png",
+    "text": "Skip to main content\nExpense Tracker\nMake room for clarity.\nWORKSPACE\nspace_dashboard\n\nDashboard\n\nadd_circle\n\nAdd Transaction\n\nreceipt_long\n\nTransactions\n\nbar_chart\n\nAnalytics\n\ntune\n\nSettings\n\nDemo workspace\nFictional data. Private to your session. Changes may disappear when the session ends.\nPKR currency · Simple money clarity\nWORKSPACE / OVERVIEW\nExpense Tracker\nKeep your money in focus. A little clarity goes a long way.\nREPORTING PERIOD\nAll time\n30 Jun 2026 – 27 Oct 2026\nFinancial overview\nadd\n\nAdd transaction\n\nTotal income\n↙\nPKR 220,000.00\nMoney received\nTotal expenses\n↗\nPKR 98,000.00\nMoney spent\nNet balance\n⇄\nPKR 122,000.00\nIncome minus expenses\nSavings rate\n%\n55.5%\nShare of income retained\nMonthly spending\nHow your expenses add up over time\nJul 26\nAug 26\nSep 26\nOct 26\nPKR 0\nPKR 10k\nPKR 20k\nPKR 30k\nPKR 40k\nExpenses by category\nWhere your money goes\nPKR 0\nPKR 10k\nPKR 20k\nPKR 30k\nPKR 40k\nBills\nFood\nShopping\nTransport\nHealth\nEntertainment\n\nThis month · PKR 41,700.00 spent · 4 expenses\n\nRecent transactions\narrow_forward\n\nView all"
+  },
+  {
+    "id": "qr-code-studio",
+    "requestedUrl": "https://rumiware-qr-code-studio.streamlit.app/",
+    "captureUrl": "https://rumiware-qr-code-studio.streamlit.app/~/+/",
+    "title": "QR Code Studio",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "capturedAt": "2026-10-28T18:52:13.663Z",
+    "original": "reference/project-captures/streamlit/qr-code-studio.png",
+    "text": "Skip to main content\n\nNavigate\n\nGenerate QR\n\nScan QR\n\nQR Guide / Help\n\nAbout\n\nNo accounts, APIs, tracking, or permanent storage.\n\n▦ QR Code Studio\n\nCreate, customize, download, and safely inspect QR codes—entirely in memory.\n\nQR code type\n\nWebsite URL\n\nkeyboard_arrow_right\n\nCustomize\n\nPreview\n\nDownload PNG\n\nDownload SVG\n\nkeyboard_arrow_right\n\nPayload details"
+  },
+  {
+    "id": "movies",
+    "requestedUrl": "https://rumiware-movies.streamlit.app/",
+    "captureUrl": "https://rumiware-movies.streamlit.app/~/+/?embed=true&embed_options=dark_theme",
+    "title": "CineMatch",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "capturedAt": "2026-10-28T18:57:26.314Z",
+    "original": "reference/project-captures/streamlit/movies.png",
+    "text": "Skip to main content\nkeyboard_double_arrow_left\n🎬 CineMatch 2.0\n\nYour next great watch, explained.\n\nDiscover\n\nRecommendations\n\nSimilar Movies\n\nUpcoming\n\nLIVE TMDB\n\n▶\nCineMatch\nDiscover your next great watch\nExplore Movies\nView details\nClayface\n2026\n★ 7.4\nView details\nWildwood\n2026\n★ 8.6\nView details\nYou Can See Everything\n2026\n★ 9.1\nView details\nMasterplan\n2026\n★ 7.0\nView details\nWhalefall\n2026\n★ 6.6\nView details\nStreet Fighter\n2026\n★ 6.4\nView details\nTherapy Done Right\n2026\n★ 7.7\nView details\nThe Storm\n2026\n★ 6.3\nView details\nTenzing\n2026\n★ 8.3\nView details\nAnimals\n2026\n★ 7.0\nView details\nOther Mommy\n2026\n★ 5.8\nView details\nThe Social Reckoning\n2026\n★ 7.0\nView details\nThe Spiral\n2026\n★ 7.4\nView details\nLove of Your Life\n2026\n★ 6.8\nView details\nA Man of His Time\n2026\n★ 6.7\nView details\nMatchbox the Movie\n2026\n★ 7.7\nView details\nDoing Life\n2026\n★ 7.8\nView details\nVerity\n2026\n★ 6.3\nView details\nDigger\n2026\n★ 7.5\nView details\nNAZA\n2026\n★ 8.1\n\nLoad more\n\nkeyboard_arrow_right\n\nAdvanced discovery\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB. Live metadata and images are supplied by TMDB. Demo titles are fictional; no poster or trailer media is redistributed."
+  },
+  {
+    "id": "stock-market",
+    "requestedUrl": "https://rumiware-stock-market.streamlit.app/",
+    "captureUrl": "https://rumiware-stock-market.streamlit.app/~/+/",
+    "title": "Market Atlas | Stock Price Tracker",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "capturedAt": "2026-10-28T18:58:10.900Z",
+    "original": "reference/project-captures/streamlit/stock-market.png",
+    "text": "Skip to main content\ndashboard\n\nDashboard\n\ncandlestick_chart\n\nStock Analysis\n\ncompare_arrows\n\nStock Comparison\n\nbookmarks\n\nWatchlist\n\npublic\n\nPakistan Stock Exchange\n\naccount_balance_wallet\n\nPortfolio Calculator\n\nhelp_outline\n\nAbout & Help\n\n↗\nMarket Atlas\nSTOCK INTELLIGENCE\n\nYOUR WORKSPACE\n\nFollowing AAPL\n\n0 stocks in your session watchlist\n\n0 Pakistan stocks · 0 portfolio lots\n\nBuilt for a thoughtful view\nDaily history, clear context, and simple research tools. International research needs no API key; PSX prices need a licensed connection.\n\nQuotes may be delayed. Watchlists last for this session; export a copy to keep them.\n\nYOUR MARKET, IN FOCUS\nA clearer view of the market.\n\nFollow the companies that matter to you. Explore price history, understand the momentum, and put performance in perspective.\n\nStock symbol\n\nsearch\n\nSearch\n\nApple Inc.\nAAPL\nUSD\nNMS\n\nYahoo Finance via yfinance · Latest available quote · may be delayed · 28 Oct 2026, 18:58:03 UTC\n\nLatest available price\n\n344.50 USD\n\n-2.60 (-0.75%)\n\nPrevious daily close\n\n347.10 USD\n\nLatest daily volume\n\n15.74M\n\nMarket capitalization\n\n5.03T\n\nPrice performance\n\nTime horizon\n\n1M\n\n3M\n\n6M\n\n1Y\n\n3Y\n\n5Y\n\n+28.45% adjusted return · 28 Oct 2025 – 28 Oct 2026\n\nDaily adjusted closes account for splits and dividends. The latest daily bar may still be in progress; this is not a live price chart.\n\nCompany snapshot\n\nSECTOR\n\nTechnology\n\nINDUSTRY\n\nConsumer Electronics\n\nEXCHANGE\n\nNasdaqGS\n\nCOUNTRY\n\nUnited States\n\nbookmark\n\nAdd to watchlist\n\nGo beyond the headline\nOpen Stock Analysis for candlesticks, moving averages, RSI, and a downloadable price history.\nkeyboard_arrow_right\n\nAbout Apple Inc.\n\nMARKET ATLAS   /   Research with perspective.\nData sources are shown with quotes · Data may be delayed or unavailable. For education only; not investment advice."
+  }
+]
