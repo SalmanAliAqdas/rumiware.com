@@ -52,6 +52,11 @@
       "company": true
     },
     {
+      "file": "blog.html",
+      "label": "Blog",
+      "main": true
+    },
+    {
       "file": "contact.html",
       "label": "Contact",
       "main": true
