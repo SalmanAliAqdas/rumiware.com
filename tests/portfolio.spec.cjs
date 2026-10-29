@@ -42,11 +42,22 @@ test('category filters work by keyboard in both themes and retain visible focus'
  }
 });
 
-test('featured anchors are shared and hidden entries recover on hash navigation',async({page})=>{
+test('homepage enquiry replacement preserves card order, other featured links and the portfolio PDF entry',async({page})=>{
  for(const mount of ['/','/rumiware.com/']){
   await page.goto(mount);const featured=projects.filter(p=>p.featured);expect(featured.map(p=>p.id)).toEqual(['schoolos','pdf-toolkit','expense-tracker']);
-  for(const p of featured)await expect(page.locator('.home-work a[href="portfolio.html#'+p.id+'"]').locator('..')).toContainText(p.summary);
-  await page.locator('.home-work a[href="portfolio.html#pdf-toolkit"]').click();await expect(page.locator('#pdf-toolkit')).toBeVisible();
+  await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumiware Expense Tracker']);
+  for(const p of featured.filter(p=>p.id!=='pdf-toolkit'))await expect(page.locator('.home-work a[href="portfolio.html#'+p.id+'"]').locator('..')).toContainText(p.summary);
+  const enquiry=page.locator('.home-work article').nth(1);
+  await expect(enquiry.locator('.project-category')).toHaveText('Business Applications / Customer Enquiries');
+  await expect(enquiry).toContainText('A customer enquiry application with enquiry submission, an admin dashboard, and AI-assisted reply drafting.');
+  await expect(enquiry.locator('a.more')).toHaveAttribute('href','https://rumi-portfolio-demo.vercel.app/');
+  await expect(enquiry.locator('a.more')).toHaveAttribute('rel','noopener noreferrer');
+  await expect(enquiry.locator('a.more')).toHaveAttribute('target','_blank');
+  await expect(enquiry.locator('figcaption')).toContainText('fictional enquiries; no replies are sent automatically');
+  await expect(enquiry.locator('img')).toHaveAttribute('alt',/public Explore screen.*fictional/);
+  await expect(page.locator('.home-work')).not.toContainText('PDF Toolkit');
+  await page.goto(mount+'portfolio.html#pdf-toolkit');await expect(page.locator('#pdf-toolkit')).toBeVisible();
+  await expect(page.locator('#pdf-toolkit a.more')).toHaveAttribute('href','https://rumiware-pdf-toolkit.streamlit.app/');
   await page.locator('[data-filter=games]').click();await expect(page.locator('#schoolos')).toBeHidden();
   await page.evaluate(()=>location.hash='schoolos');await expect(page.locator('#schoolos')).toBeVisible();await expect(page.locator('[data-filter=all]')).toHaveAttribute('aria-pressed','true');
  }
@@ -93,7 +104,7 @@ test('mobile and desktop homepage select small screenshots for the shared featur
  for(const width of [375,1440]){
   const context=await browser.newContext({viewport:{width,height:900},deviceScaleFactor:1,reducedMotion:'reduce'});const page=await context.newPage();
   await page.goto('http://127.0.0.1:4173/');
-  for(const id of ['pdf-toolkit','expense-tracker']){
+  for(const id of ['enquiry-assistant','expense-tracker']){
    const img=page.locator('.home-work img[src="images/projects/'+id+'.webp"]');await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());
    expect(await img.evaluate(i=>new URL(i.currentSrc).pathname)).toBe('/images/projects/'+id+'-640.webp');
    await expect(img).toHaveAttribute('loading','lazy');

@@ -1,0 +1,16 @@
+{
+  "id": "portfolio-demo",
+  "name": "Rumi Enquiry Assistant",
+  "status": "Completed",
+  "category": "Business Applications",
+  "subcategory": "Customer Enquiries",
+  "summary": "A customer enquiry application with enquiry submission, an admin dashboard, and AI-assisted reply drafting.",
+  "homeUrl": "https://rumi-portfolio-demo.vercel.app/",
+  "homeLinkLabel": "Explore demo",
+  "image": "enquiry-assistant.webp",
+  "imageSmall": "enquiry-assistant-640.webp",
+  "width": 1280,
+  "height": 800,
+  "alt": "Rumi Enquiry Assistant public Explore screen showing clearly fictional customer enquiry examples",
+  "caption": "Public Explore screen with fictional enquiries; no replies are sent automatically."
+}
