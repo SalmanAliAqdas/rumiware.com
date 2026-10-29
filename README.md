@@ -2,7 +2,7 @@
 
 A static website for Rumiware, a small software team in Lahore. The site uses HTML, CSS and vanilla JavaScript. A small **Node-only build script** assembles complete pages from shared layout and JSON data. There is no framework, database, account system, runtime server requirement or browser-side layout fetching.
 
-Publish **only the contents of `dist/`** after a separate release review. The checked-in workflow runs verification only. GitHub Pages and external hosting settings must be reviewed separately before any push; see `verification/RELEASE-READINESS.md`.
+Publish **only the contents of `dist/`**. `.github/workflows/pages.yml` builds and checks the site on pushes to `main`, uploads only `dist/`, and deploys it to GitHub Pages. `.github/workflows/checks.yml` runs the separate browser regression suite. Hostinger uploads remain a separate manual operation; this workflow does not access Hostinger.
 
 ## Getting started
 
@@ -144,7 +144,7 @@ These record local screenshots/resource measurements. Public project capture is 
 All essential page content and navigation is already in the generated HTML. Upload the **contents of `dist/`**, including images, fonts, robots.txt, sitemap.xml, 404.html and `.nojekyll`, using the hosting provider's normal static upload process.
 
 - Production uses `https://rumiware.com/` at the domain root.
-- The existing GitHub Pages preview uses `https://salmanaliaqdas.github.io/rumiware.com/`. Existing public deployment records show `main` publishing to GitHub Pages. Do not merge/push this source migration to that publishing branch until Pages is separately configured to publish built `dist/` contents (an authorized custom build workflow or a dedicated output branch). The checks workflow does not deploy. See `verification/RELEASE-READINESS.md`.
+- The GitHub Pages preview uses `https://salmanaliaqdas.github.io/rumiware.com/`. The Pages workflow builds from `main` and deploys the `dist/` artifact, rather than publishing the source directory. Repository Settings → Pages → Source should be **GitHub Actions** to avoid the redundant legacy branch publisher. Deployment originates from `main` and uses the `github-pages` environment. No extra source or output branch is required. The separate checks workflow does not deploy.
 - Asset/page links are relative. The 404 document chooses the configured repository mount for its preview host or matching local path; otherwise it uses `/`. Missing routes are not redirected to the homepage. Without JavaScript, 404 recovery links use the production domain.
 - Canonicals always point to the verified production domain. The builder does not add a CNAME or alter domain settings, so it does not turn the repository preview into a redirect.
 - For a different preview repository, update `previewHost` and `previewPath` in `site.json`; the builder and local server share these settings. Run both hosting checks before release.
