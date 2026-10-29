@@ -1,7 +1,11 @@
 name: Deploy website to GitHub Pages
 
 on:
-  push:
+  # The repository currently uses Pages' legacy branch publisher.
+  # Publish dist after it finishes so it cannot overwrite the built website.
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
