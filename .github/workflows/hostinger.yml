@@ -1,6 +1,8 @@
-name: Deploy static website to Hostinger (manual)
+name: Deploy static website to Hostinger
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

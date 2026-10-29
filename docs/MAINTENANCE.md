@@ -88,6 +88,12 @@ External hosting uses the **contents of `dist/`**, including images, fonts, site
 
 Hostinger publication is separate from GitHub Pages. Local SFTP settings are ignored by Git; `.vscode/sftp.example.json` is the sanitized configuration example.
 
+`.github/workflows/hostinger.yml` deploys automatically on pushes to `main` and
+also supports manual dispatch. It runs the release checks, verifies SSH identity
+and the exact destination, and verifies a complete backup before uploading.
+See the [Hostinger deployment and recovery guide](HOSTINGER.md) for safeguards
+and restore instructions.
+
 ## Forms and privacy
 
 The contact and quote forms use public Formspree endpoints configured in `site.json`. Provider-side recipients, allowed domains, spam controls, and inbox delivery require separate operational verification. Browser tests intercept submissions rather than sending production messages.

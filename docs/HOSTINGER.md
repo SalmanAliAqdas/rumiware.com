@@ -1,11 +1,12 @@
-# Manual Hostinger deployment
+# Hostinger deployment
 
-Prepared locally; no Hostinger connection, commit, push, or deployment is part of preparation.
-After review and a separate decision to publish these files to GitHub, select
-**Actions > Deploy static website to Hostinger (manual) > Run workflow** on the
-trusted branch you intend to release. Dispatching it performs a real deployment.
-There is no Hostinger push or pull-request trigger. The existing GitHub Pages push
-deployment remains separate and unchanged.
+The **Deploy static website to Hostinger** workflow automatically builds, checks,
+backs up, and deploys the website on every push to `main`. Manual deployment is
+also available through **Actions > Deploy static website to Hostinger > Run workflow**
+on the trusted branch you intend to release. Both triggers perform a real
+deployment with the same checks and safeguards. Pull requests and pushes to other
+branches do not trigger automatic Hostinger deployment. The existing GitHub Pages
+push deployment remains separate and unchanged.
 
 ## Requirements and trust
 
@@ -37,8 +38,9 @@ deployment remains separate and unchanged.
 - The SSH account must read the entire site and write the destination and its
   domain parent. Backups require disk space for the full old site, the incoming
   build, and temporary replacement files. Restrict account/key privileges as
-  supported by the host. Review the selected branch before dispatching: repository
-  workflow code has access to deployment secrets.
+  supported by the host. Review changes before merging or pushing to `main`, and
+  review the selected branch before manual dispatch: repository workflow code has
+  access to deployment secrets.
 
 ## Safety sequence
 
@@ -69,8 +71,8 @@ deployment remains separate and unchanged.
    receive 0755 and new public files 0644; existing file modes are retained.
 
 GitHub concurrency serializes this repository's Hostinger workflow runs; running
-deployments are not cancelled by newer dispatches. The group deliberately does
-not vary by branch. GitHub may replace an older pending run with a newer one.
+deployments are not cancelled by newer pushes or manual dispatches. The group
+deliberately does not vary by branch. GitHub may replace an older pending run with a newer one.
 This does not lock out a human SFTP session or another repository: suspend other
 writers during deployment. Snapshot checks detect changes before publishing but
 cannot eliminate races during the final file replacements.
@@ -82,7 +84,7 @@ configuration using your trusted hosting tools. Never paste private configuratio
 or credentials into workflow logs or issues. Keep the live hosting configuration
 by removing the conflicting file from the build, or reconcile the intended change
 manually after review and a backup. The current builder emits `.nojekyll` but no
-`.htaccess`. Do not bypass the guard to force an overwrite. A subsequent dispatch
+`.htaccess`. Do not bypass the guard to force an overwrite. A subsequent workflow run
 creates a fresh full backup and repeats every check.
 
 No step changes DNS, SSL, email, other domains, or account-wide settings. Website
@@ -129,9 +131,10 @@ The deployment logic has a local fixture test:
 temporary directories, without SSH or credentials. Workflow structure can be
 checked with `actionlint .github/workflows/hostinger.yml`.
 
-This preparation does not establish that secrets are correct, Hostinger supports
-the required SSH/Python access, sufficient disk space exists, or the live server
-contains no conflicting files. Those checks run only on a future manual dispatch.
+The first manual deployment succeeded and the site was confirmed live by the
+site owner before automatic deployment was enabled. Every new automatic or manual
+run still verifies SSH access, backup integrity, the destination, and conflicts;
+a previous success does not establish that a later deployment will succeed.
 Publishing is atomic per file, not across the entire site: interruption can leave
 a mixed version requiring recovery. Retained remote-only files can serve stale
 content. No live HTTP, inbox delivery, DNS, or TLS verification is implied by the
@@ -143,6 +146,6 @@ or overwriting `.htaccess`.
 Local preparation on 2026-10-29 verified `npm ci`, the 20-page build and static
 checks, all 61 browser tests, all nine deployment safety fixtures, Python syntax,
 workflow safety assertions, and actionlint 1.7.12. These local checks used Node.js 26.7.0; the
-workflow selects the repository's required Node.js 24. Hostinger connectivity,
-secret values, remote dependencies, disk space, and production behavior remain
-unverified until a separately authorized manual run.
+workflow selects the repository's required Node.js 24. This local validation did
+not verify production behavior; deployment results must be checked in the
+GitHub Actions run for the corresponding commit.
