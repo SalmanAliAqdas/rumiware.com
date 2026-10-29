@@ -108,6 +108,10 @@ The live Pages site is available at **https://salmanaliaqdas.github.io/rumiware.
 
 External hosting uses the contents of `dist/` through a separate upload process. GitHub Pages deployment does not update Hostinger or change domain settings.
 
+The [manual Hostinger workflow and recovery guide](docs/HOSTINGER.md) describes
+the separate `workflow_dispatch` deployment, required secrets, destination and
+hosting configuration safeguards, full backups, and restore procedure.
+
 ## Contact
 
 **Rumiware · Lahore, Pakistan**  
