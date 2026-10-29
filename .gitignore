@@ -12,3 +12,36 @@ dist/
 
 # Downloaded third-party HTML is retained locally as research, not release source.
 /verification/phase3/dental-source.html
+
+# Local environment secrets; only sanitized example templates may be committed.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# SSH private keys and private-key containers (public .pub keys remain allowed).
+.ssh/
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+id_ecdsa_sk
+id_ed25519_sk
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local credentials and provider authentication files.
+.aws/
+.netrc
+.git-credentials
+.npmrc
+.pypirc
+credentials.json
+credentials.*.json
+service-account.json
+service-account-*.json
+!credentials.example.json
+!credentials.*.example.json
+!service-account-example.json
