@@ -1,7 +1,10 @@
 const {test,expect}=require('@playwright/test');
 const team=require('../src/data/team.json');
 
-test('client websites use the Websites filter, authentic responsive previews and exact buttons',async({page})=>{
+test('client websites use the Websites filter, authentic responsive previews and exact buttons',async({page,context})=>{
+ // Reproduce the CDN's older bare asset URLs without changing the current assets.
+ await context.route(url=>url.pathname.endsWith('/script.js')&&!url.search,r=>r.fulfill({contentType:'text/javascript',body:'/* older cached script without portfolio filters */'}));
+ await context.route(url=>url.pathname.endsWith('/style.css')&&!url.search,r=>r.fulfill({contentType:'text/css',body:'/* older cached stylesheet */'}));
  for(const mount of ['/','/rumiware.com/']){
   await page.goto(mount+'portfolio.html');
   const filter=page.getByRole('button',{name:'Websites',exact:true});await filter.focus();await filter.press('Space');

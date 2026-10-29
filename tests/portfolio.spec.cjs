@@ -64,7 +64,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
 });
 
 for(const mode of ['disabled','failed'])test('portfolio remains readable with JavaScript '+mode,async({browser})=>{
- const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route('**/script.js',r=>r.abort());
+ const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route(/\/script\.js(?:\?.*)?$/,r=>r.abort());
  const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio.html#expense-tracker');
  await expect(page.locator('.proj:visible')).toHaveCount(11);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
 });

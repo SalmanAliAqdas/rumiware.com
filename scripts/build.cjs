@@ -1,10 +1,12 @@
 // A small, dependency-free static builder. It never contacts hosting or providers.
-const fs=require('node:fs');const path=require('node:path');
+const fs=require('node:fs');const path=require('node:path');const {createHash}=require('node:crypto');
 const root=path.resolve(__dirname,'..');const out=path.resolve(root,'dist');
 if(path.relative(root,out)!=='dist'||(fs.existsSync(out)&&fs.lstatSync(out).isSymbolicLink()))throw Error('Unsafe output path');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');const data=name=>JSON.parse(read(`src/data/${name}.json`));
 const site=data('site'),pages=data('pages'),plans=data('pricing'),team=data('team'),services=data('services'),commercial=data('commercial'),icons=data('icons'),projects=data('projects');
 const homeEnquiry=data('home-enquiry');
+// These updated pages must not reuse older CSS/JS cached under the bare URLs.
+const pageAssets=Object.fromEntries(['style.css','script.js'].map(file=>[file,file+'?v='+createHash('sha256').update(read('src/assets/'+file).replace(/\r\n/g,'\n')).digest('hex').slice(0,12)]));
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const json=s=>JSON.stringify(s).replaceAll('<','\\u003c');
 const icon=name=>{if(!icons[name])throw Error('Unknown icon '+name);return `<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;};
@@ -43,6 +45,7 @@ for(const [file,page] of Object.entries(pages)){
  FALLBACK_STYLE:file==='404.html'?'<style>body{margin:0;background:#0B1E2D;color:#E6E0D0;font:1rem/1.65 system-ui,sans-serif}a{color:#3FD0CB}h1,h2{color:#F4EEDD}</style>':'',
  SCHEMA:schemas.map(s=>`<script type="application/ld+json">${json(s)}</script>`).join('\n'),HEADER:render(read('src/layout/header.html'),values),FOOTER:render(read('src/layout/footer.html'),values),CONTENT:render(read('src/pages/'+file),values)});
  outputs[file]=render(read('src/layout/document.html'),values);
+ if(file==='portfolio.html'||file==='team.html')outputs[file]=outputs[file].replace('href="style.css"','href="'+pageAssets['style.css']+'"').replace('src="script.js"','src="'+pageAssets['script.js']+'"');
  if(/\{\{[A-Za-z_]/.test(outputs[file]))throw Error('Unresolved template in '+file);
 }
 // Page bodies are rendered before replacing only the verified generated directory.
