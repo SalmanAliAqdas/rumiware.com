@@ -75,6 +75,16 @@ test('menu closes on selection, focus departure and resize; breadcrumbs never be
   await expect(page.locator('.crumbs')).toBeVisible();
 });
 
+test('collapsing navigation preserves focus outside the menu',async({page})=>{
+  await page.setViewportSize({width:1440,height:900});await page.goto('/contact.html');
+  await page.locator('#nav a').first().focus();
+  await page.locator('#cn').focus();
+  await page.setViewportSize({width:960,height:900});
+  await expect(page.locator('#cn')).toBeFocused();
+  await expect(page.locator('#menuBtn')).toHaveAttribute('aria-expanded','false');
+  await expect(page.locator('#nav')).toBeHidden();
+});
+
 test('skip link reaches main and selected controls have non-color indicators',async({page})=>{
   await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip')).toBeFocused();
   await page.keyboard.press('Enter');await expect(page.locator('main')).toBeFocused();

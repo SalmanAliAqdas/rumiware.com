@@ -17,6 +17,9 @@
   // Mobile menu
   var mb = d.getElementById('menuBtn'), nav = d.getElementById('nav');
   if (mb && nav) {
+    // A breakpoint can hide a focused link before the media-query callback runs.
+    // Remember real focus changes so that focus can return to the disclosure.
+    var navigationHadFocus = nav.contains(d.activeElement);
     function closeMenu(returnFocus) {
       nav.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); mb.setAttribute('aria-label', 'Open menu');
       if (returnFocus) mb.focus();
@@ -36,10 +39,14 @@
       }
     });
     d.addEventListener('click', function (e) { if (!e.target.closest('header')) closeMenu(false); });
-    d.addEventListener('focusin', function (e) { if (!nav.contains(e.target) && e.target !== mb) closeMenu(false); });
+    d.addEventListener('focusin', function (e) {
+      navigationHadFocus = nav.contains(e.target);
+      if (!navigationHadFocus && e.target !== mb) closeMenu(false);
+    });
     var menuMedia = window.matchMedia ? matchMedia('(max-width:1099px)') : null;
     function resizeMenu() {
-      var wasInside = nav.contains(d.activeElement);
+      var wasInside = nav.contains(d.activeElement) ||
+        (navigationHadFocus && (d.activeElement === d.body || d.activeElement === root));
       closeMenu(getComputedStyle(mb).display !== 'none' && wasInside);
     }
     if (menuMedia && menuMedia.addEventListener) menuMedia.addEventListener('change', resizeMenu);
