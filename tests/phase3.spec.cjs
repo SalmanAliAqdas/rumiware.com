@@ -31,9 +31,9 @@ test('homepage prioritizes real project records and links to exact cases',async(
  expect(await page.locator('main>section').nth(1).getAttribute('id')).toBe('work');
  await expect(page.locator('.home-work article')).toHaveCount(3);
  await page.locator('.home-work a[href="portfolio.html#schoolos"]').click();await expect(page.locator('#schoolos')).toBeVisible();
- await expect(page.locator('.case-study')).toHaveCount(9);await expect(page.locator('main')).not.toContainText('Sample project');
+ await expect(page.locator('.case-study')).toHaveCount(11);await expect(page.locator('main')).not.toContainText('Sample project');
  await expect(page.locator('#schoolos figcaption')).toContainText('Public sign-in screen');
- await expect(page.locator('#mani-bakes, #rumi-dental-care')).toHaveCount(0);
+ await expect(page.locator('#mani-bakes, #rumi-dental-care')).toHaveCount(2);
 });
 test('local fonts load, portraits have dimensions, and no generic social profile links remain',async({page})=>{
  const requests=[];page.on('request',r=>requests.push(r.url()));await page.goto('/team.html');await page.evaluate(()=>document.fonts.ready);

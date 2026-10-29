@@ -3,21 +3,21 @@ const fs=require('node:fs');
 const projects=require('../src/data/projects.json');
 test.beforeEach(async({context})=>{await context.route(/formspree\.io|api\.web3forms\.com/,r=>r.abort());});
 
-test('nine supplied records publish exact URLs, safe previews and owner status at both mounts',async({page})=>{
+test('portfolio records publish exact URLs, safe previews and project status at both mounts',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- expect(projects).toHaveLength(9);
+ expect(projects).toHaveLength(11);expect(new Set(projects.map(p=>p.id)).size).toBe(11);
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio.html');await expect(page.locator('.proj')).toHaveCount(9);
+  await page.goto(mount+'portfolio.html');await expect(page.locator('.proj')).toHaveCount(11);
   await expect(page.locator('main')).toContainText('development status supplied by the project owner');
-  await expect(page.locator('main')).not.toContainText(/Mani Bakes|Rumi Dental Care|contribution|Sample project/);
+  await expect(page.locator('main')).not.toContainText(/contribution|Sample project/);
   await expect(page.locator('main iframe')).toHaveCount(0);
   await expect(page.locator('#portfolio-demo h2')).toHaveText('Rumi Enquiry Assistant');
   await expect(page.locator('#portfolio-demo')).toContainText('fictional examples');
   await expect(page.locator('#portfolio-demo')).not.toContainText('Portfolio demo');
   for(const p of projects){
    const card=page.locator('#'+p.id);await expect(card.locator('h2')).toHaveText(p.name);
-   await expect(card.locator('.tag')).toHaveText('Completed');await expect(card.locator('.project-category')).toContainText(p.category);
-   const link=card.locator('a.more');await expect(link).toHaveAttribute('href',p.url);await expect(link).toHaveAttribute('rel','noopener noreferrer');await expect(link).toHaveAccessibleName(/opens in a new tab/);
+   await expect(card.locator('.tag')).toHaveText(p.status);await expect(card.locator('.project-category')).toContainText(p.category);
+   const link=card.locator('a.more').first();await expect(link).toHaveAttribute('href',p.url);await expect(link).toHaveAttribute('rel','noopener noreferrer');await expect(link).toHaveAccessibleName(/opens in a new tab/);
    const img=card.locator('img');await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);await expect(img).toHaveAttribute('alt',p.alt);
    if(p.image.endsWith('.svg'))await expect(card.locator('figcaption')).toHaveText('Branded project cover, not an application screenshot.');
   }
@@ -66,7 +66,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
 for(const mode of ['disabled','failed'])test('portfolio remains readable with JavaScript '+mode,async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route('**/script.js',r=>r.abort());
  const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio.html#expense-tracker');
- await expect(page.locator('.proj:visible')).toHaveCount(9);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
+ await expect(page.locator('.proj:visible')).toHaveCount(11);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
 });
 
 test('project collection reflows with enlarged text at all requested widths',async({page})=>{

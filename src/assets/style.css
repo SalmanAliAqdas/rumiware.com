@@ -317,5 +317,6 @@ body:has(form:focus-within) .wa,body:has(form:focus-within) #top{visibility:hidd
 .portfolio-grid{align-items:stretch}
 .portfolio-grid .case-study{padding:var(--space-4);border:1px solid var(--line)}
 .portfolio-grid .more{margin-top:auto;padding-top:var(--space-3)}
+.portfolio-grid .project-links{margin-top:auto}
 .project-status-note{max-width:800px;font-size:.9rem;margin-block:var(--space-3)}
 .project-count{margin-bottom:var(--space-3);font-size:.9rem}

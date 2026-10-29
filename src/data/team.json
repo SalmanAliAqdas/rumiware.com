@@ -3,9 +3,11 @@
     "id": "salman",
     "image": "salman",
     "name": "Salman Ali Aqdas",
-    "role": "CEO & Founder",
+    "role": "Founder & CEO",
+    "homeRole": "CEO & Founder",
     "description": "Leads client relationships, project management and DevOps.",
-    "github": null
+    "github": "https://github.com/SalmanAliAqdas",
+    "linkedin": "https://www.linkedin.com/in/salmanaliaqdas/"
   },
   {
     "id": "aamir",
@@ -21,7 +23,8 @@
     "name": "Hassan",
     "role": "Python & full-stack developer",
     "description": "Builds Python applications and backend systems.",
-    "github": "https://github.com/HafizHassanAlee"
+    "github": "https://github.com/HafizHassanAlee",
+    "linkedin": "https://www.linkedin.com/in/hassan-alee/"
   },
   {
     "id": "hussain",
@@ -29,6 +32,7 @@
     "name": "Hussain",
     "role": "Frontend & full-stack developer",
     "description": "Builds frontend interfaces and full-stack applications.",
-    "github": "https://github.com/HafizHussainAli"
+    "github": "https://github.com/HafizHussainAli",
+    "linkedin": "https://www.linkedin.com/in/hafiz-hussain-ali/"
   }
 ]
