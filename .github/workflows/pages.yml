@@ -1,11 +1,7 @@
 name: Deploy website to GitHub Pages
 
 on:
-  # The repository currently uses Pages' legacy branch publisher.
-  # Publish dist after it finishes so it cannot overwrite the built website.
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
     branches: [main]
   workflow_dispatch:
 
@@ -19,6 +15,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -28,6 +27,38 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run check
+      # The legacy branch publisher can overwrite an artifact deployment.
+      # Wait for that run for this exact commit before handing over the artifact.
+      - name: Wait for legacy Pages publisher
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node <<'NODE'
+          const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+          const start = Date.now();
+          async function waitForPublisher() {
+            while (Date.now() - start < 600000) {
+              const response = await fetch(
+                `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/actions/runs?head_sha=${process.env.GITHUB_SHA}&per_page=100`,
+                {headers: {Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json'}}
+              );
+              if (!response.ok) throw new Error('Cannot inspect publisher status: HTTP ' + response.status);
+              const {workflow_runs: runs} = await response.json();
+              const legacy = runs.filter(run => run.name === 'pages build and deployment' && run.event === 'dynamic');
+              if (legacy.length && legacy.every(run => run.status === 'completed')) {
+                console.log('Legacy publisher finished; publishing the generated site afterward.');
+                return;
+              }
+              if (!legacy.length && Date.now() - start > 90000) {
+                console.log('No legacy publisher found; using the artifact deployment only.');
+                return;
+              }
+              await sleep(5000);
+            }
+            throw new Error('Legacy Pages publisher did not finish within ten minutes.');
+          }
+          waitForPublisher().catch(error => { console.error(error.message); process.exitCode = 1; });
+          NODE
       - name: Upload built website only
         uses: actions/upload-pages-artifact@v3
         with:
