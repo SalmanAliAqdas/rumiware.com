@@ -1,7 +1,7 @@
 const fs=require('node:fs');const path=require('node:path');const {execFileSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..');const out=path.join(root,'dist');
 const config=JSON.parse(fs.readFileSync(path.join(root,'src/data/site.json'),'utf8'));
-const files=fs.readdirSync(out).filter(f=>f.endsWith('.html'));const pages=new Map(files.map(f=>[f,fs.readFileSync(path.join(out,f),'utf8')]));
+const files=fs.readdirSync(out,{recursive:true}).filter(f=>f.endsWith('.html')).map(f=>f.replaceAll('\\','/'));const pages=new Map(files.map(f=>[f,fs.readFileSync(path.join(out,f),'utf8')]));
 const errors=[];let links=0,assets=0,forms=0;
 function fail(message){errors.push(message);}
 for(const [file,source] of pages){
@@ -11,7 +11,8 @@ for(const [file,source] of pages){
  for(const m of source.matchAll(/<(?:a|link|script|img|iframe)\b[^>]*\b(?:href|src)=["']([^"']+)["'][^>]*>/g)){
   const raw=m[1].replaceAll('&amp;','&');if(/^(?:https?:|mailto:|tel:|data:)/.test(raw))continue;
   const url=new URL(raw,'https://local.invalid/'+file);let target=decodeURIComponent(url.pathname).slice(1)||'index.html';
-  if(!fs.existsSync(path.join(out,target))){fail(`${file}: missing ${raw}`);continue;}
+  if(target.endsWith('/'))target+='index.html';
+  if(!fs.existsSync(path.join(out,target))||!fs.statSync(path.join(out,target)).isFile()){fail(`${file}: missing ${raw}`);continue;}
   if(m[0].startsWith('<a'))links++;else assets++;
   if(url.hash){const html=pages.get(target)||'';if(!new RegExp(`(?:id|name)=["']${url.hash.slice(1)}["']`).test(html))fail(`${file}: missing anchor ${raw}`);}
  }

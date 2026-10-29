@@ -8,6 +8,7 @@ test.beforeEach(async({context})=>{
 });
 test('release output contains complete public documents and excludes all development sources',async({request})=>{
  expect(fs.readdirSync(out).filter(f=>f.endsWith('.html'))).toHaveLength(20);
+ expect(fs.readdirSync(out,{recursive:true}).filter(f=>f.endsWith('.html'))).toHaveLength(21);
  for(const file of ['head.html','header.html','footer.html','get-quote-preview.html','.vscode/sftp.json','reference/phase2/index.html','package.json']){
   expect(fs.existsSync(path.join(out,file))).toBe(false);
   // The legacy quote preview is a test-only compatibility route, not a release file.
@@ -16,7 +17,7 @@ test('release output contains complete public documents and excludes all develop
  const home=await (await request.get('/index.html')).text();expect(home).toContain('<header>');expect(home).toContain('<footer>');expect(home).not.toContain('fetch("header');
 });
 test('shared configuration drives every header, contact endpoint and package summary',async({page})=>{
- for(const file of fs.readdirSync(out).filter(f=>f.endsWith('.html'))){
+ for(const file of fs.readdirSync(out,{recursive:true}).filter(f=>f.endsWith('.html')).map(f=>f.replaceAll('\\','/'))){
   await page.goto('/'+file);await expect(page.locator('#nav li')).toHaveCount(config.navigation.filter(n=>n.main).length);
   await expect(page.locator('footer')).toContainText(config.hours);await expect(page.locator('footer')).toContainText(config.email);
   await expect(page.locator('header .hdr-cta')).toHaveText('Request a consultation');
@@ -58,7 +59,7 @@ test('all public images and font resources load at the repository mount',async({
 });
 test('generated output is reproducible and no analytics or active placeholder destinations return',async({page})=>{
  const before=fingerprint();
- const inputs=JSON.parse(fs.readFileSync(path.join(root,'src/data/pages.json'),'utf8'));expect(Object.keys(inputs)).toHaveLength(20);
+ const inputs=JSON.parse(fs.readFileSync(path.join(root,'src/data/pages.json'),'utf8'));expect(Object.keys(inputs)).toHaveLength(21);
  const network=[];page.on('request',r=>{if(/googletagmanager|google-analytics|\/g\/collect/.test(r.url()))network.push(r.url());});await page.goto('/');await page.locator('footer [data-privacy-open]').click();await page.getByRole('button',{name:'Decline optional analytics'}).click();
  await page.goto('/contact.html');expect(network).toEqual([]);
  execFileSync(process.execPath,[path.join(root,'scripts/build.cjs')],{cwd:root});

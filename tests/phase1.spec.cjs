@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const published = path.join(root,'dist');
-const pages = fs.readdirSync(published).filter(p => p.endsWith('.html'));
+const pages = fs.readdirSync(published,{recursive:true}).filter(p => p.endsWith('.html')).map(p=>p.replaceAll('\\','/'));
 const documents = pages.filter(p => fs.readFileSync(path.join(published, p), 'utf8').startsWith('<!DOCTYPE'));
 const shotDir = path.join(root, process.env.RUMIWARE_SCREENSHOTS_DIR || 'verification/screenshots');
 fs.mkdirSync(shotDir, {recursive:true});
@@ -59,7 +59,7 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
   await page.goto('/careers.html'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog.html'); await expect(page.locator('main article')).toHaveCount(1);
+  await page.goto('/blog.html'); await expect(page.locator('main article')).toHaveCount(2);
   await page.locator('a.more[href="blog-post.html"]').click();
   await expect(page.locator('h1')).toHaveText('Why Your Business Needs a Fast Mobile Website');
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content','article');
@@ -78,7 +78,7 @@ test('social metadata references a real 1200 by 630 asset and production canonic
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://rumiware.com/images/social-preview.png');
     const description=await page.locator('meta[name=description]').getAttribute('content');
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description);
-    await expect(page.locator('link[rel=icon]')).toHaveAttribute('href','images/favicon.png');
+    expect(await page.locator('link[rel=icon]').evaluate(el=>el.href)).toBe(new URL('/images/favicon.png',page.url()).href);
     if(file!=='404.html') expect(await page.locator('link[rel=canonical]').getAttribute('href')).toMatch(/^https:\/\/rumiware\.com\//);
   }
 });

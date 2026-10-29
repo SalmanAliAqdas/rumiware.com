@@ -25,11 +25,19 @@ const server = http.createServer(async (req, res) => {
     const source = await readFile(resolve(root,'get-quote.html'),'utf8');
     res.writeHead(200,{'Content-Type':types['.html']});res.end(source.replace('<head>','<head><meta name="robots" content="noindex">'));return;
   }
+  // Mirror the web server's directory-index URLs, without exposing source paths.
+  if (/^\/blog\/[a-z0-9-]+$/.test(path)) {
+    try {
+      if ((await stat(resolve(root, '.' + path, 'index.html'))).isFile()) {
+        res.writeHead(301, {Location:url.pathname + '/' + url.search}).end(); return;
+      }
+    } catch { /* Missing blog directories continue to the normal 404. */ }
+  }
   if (path.endsWith('/')) path += 'index.html';
   const file = resolve(root, '.' + path);
   const relative = file.slice(root.length).replaceAll('\\', '/');
   const publicFile = !relative.includes('..') && !relative.split('/').some(p => p.startsWith('.')) &&
-    (!relative.includes('/') || relative.startsWith('images/')) && types[extname(file)];
+    (!relative.includes('/') || relative.startsWith('images/') || /^blog\/[a-z0-9-]+\/index\.html$/.test(relative)) && types[extname(file)];
   try {
     if (!file.startsWith(root) || !publicFile || !(await stat(file)).isFile()) throw new Error('missing');
     res.writeHead(200, { 'Content-Type': types[extname(file)] }); res.end(await readFile(file));

@@ -41,6 +41,20 @@
       }
     ]
   },
+  "blog/future-of-ai/index.html": {
+    "title": "The Future of AI: Business, Jobs & Skills | RumiWare",
+    "description": "Explore the future of AI, its impact on business and jobs, and the practical skills small businesses and professionals need to prepare.",
+    "type": "article",
+    "schemas": [],
+    "article": {
+      "headline": "The Future of AI: What It Means for Businesses, Jobs, and Everyday Life",
+      "author": "Salman Ali Aqdas",
+      "role": "Founder & CEO, RumiWare",
+      "category": "Artificial Intelligence",
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30"
+    }
+  },
   "blog.html": {
     "title": "Blog | Rumiware - Web, Mobile & AI Tips for Business",
     "description": "Practical tips on websites, mobile apps and AI automation from the Rumiware team in Lahore, Pakistan.",

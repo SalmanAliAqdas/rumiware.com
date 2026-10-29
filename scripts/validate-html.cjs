@@ -5,7 +5,7 @@ const path=require('node:path');
   const root=path.resolve(__dirname,'../dist');
   // Standards rules check markup/content models; omit source-format preferences.
   const validator=new HtmlValidate({extends:['html-validate:standard'],rules:{'void-style':'off','no-trailing-whitespace':'off'}});
-  const files=fs.readdirSync(root).filter(f=>f.endsWith('.html'));
+  const files=fs.readdirSync(root,{recursive:true}).filter(f=>f.endsWith('.html')).map(f=>f.replaceAll('\\','/'));
   const results=[];
   for(const file of files){
     const report=await validator.validateFile(path.join(root,file));

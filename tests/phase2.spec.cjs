@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const shots=path.join(root,process.env.RUMIWARE_PHASE2_SCREENSHOTS_DIR||'verification/phase2/screenshots');fs.mkdirSync(shots,{recursive:true});
-const docs=fs.readdirSync(path.join(root,'dist')).filter(f=>f.endsWith('.html')&&fs.readFileSync(path.join(root,'dist',f),'utf8').startsWith('<!DOCTYPE'));
+const docs=fs.readdirSync(path.join(root,'dist'),{recursive:true}).filter(f=>f.endsWith('.html')&&fs.readFileSync(path.join(root,'dist',f),'utf8').startsWith('<!DOCTYPE')).map(f=>f.replaceAll('\\','/'));
 test.beforeEach(async({context})=>{
   await context.route(/formspree\.io|api\.web3forms\.com/,r=>r.abort());
   await context.route(/fonts\.googleapis\.com|fonts\.gstatic\.com|www\.google\.com\/maps/,r=>r.fulfill({status:200,body:''}));
