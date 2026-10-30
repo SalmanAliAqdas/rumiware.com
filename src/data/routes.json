@@ -1,0 +1,23 @@
+{
+  "index.html": "/",
+  "about.html": "/about/",
+  "services.html": "/services/",
+  "portfolio.html": "/portfolio/",
+  "pricing.html": "/pricing/",
+  "team.html": "/team/",
+  "blog.html": "/blog/",
+  "contact.html": "/contact/",
+  "get-quote.html": "/get-quote/",
+  "ai-solutions.html": "/ai-solutions/",
+  "careers.html": "/careers/",
+  "faq.html": "/faq/",
+  "full-stack.html": "/full-stack/",
+  "mobile-apps.html": "/mobile-apps/",
+  "privacy.html": "/privacy/",
+  "process.html": "/process/",
+  "terms.html": "/terms/",
+  "web-development.html": "/web-development/",
+  "blog-post.html": "/blog/fast-mobile-website/",
+  "blog/future-of-ai/index.html": "/blog/future-of-ai/",
+  "404.html": "/404.html"
+}

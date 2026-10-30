@@ -15,7 +15,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "about.html"
+        "url": "about/"
       }
     ]
   },
@@ -32,7 +32,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "contact.html"
+        "url": "contact/"
       }
     ]
   },
@@ -48,7 +48,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "faq.html"
+        "url": "faq/"
       }
     ]
   },
@@ -64,7 +64,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -80,7 +80,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "team.html"
+        "url": "team/"
       }
     ]
   },
@@ -96,7 +96,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "contact.html"
+        "url": "contact/"
       }
     ]
   },
@@ -112,7 +112,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "contact.html"
+        "url": "contact/"
       }
     ]
   },
@@ -128,7 +128,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "contact.html"
+        "url": "contact/"
       }
     ]
   },
@@ -162,7 +162,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "contact.html"
+        "url": "contact/"
       }
     ]
   },
@@ -180,7 +180,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -199,7 +199,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "pricing.html"
+        "url": "pricing/"
       }
     ]
   },
@@ -215,7 +215,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -231,7 +231,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -247,7 +247,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "pricing.html"
+        "url": "pricing/"
       }
     ]
   },
@@ -264,7 +264,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -296,7 +296,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -312,7 +312,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -328,7 +328,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -344,7 +344,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -360,7 +360,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "faq.html"
+        "url": "faq/"
       }
     ]
   },
@@ -376,7 +376,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -392,7 +392,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -408,7 +408,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "faq.html"
+        "url": "faq/"
       }
     ]
   },
@@ -424,7 +424,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -440,7 +440,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -458,7 +458,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -474,7 +474,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -490,7 +490,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -507,7 +507,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "portfolio.html#rumi-dental-care"
+        "url": "portfolio/#rumi-dental-care"
       }
     ]
   },
@@ -523,7 +523,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "portfolio.html#mani-bakes"
+        "url": "portfolio/#mani-bakes"
       }
     ]
   },
@@ -539,7 +539,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -555,7 +555,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -571,7 +571,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -587,7 +587,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "full-stack.html"
+        "url": "full-stack/"
       }
     ]
   },
@@ -603,7 +603,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -619,7 +619,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -635,7 +635,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -651,7 +651,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -667,7 +667,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#seo"
+        "url": "services/#seo"
       }
     ]
   },
@@ -683,7 +683,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "blog-post.html"
+        "url": "blog/fast-mobile-website/"
       }
     ]
   },
@@ -699,7 +699,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "get-quote.html"
+        "url": "get-quote/"
       }
     ]
   },
@@ -715,7 +715,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "process.html"
+        "url": "process/"
       }
     ]
   },
@@ -731,7 +731,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -747,7 +747,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "full-stack.html"
+        "url": "full-stack/"
       }
     ]
   },
@@ -763,7 +763,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -779,7 +779,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -795,7 +795,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "full-stack.html"
+        "url": "full-stack/"
       }
     ]
   },
@@ -811,7 +811,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "full-stack.html"
+        "url": "full-stack/"
       }
     ]
   },
@@ -827,7 +827,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -843,7 +843,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -859,7 +859,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -875,7 +875,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -891,7 +891,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -907,7 +907,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "ai-solutions.html"
+        "url": "ai-solutions/"
       }
     ]
   },
@@ -923,7 +923,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "ai-solutions.html"
+        "url": "ai-solutions/"
       }
     ]
   },
@@ -939,7 +939,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "ai-solutions.html"
+        "url": "ai-solutions/"
       }
     ]
   },
@@ -955,7 +955,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "ai-solutions.html"
+        "url": "ai-solutions/"
       }
     ]
   },
@@ -982,7 +982,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#support"
+        "url": "services/#support"
       }
     ]
   },
@@ -998,7 +998,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#support"
+        "url": "services/#support"
       }
     ]
   },
@@ -1014,7 +1014,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#support"
+        "url": "services/#support"
       }
     ]
   },
@@ -1030,7 +1030,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#support"
+        "url": "services/#support"
       }
     ]
   },
@@ -1063,7 +1063,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "portfolio.html"
+        "url": "portfolio/"
       }
     ]
   },
@@ -1079,7 +1079,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "portfolio.html#schoolos"
+        "url": "portfolio/#schoolos"
       }
     ]
   },
@@ -1095,7 +1095,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "blog.html"
+        "url": "blog/"
       }
     ]
   },
@@ -1127,7 +1127,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "blog-post.html"
+        "url": "blog/fast-mobile-website/"
       }
     ]
   },
@@ -1143,7 +1143,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "blog.html"
+        "url": "blog/"
       }
     ]
   },
@@ -1395,7 +1395,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "web-development.html"
+        "url": "web-development/"
       }
     ]
   },
@@ -1412,7 +1412,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "full-stack.html"
+        "url": "full-stack/"
       }
     ]
   },
@@ -1429,7 +1429,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "ai-solutions.html"
+        "url": "ai-solutions/"
       }
     ]
   },
@@ -1448,7 +1448,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "mobile-apps.html"
+        "url": "mobile-apps/"
       }
     ]
   },
@@ -1465,7 +1465,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#design"
+        "url": "services/#design"
       }
     ]
   },
@@ -1482,7 +1482,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#support"
+        "url": "services/#support"
       }
     ]
   },
@@ -1499,7 +1499,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "services.html#seo"
+        "url": "services/#seo"
       }
     ]
   },
@@ -1515,7 +1515,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "team.html"
+        "url": "team/"
       }
     ]
   },
@@ -1531,7 +1531,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "team.html"
+        "url": "team/"
       }
     ]
   },
@@ -1547,7 +1547,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "team.html"
+        "url": "team/"
       }
     ]
   },
@@ -1563,7 +1563,7 @@
     "links": [
       {
         "label": "Read more",
-        "url": "team.html"
+        "url": "team/"
       }
     ]
   }

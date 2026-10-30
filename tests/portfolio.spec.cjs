@@ -7,7 +7,7 @@ test('portfolio records publish exact URLs, safe previews and project status at 
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  expect(projects).toHaveLength(11);expect(new Set(projects.map(p=>p.id)).size).toBe(11);
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio.html');await expect(page.locator('.proj')).toHaveCount(11);
+  await page.goto(mount+'portfolio/');await expect(page.locator('.proj')).toHaveCount(11);
   await expect(page.locator('main')).toContainText('development status supplied by the project owner');
   await expect(page.locator('main')).not.toContainText(/contribution|Sample project/);
   await expect(page.locator('main iframe')).toHaveCount(0);
@@ -21,7 +21,7 @@ test('portfolio records publish exact URLs, safe previews and project status at 
    const img=card.locator('img');await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);await expect(img).toHaveAttribute('alt',p.alt);
    if(p.image.endsWith('.svg'))await expect(card.locator('figcaption')).toHaveText('Branded project cover, not an application screenshot.');
   }
-  await page.goto(mount+'contact.html');await expect(page.locator('main')).toContainText('Rumi Dental Care');
+  await page.goto(mount+'contact/');await expect(page.locator('main')).toContainText('Rumi Dental Care');
  }
  const archive=JSON.parse(fs.readFileSync('reference/portfolio-before-nine-projects.json','utf8'));expect(archive.map(p=>p.id)).toEqual(['mani-bakes','rumi-dental-care']);
  expect(errors).toEqual([]);
@@ -29,7 +29,7 @@ test('portfolio records publish exact URLs, safe previews and project status at 
 
 test('category filters work by keyboard in both themes and retain visible focus',async({page})=>{
  for(const theme of ['dark','light']){
-  await page.goto('/portfolio.html');await page.evaluate(t=>localStorage.setItem('rw-theme',t),theme);await page.reload();
+  await page.goto('/portfolio/');await page.evaluate(t=>localStorage.setItem('rw-theme',t),theme);await page.reload();
   const buttons=page.locator('.filters button');expect(await buttons.count()).toBe(1+new Set(projects.map(p=>p.categoryId)).size);
   for(const button of await buttons.all()){
    await button.focus();await button.press('Space');await expect(button).toBeFocused();await expect(button).toHaveAttribute('aria-pressed','true');
@@ -46,7 +46,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
  for(const mount of ['/','/rumiware.com/']){
   await page.goto(mount);const featured=projects.filter(p=>p.featured);expect(featured.map(p=>p.id)).toEqual(['schoolos','pdf-toolkit','expense-tracker']);
   await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumiware Expense Tracker']);
-  for(const p of featured.filter(p=>p.id!=='pdf-toolkit'))await expect(page.locator('.home-work a[href="portfolio.html#'+p.id+'"]').locator('..')).toContainText(p.summary);
+  for(const p of featured.filter(p=>p.id!=='pdf-toolkit'))await expect(page.locator('.home-work a[href$="portfolio/#'+p.id+'"]').locator('..')).toContainText(p.summary);
   const enquiry=page.locator('.home-work article').nth(1);
   await expect(enquiry.locator('.project-category')).toHaveText('Business Applications / Customer Enquiries');
   await expect(enquiry).toContainText('A customer enquiry application with enquiry submission, an admin dashboard, and AI-assisted reply drafting.');
@@ -56,7 +56,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
   await expect(enquiry.locator('figcaption')).toContainText('fictional enquiries; no replies are sent automatically');
   await expect(enquiry.locator('img')).toHaveAttribute('alt',/public Explore screen.*fictional/);
   await expect(page.locator('.home-work')).not.toContainText('PDF Toolkit');
-  await page.goto(mount+'portfolio.html#pdf-toolkit');await expect(page.locator('#pdf-toolkit')).toBeVisible();
+  await page.goto(mount+'portfolio/#pdf-toolkit');await expect(page.locator('#pdf-toolkit')).toBeVisible();
   await expect(page.locator('#pdf-toolkit a.more')).toHaveAttribute('href','https://rumiware-pdf-toolkit.streamlit.app/');
   await page.locator('[data-filter=games]').click();await expect(page.locator('#schoolos')).toBeHidden();
   await page.evaluate(()=>location.hash='schoolos');await expect(page.locator('#schoolos')).toBeVisible();await expect(page.locator('[data-filter=all]')).toHaveAttribute('aria-pressed','true');
@@ -65,13 +65,13 @@ test('homepage enquiry replacement preserves card order, other featured links an
 
 for(const mode of ['disabled','failed'])test('portfolio remains readable with JavaScript '+mode,async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route(/\/script\.js(?:\?.*)?$/,r=>r.abort());
- const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio.html#expense-tracker');
+ const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio/#expense-tracker');
  await expect(page.locator('.proj:visible')).toHaveCount(11);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
 });
 
 test('project collection reflows with enlarged text at all requested widths',async({page})=>{
  for(const width of [320,375,768,960,1024,1440]){
-  await page.setViewportSize({width,height:900});await page.goto('/portfolio.html');await page.addStyleTag({content:'html{font-size:200%}'});
+  await page.setViewportSize({width,height:900});await page.goto('/portfolio/');await page.addStyleTag({content:'html{font-size:200%}'});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),String(width)).toBe(true);
   for(const b of await page.locator('.filters button').all())expect((await b.boundingBox()).height).toBeGreaterThanOrEqual(44);
  }
@@ -81,7 +81,7 @@ test('six authentic responsive previews load at both mounts and open larger imag
  test.setTimeout(90000);
  const previews=projects.filter(p=>p.url.includes('.streamlit.app/'));expect(previews).toHaveLength(6);
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio.html');
+  await page.goto(mount+'portfolio/');
   for(const p of previews){
    const card=page.locator('#'+p.id),img=card.locator('img');
    await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());

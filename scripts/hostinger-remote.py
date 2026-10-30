@@ -158,7 +158,9 @@ def main():
             if not dest.exists():
                 dest.mkdir(mode=0o755)
                 dest.chmod(0o755)  # Override the private backup/staging umask.
-    for source, dest in files:
+    # Activate new root routing only after its destination pages/assets exist.
+    # All conflict, snapshot, backup and checksum guards remain unchanged.
+    for source, dest in sorted(files, key=lambda pair: pair[1] == TARGET / '.htaccess'):
         # Atomic per file. The whole deployment is not a single atomic transaction.
         with tempfile.NamedTemporaryFile(dir=dest.parent, prefix='.deploy-', delete=False) as output:
             temp = Path(output.name)

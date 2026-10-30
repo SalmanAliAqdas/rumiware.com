@@ -57,16 +57,16 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('main')).not.toContainText('Client Name');
   await expect(page.locator('[data-count]')).toHaveCount(0);
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
-  await page.goto('/careers.html'); await expect(page.locator('main')).toContainText('No current openings');
+  await page.goto('/careers/'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog.html'); await expect(page.locator('main article')).toHaveCount(2);
-  await page.locator('a.more[href="blog-post.html"]').click();
+  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(2);
+  await page.locator('a.more[href$="blog/fast-mobile-website/"]').click();
   await expect(page.locator('h1')).toHaveText('Why Your Business Needs a Fast Mobile Website');
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content','article');
   const data = await page.locator('script[type="application/ld+json"]').allTextContents();
   const article = data.map(JSON.parse).find(d => d['@type'] === 'BlogPosting');
-  expect(article.datePublished).toBeUndefined(); expect(article.url).toBe('https://rumiware.com/blog-post.html');
-  expect(await (await request.get('/sitemap.xml')).text()).toContain('https://rumiware.com/blog-post.html');
+  expect(article.datePublished).toBeUndefined(); expect(article.url).toBe('https://rumiware.com/blog/fast-mobile-website/');
+  expect(await (await request.get('/sitemap.xml')).text()).toContain('https://rumiware.com/blog/fast-mobile-website/');
 });
 
 test('social metadata references a real 1200 by 630 asset and production canonicals', async ({page,request})=>{
@@ -97,11 +97,11 @@ test('404 without JavaScript uses production recovery links and readable fallbac
 });
 
 async function fillContact(page) {
-  await page.goto('/contact.html');
+  await page.goto('/contact/');
   await page.locator('#cn').fill('Local QA'); await page.locator('#ce').fill('qa@example.invalid');
   await page.locator('#cm').fill('This is a mocked local verification message.');
 }
-async function fillQuote(page, file='get-quote.html') {
+async function fillQuote(page, file='get-quote/') {
   await page.goto('/'+file);
   await page.locator('[name=service][value=Website]').check();
   await page.locator('.qstep:visible [data-next]').click();
@@ -116,12 +116,12 @@ async function fillQuote(page, file='get-quote.html') {
 
 test('contact and quote validation reject invalid input without a provider request', async ({page}) => {
   let requests=0; await page.route('https://formspree.io/**', r => { requests++; return r.abort(); });
-  await page.goto('/contact.html'); await page.getByRole('button',{name:'Send message',exact:true}).click();
+  await page.goto('/contact/'); await page.getByRole('button',{name:'Send message',exact:true}).click();
   expect(await page.locator('#cn').evaluate(el=>el.validity.valueMissing)).toBe(true);
   await page.locator('#cn').fill('QA'); await page.locator('#ce').fill('bad');
   await page.getByRole('button',{name:'Send message',exact:true}).click();
   expect(await page.locator('#ce').evaluate(el=>el.validity.typeMismatch)).toBe(true);
-  await page.goto('/get-quote.html');
+  await page.goto('/get-quote/');
   await page.locator('.qstep:visible [data-next]').click();
   await expect(page.locator('.qstep:visible .err')).toContainText('choose a service');
   await page.locator('[name=service][value=Website]').check();
@@ -142,7 +142,7 @@ for (const kind of ['contact','quote','quote-preview']) {
       let route, resolveRequest;
       const arrived = new Promise(resolve => resolveRequest=resolve);
       await page.route('https://formspree.io/**', r => { route=r; resolveRequest(); });
-      if (kind==='contact') await fillContact(page); else await fillQuote(page,kind==='quote-preview'?'get-quote-preview.html':'get-quote.html');
+      if (kind==='contact') await fillContact(page); else await fillQuote(page,kind==='quote-preview'?'get-quote-preview.html':'get-quote/');
       const form = page.locator(kind==='contact'?'form.ajax':'#quoteForm');
       const status = page.locator(kind==='contact'?'.fmsg':'#qstatus');
       if(outcome==='timeout') await page.clock.install();
@@ -188,7 +188,7 @@ test('analytics stay absent before choice, with legacy Accept, after Decline and
   expect(await page.evaluate(()=>localStorage.getItem('rw-cookie'))).toBe('no');
   await page.keyboard.press('Escape'); await expect(page.locator('footer [data-privacy-open]')).toBeFocused();
   for(const file of documents) { await page.goto('/'+file); expect(await page.evaluate(()=>localStorage.getItem('rw-cookie'))).toBe('no'); }
-  await page.goto('/privacy.html'); await page.locator('main [data-privacy-open]').click();
+  await page.goto('/privacy/'); await page.locator('main [data-privacy-open]').click();
   await expect(page.locator('#privacy-status')).toContainText('saved preference is Decline');
   await expect(page.locator('[data-cookie]')).toBeFocused();
   await page.getByRole('button',{name:'Close',exact:true}).click();
@@ -208,7 +208,7 @@ test('nested missing URLs have actual 404 status, theme styling, assets and work
         expect((await request.get(url)).status()).toBe(200);
       }
       const home=page.getByRole('link',{name:'Go to Home',exact:true});
-      expect(await home.evaluate(el=>new URL(el.href).pathname)).toBe(mount+'index.html');
+      expect(await home.evaluate(el=>new URL(el.href).pathname)).toBe(mount);
       await home.click(); await expect(page.locator('h1')).toContainText('grows your business');
     }
   }
@@ -219,7 +219,7 @@ test('desktop/mobile and both themes: changed pages, overflow, keyboard menu and
   for(const width of [1440,390]) for(const theme of ['dark','light']) {
     await page.setViewportSize({width,height:900});
     await page.goto('/'); await page.evaluate(t=>localStorage.setItem('rw-theme',t),theme);
-    for(const file of ['index.html','careers.html','blog.html','contact.html','get-quote.html','privacy.html','nested/missing']) {
+    for(const file of ['index.html','careers/','blog/','contact/','get-quote/','privacy/','nested/missing']) {
       await page.goto('/'+file);
       expect(await page.locator('html').getAttribute('data-theme')).toBe(theme);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -227,7 +227,7 @@ test('desktop/mobile and both themes: changed pages, overflow, keyboard menu and
       await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,12));}scrollTo(0,0);});
       await page.screenshot({path:path.join(shotDir,`${file.replaceAll('/','-').replace('.html','')}-${width}-${theme}.png`),fullPage:true});
     }
-    await page.goto('/contact.html'); await page.locator('#cn').focus(); await page.keyboard.press('Tab'); await expect(page.locator('#ce')).toBeFocused();
+    await page.goto('/contact/'); await page.locator('#cn').focus(); await page.keyboard.press('Tab'); await expect(page.locator('#ce')).toBeFocused();
     if(width===390) { await page.locator('#menuBtn').focus(); await page.keyboard.press('Enter'); await expect(page.locator('#nav')).toBeVisible(); await page.keyboard.press('Escape'); await expect(page.locator('#menuBtn')).toHaveAttribute('aria-expanded','false'); }
     await page.locator('footer [data-privacy-open]').click();
     await page.screenshot({path:path.join(shotDir,`privacy-settings-${width}-${theme}.png`)});

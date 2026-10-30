@@ -12,6 +12,7 @@ The dependency-free static builder in `scripts/build.cjs` reads shared templates
 | --- | --- |
 | Contact details, navigation, preview mount, public form endpoints | `src/data/site.json` |
 | Page titles, descriptions, additional structured data | `src/data/pages.json` |
+| Canonical directory URLs and stable source page mapping | `src/data/routes.json` |
 | Project records, filters, previews, homepage selection | `src/data/projects.json` |
 | Services | `src/data/services.json` |
 | Team profiles | `src/data/team.json` |
@@ -111,3 +112,7 @@ Selected reports:
 - [Portfolio screenshots](../verification/PORTFOLIO-SCREENSHOTS.md)
 
 Local checks and mocked form tests do not establish live inbox delivery or the behavior of separately hosted application backends.
+
+## Clean URL release and recovery
+
+Public pages use directory URLs. Keep source page IDs stable and edit `src/data/routes.json` for public routes. See [CLEAN-URL-MIGRATION.md](CLEAN-URL-MIGRATION.md) for the full mapping, verified backup, Hostinger redirect configuration, verification boundary and targeted rollback procedure. Asset extensions remain unchanged.

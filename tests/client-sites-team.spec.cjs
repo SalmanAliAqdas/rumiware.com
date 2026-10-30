@@ -6,7 +6,7 @@ test('client websites use the Websites filter, authentic responsive previews and
  await context.route(url=>url.pathname.endsWith('/script.js')&&!url.search,r=>r.fulfill({contentType:'text/javascript',body:'/* older cached script without portfolio filters */'}));
  await context.route(url=>url.pathname.endsWith('/style.css')&&!url.search,r=>r.fulfill({contentType:'text/css',body:'/* older cached stylesheet */'}));
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio.html');
+  await page.goto(mount+'portfolio/');
   const filter=page.getByRole('button',{name:'Websites',exact:true});await filter.focus();await filter.press('Space');
   await expect(filter).toHaveAttribute('aria-pressed','true');await expect(page.locator('.proj:visible')).toHaveCount(2);
   await expect(page.locator('#project-count')).toHaveText('2 projects shown');
@@ -37,11 +37,11 @@ test('client websites use the Websites filter, authentic responsive previews and
 
 test('team links belong to the correct existing person and preserve profiles',async({page})=>{
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'team.html');await expect(page.locator('article.team-card')).toHaveCount(4);
+  await page.goto(mount+'team/');await expect(page.locator('article.team-card')).toHaveCount(4);
   for(const person of team){
    const card=page.locator('article.team-card').filter({has:page.getByRole('heading',{name:person.name,exact:true})});
    await expect(card).toHaveCount(1);await expect(card.locator('.team-role')).toHaveText(person.role);await expect(card).toContainText(person.description);
-   await expect(card.locator('img')).toHaveAttribute('src','images/portraits/'+person.image+'.webp');
+   await expect(card.locator('img')).toHaveAttribute('src','../images/portraits/'+person.image+'.webp');
    for(const [platform,url] of [['GitHub',person.github],['LinkedIn',person.linkedin]])if(url){
     const link=card.getByRole('link',{name:person.name+"'s "+platform+' profile (opens in a new tab)',exact:true});
     await expect(link).toHaveAttribute('href',url);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');

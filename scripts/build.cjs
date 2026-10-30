@@ -5,6 +5,11 @@ if(path.relative(root,out)!=='dist'||(fs.existsSync(out)&&fs.lstatSync(out).isSy
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');const data=name=>JSON.parse(read(`src/data/${name}.json`));
 const site=data('site'),pages=data('pages'),plans=data('pricing'),team=data('team'),services=data('services'),commercial=data('commercial'),icons=data('icons'),projects=data('projects');
 const homeEnquiry=data('home-enquiry');
+const {routes,outputFile,cleanLink}=require('./routes.cjs');
+const hostingReview=JSON.parse(read('config/clean-url-hosting-review.json'));
+if(hostingReview.rootHtaccessExisted!==false||!hostingReview.verifiedPreparationBackup)throw Error('Clean URL hosting configuration needs review');
+const redirectConfig=read('config/clean-url-redirects.conf').replace(/\r\n/g,'\n');
+if(redirectConfig!==require('./routes.cjs').apacheRules())throw Error('Redirect configuration differs from route map');
 const chatbot=data('chatbot-faq');
 require('./validate-chatbot.cjs')(chatbot);
 // These updated pages must not reuse older CSS/JS cached under the bare URLs.
@@ -36,7 +41,7 @@ function tokens(file){return {EMAIL:esc(site.email),TELEPHONE:esc(site.telephone
 function render(source,values){return source.replace(/\{\{icon:([a-z]+)\}\}/g,(_,name)=>icon(name)).replace(/\{\{([A-Z_]+)\}\}/g,(_,key)=>{if(!(key in values))throw Error('Unknown template value '+key);return values[key];});}
 const organization={'@context':'https://schema.org','@type':'Organization',name:site.name,url:site.url,email:site.email,telephone:site.telephone,address:{'@type':'PostalAddress',addressLocality:'Lahore',addressCountry:'PK'},sameAs:[site.github]};
 const outputs={};
-const pagePath=file=>'/'+file.replace(/(^|\/)index\.html$/,'$1');
+const pagePath=file=>routes[file];
 for(const [file,page] of Object.entries(pages)){
  if(!/^(?:[a-z0-9-]+\/)*[a-z0-9-]+\.html$/.test(file)||typeof page.title!=='string'||!page.title.trim()||typeof page.description!=='string'||!page.description.trim())throw Error('Invalid filename or missing page metadata: '+file);
  const values=tokens(file);values.ROBOT=read('src/assets/robot.svg');values.WEEKENDS=esc(site.weekends);
@@ -60,12 +65,16 @@ for(const [file,page] of Object.entries(pages)){
  BASE:file==='404.html'?`<base href="${site.url}/"><script>document.querySelector('base').setAttribute('href', location.hostname === ${json(site.previewHost)} || location.pathname.indexOf(${json(site.previewPath)}) === 0 ? ${json(site.previewPath)} : '/');</script><noscript><style>.js-recovery{display:none}</style></noscript>`:'',
  FALLBACK_STYLE:file==='404.html'?'<style>body{margin:0;background:#0B1E2D;color:#E6E0D0;font:1rem/1.65 system-ui,sans-serif}a{color:#3FD0CB}h1,h2{color:#F4EEDD}</style>':'',
  SCHEMA:schemas.map(s=>`<script type="application/ld+json">${json(s)}</script>`).join('\n'),HEADER:render(read('src/layout/header.html'),values),FOOTER:render(read('src/layout/footer.html'),values),CONTENT:render(read('src/pages/'+file),values)});
- outputs[file]=render(read('src/layout/document.html'),values);
- if(file==='portfolio.html'||file==='team.html'||page.article)outputs[file]=outputs[file].replace('href="style.css"','href="'+pageAssets['style.css']+'"').replace('src="script.js"','src="'+pageAssets['script.js']+'"');
+ const target=outputFile(file);
+ outputs[target]=render(read('src/layout/document.html'),values);
+ if(file==='portfolio.html'||file==='team.html'||page.article)outputs[target]=outputs[target].replace('href="style.css"','href="'+pageAssets['style.css']+'"').replace('src="script.js"','src="'+pageAssets['script.js']+'"');
  // Keep nested pages portable at the domain root and the repository preview mount.
- const prefix='../'.repeat(file.split('/').length-1);
- if(prefix)outputs[file]=outputs[file].replace(/\b(href|src)="(?![a-z][a-z0-9+.-]*:|\/|#)([^"]+)"/gi,(_,attribute,url)=>`${attribute}="${prefix}${url}"`);
- if(/\{\{[A-Za-z_]/.test(outputs[file]))throw Error('Unresolved template in '+file);
+ const prefix='../'.repeat(target.split('/').length-1);
+ outputs[target]=outputs[target].replace(/\b(href|src)="([^"]+)"/gi,(_,attribute,url)=>{
+  const clean=cleanLink(url);
+  return `${attribute}="${/^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(clean)?clean:prefix+clean}"`;
+ }).replace(/\bsrcset="([^"]+)"/g,(_,value)=>'srcset="'+value.split(',').map(part=>part.trim().replace(/^(\S+)/,url=>/^(?:[a-z][a-z0-9+.-]*:|\/)/i.test(url)?url:prefix+url)).join(', ')+'"');
+ if(/\{\{[A-Za-z_]/.test(outputs[target]))throw Error('Unresolved template in '+file);
 }
 // Page bodies are rendered before replacing only the verified generated directory.
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});
@@ -77,4 +86,7 @@ for(const asset of assets){const dest=path.join(out,asset);fs.mkdirSync(path.dir
 fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc></url>`).join('')}</urlset>\n`);
 fs.writeFileSync(path.join(out,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
+// Live inspection confirmed no existing .htaccess. The deployment conflict guard
+// still refuses to overwrite any different configuration created in the meantime.
+fs.writeFileSync(path.join(out,'.htaccess'),redirectConfig);
 console.log(`Built ${Object.keys(outputs).length} complete HTML pages in dist/; development references excluded.`);

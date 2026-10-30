@@ -9,7 +9,7 @@ test('FAQ data validates and every prepared question/alternate resolves accurate
  expect(validate(entries)).toEqual({entries:96,categories:14});
  const fs=require('node:fs'),path=require('node:path');
  const dist=path.resolve(__dirname,'../dist');
- for(const file of Object.keys(require('../src/data/pages.json')).filter(f=>f!=='404.html'))expect(fs.readFileSync(path.join(dist,file),'utf8'),file).toContain('id="rumi-chat"');
+ for(const file of Object.keys(require('../src/data/pages.json')).filter(f=>f!=='404.html'))expect(fs.readFileSync(path.join(dist,require('../scripts/routes.cjs').outputFile(file)),'utf8'),file).toContain('id="rumi-chat"');
  expect(fs.existsSync(path.join(dist,'src/data/chatbot-faq.json'))).toBe(false);
  const resolve=createResolver(entries);
  for(const entry of entries)for(const question of [entry.question,...entry.alternates]) {
@@ -57,7 +57,7 @@ test('open, close, Escape, focus return, quick replies and reset work without na
  await page.getByRole('button',{name:'What web development services do you offer?',exact:true}).click();
  await expect(page.locator('#chat-messages')).toContainText('Business websites');
  await page.getByRole('button',{name:'Request a Quote',exact:true}).click();
- await expect(page.locator('#chat-messages a').last()).toHaveAttribute('href',/\/get-quote.html$/);
+ await expect(page.locator('#chat-messages a').last()).toHaveAttribute('href',/\/get-quote\/$/);
  await ask(page,'Hello');
  await page.getByRole('button',{name:'New conversation',exact:true}).click();
  await expect(page.locator('#chat-messages .chat-message')).toHaveCount(1);
@@ -103,7 +103,7 @@ for(const theme of ['dark','light'])for(const width of [320,390,1280])test(`${th
   await expect(page.locator('html')).toHaveAttribute('data-theme',theme);
   await ask(page,'Where can I read your blog?');
   const href=await page.locator('#chat-messages a').last().getAttribute('href');
-  expect(new URL(href).pathname).toBe(path.startsWith('/rumiware.com/')?'/rumiware.com/blog.html':'/blog.html');
+  expect(new URL(href).pathname).toBe(path.startsWith('/rumiware.com/')?'/rumiware.com/blog/':'/blog/');
   const boxes=await page.evaluate(()=>{
    const box=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right};};
    return {panel:box('#rumi-chat'),wa:box('.wa'),launcher:box('#chat-launcher'),input:box('#chat-question'),scroll:document.documentElement.scrollWidth,viewport:innerWidth};
@@ -151,7 +151,7 @@ test('privacy notice and short keyboard viewport do not cover chat controls',asy
  await expect(page.locator('.wa')).toBeHidden();
  await page.getByRole('button',{name:'Close',exact:true}).click();
  await expect(page.locator('#chat-launcher')).toBeVisible();
- await page.goto('/contact.html');
+ await page.goto('/contact/');
  await page.locator('#cn').focus();
  await expect(page.locator('#chat-launcher')).toBeHidden();
 });

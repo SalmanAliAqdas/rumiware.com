@@ -9,7 +9,7 @@ for(const theme of ['dark','light'])test(`Blog navigation works on desktop and m
     await page.evaluate(()=>document.fonts.ready);
     await expect(page.locator('html')).toHaveAttribute('data-theme',theme);
     await expect(page.locator('#nav a')).toHaveText(labels);
-    const blog=page.locator('#nav a[href="blog.html"]');await expect(blog).toHaveCount(1);
+    const blog=page.locator('#nav a[href$="blog/"]');await expect(blog).toHaveCount(1);
     const menu=page.locator('#menuBtn');
     if(width<1100){await expect(page.locator('#nav')).toBeHidden();await menu.click();await expect(menu).toHaveAttribute('aria-expanded','true');}
     else{
@@ -20,7 +20,7 @@ for(const theme of ['dark','light'])test(`Blog navigation works on desktop and m
       });expect(fits,`${mount} at ${width}px`).toBe(true);
       for(const link of await page.locator('#nav a').all())expect(await link.evaluate(el=>el.getBoundingClientRect().height)).toBeLessThanOrEqual(44);
     }
-    await blog.click();await expect(page).toHaveURL(new RegExp(mount+'blog\\.html$'));
+    await blog.click();await expect(page).toHaveURL(new RegExp(mount+'blog/$'));
     await expect(page.locator('.crumbs [aria-current="page"]')).toHaveText('Blog');
     if(width<1100){
       await expect(menu).toHaveAttribute('aria-expanded','false');await expect(page.locator('#nav')).toBeHidden();await menu.click();

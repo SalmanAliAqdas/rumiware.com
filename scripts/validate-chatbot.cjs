@@ -2,6 +2,7 @@ const {normalize}=require('../src/assets/chatbot-resolver.js');
 const site=require('../src/data/site.json');
 const pages=require('../src/data/pages.json');
 const projects=require('../src/data/projects.json');
+const {routes,cleanLink}=require('./routes.cjs');
 const allowedExternal=new Set([site.whatsapp,...projects.filter(p=>p.visible).map(p=>p.url)]);
 module.exports=function validate(entries) {
  const ids=new Set(),variants=new Map();
@@ -25,8 +26,9 @@ module.exports=function validate(entries) {
     if(url.protocol!=='https:'||url.username||url.password)throw Error('Unsafe chatbot destination: '+link.url);
     continue;
    }
-   const [file,hash]=link.url.split('#');
-   if(!Object.hasOwn(pages,file)&&!Object.hasOwn(pages,file+'index.html'))throw Error('Untrusted chatbot destination: '+link.url);
+   const [destination,hash]=link.url.split('#');
+   const file=Object.keys(routes).find(id=>(routes[id].slice(1)||'./')===destination);
+   if(!file||cleanLink(link.url)!==link.url)throw Error('Untrusted or noncanonical chatbot destination: '+link.url);
    if(hash&&!require('node:fs').readFileSync(require('node:path').join(__dirname,'../src/pages',file),'utf8').includes('id="'+hash+'"')&&!projects.some(p=>p.visible&&p.id===hash)&&!require('../src/data/services.json').some(s=>s.id===hash))throw Error('Invalid chatbot anchor: '+link.url);
   }
  }

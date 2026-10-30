@@ -67,7 +67,8 @@ push deployment remains separate and unchanged.
    with a list of conflicting relative paths and no website writes. File/directory
    collisions also stop. Remote-only files are retained; no remote deletion is used.
 6. Recheck the destination and snapshot, then replace ordinary build files
-   atomically per file. Verify SHA-256 contents afterward. New public directories
+   atomically per file. Activate any new root `.htaccess` only after the ordinary
+   pages/assets have finished. Verify SHA-256 contents afterward. New public directories
    receive 0755 and new public files 0644; existing file modes are retained.
 
 GitHub concurrency serializes this repository's Hostinger workflow runs; running
@@ -83,8 +84,9 @@ Read the failed run's conflict paths and compare the staged build with the live
 configuration using your trusted hosting tools. Never paste private configuration
 or credentials into workflow logs or issues. Keep the live hosting configuration
 by removing the conflicting file from the build, or reconcile the intended change
-manually after review and a backup. The current builder emits `.nojekyll` but no
-`.htaccess`. Do not bypass the guard to force an overwrite. A subsequent workflow run
+manually after review and a backup. The builder emits `.nojekyll` and the reviewed clean-URL `.htaccess` described in
+[CLEAN-URL-MIGRATION.md](CLEAN-URL-MIGRATION.md). Real inspection confirmed there was
+no existing `.htaccess` before this migration. Do not bypass the guard to force an overwrite. A subsequent workflow run
 creates a fresh full backup and repeats every check.
 
 No step changes DNS, SSL, email, other domains, or account-wide settings. Website

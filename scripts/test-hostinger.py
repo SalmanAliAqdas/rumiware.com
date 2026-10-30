@@ -79,6 +79,27 @@ class DeploymentSafety(unittest.TestCase):
         self.call('deploy', self.payload({'index.html': 'new', '.htaccess': 'hosting configuration'}))
         self.assertEqual((self.target / 'index.html').read_text(), 'new')
 
+    def test_reviewed_new_config_and_nested_routes_preserve_legacy_and_remote_only_files(self):
+        (self.target / '.htaccess').unlink()  # Mirrors the inspected production state.
+        (self.target / 'about.html').write_text('old about page')
+        self.call('backup')
+        self.call('deploy', self.payload({'index.html': 'clean home', '.htaccess': 'explicit redirects',
+                                          'about/index.html': 'clean about'}))
+        self.assertEqual((self.target / '.htaccess').read_text(), 'explicit redirects')
+        self.assertEqual((self.target / 'about/index.html').read_text(), 'clean about')
+        self.assertEqual((self.target / 'about.html').read_text(), 'old about page')
+        self.assertEqual((self.target / 'remote-only.txt').read_text(), 'keep this')
+
+    def test_redirect_configuration_is_not_activated_before_pages_finish(self):
+        (self.target / '.htaccess').unlink()
+        self.call('backup')
+        self.code = self.code.replace('os.replace(temp, dest)',
+                                      "if dest.name == 'index.html': raise RuntimeError('fixture upload failure')\n        os.replace(temp, dest)")
+        self.call('deploy', self.payload({'index.html': 'new', '.htaccess': 'new redirects',
+                                         'about/index.html': 'clean about'}), False)
+        self.assertFalse((self.target / '.htaccess').exists())
+        self.assertEqual((self.target / 'index.html').read_text(), 'old website')
+
     def test_corrupt_backup_blocks_publish(self):
         self.call('backup')
         with (self.backup / 'site.tar').open('ab') as stream:
@@ -138,6 +159,67 @@ class DeploymentSafety(unittest.TestCase):
         self.assertTrue(calls[0][-1].endswith('inspect 123-1'))
         self.assertTrue(calls[1][-1].endswith('backup 123-1'))
         self.assertEqual(list(self.root.glob('hostinger-*')), [])
+
+
+class CleanUrlRecovery(unittest.TestCase):
+    def setUp(self):
+        self.fixture = DeploymentSafety(methodName='runTest')
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.target = self.fixture.target
+        (self.target / '.htaccess').unlink()
+        (self.target / 'about.html').write_text('old about')
+        self.fixture.call('backup')
+        self.fixture.call('deploy', self.fixture.payload({
+            'index.html': 'clean home', '.htaccess': 'migration redirects',
+            'about/index.html': 'clean about'}))
+        (self.target / 'index.html').write_text('old website')  # Completed git revert deployment.
+        self.fixture.run_id = '124-1'
+        self.fixture.call('backup')
+        self.code = Path(__file__).with_name('rollback-clean-urls.py').read_text(encoding='utf-8').replace(
+            "Path('/home/u721646606/domains/rumiware.com/public_html')", 'Path(' + repr(str(self.target.resolve())) + ')')
+
+    def recover(self, success):
+        result = subprocess.run([sys.executable, '-c', self.code, '123-1', '124-1'], capture_output=True)
+        self.assertEqual(result.returncode == 0, success, result.stdout.decode() + result.stderr.decode())
+        return result
+
+    def test_only_unchanged_created_files_are_quarantined(self):
+        self.recover(True)
+        self.assertFalse((self.target / '.htaccess').exists())
+        self.assertFalse((self.target / 'about').exists())
+        self.assertEqual((self.target / 'about.html').read_text(), 'old about')
+        self.assertEqual((self.target / 'index.html').read_text(), 'old website')
+        self.assertEqual((self.target / 'remote-only.txt').read_text(), 'keep this')
+        self.assertTrue((self.fixture.root / '.deployment-backups/124-1/clean-url-quarantine/.htaccess').is_file())
+
+    def test_later_changes_to_created_files_block_all_cleanup(self):
+        (self.target / 'about/index.html').write_text('later work')
+        self.fixture.run_id = '125-1'
+        self.fixture.call('backup')
+        self.code = self.code.replace('migration_run, current_run = sys.argv[1:]', "migration_run, current_run = '123-1', '125-1'")
+        self.recover(False)
+        self.assertEqual((self.target / '.htaccess').read_text(), 'migration redirects')
+        self.assertEqual((self.target / 'about/index.html').read_text(), 'later work')
+
+    def test_remote_change_after_recovery_backup_blocks_cleanup(self):
+        (self.target / 'remote-only.txt').write_text('changed after backup')
+        self.recover(False)
+        self.assertTrue((self.target / '.htaccess').is_file())
+
+    def test_corrupt_migration_backup_blocks_cleanup(self):
+        with (self.fixture.backup / 'site.tar').open('ab') as stream:
+            stream.write(b'corruption')
+        self.recover(False)
+        self.assertTrue((self.target / '.htaccess').is_file())
+
+    def test_unrelated_files_in_new_directories_are_retained(self):
+        (self.target / 'about/later.txt').write_text('keep later content')
+        self.fixture.run_id = '125-1'
+        self.fixture.call('backup')
+        self.code = self.code.replace('migration_run, current_run = sys.argv[1:]', "migration_run, current_run = '123-1', '125-1'")
+        self.recover(True)
+        self.assertEqual((self.target / 'about/later.txt').read_text(), 'keep later content')
 
 
 if __name__ == '__main__':

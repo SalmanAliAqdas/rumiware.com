@@ -2,6 +2,8 @@ import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+const {redirectFor}=createRequire(import.meta.url)('./routes.cjs');
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const site = JSON.parse(await readFile(new URL('../src/data/site.json', import.meta.url), 'utf8'));
@@ -22,22 +24,17 @@ const server = http.createServer(async (req, res) => {
   if (path.startsWith(site.previewPath)) path = path.slice(previewMount.length);
   // Regression-only compatibility URL. It is never written into published dist/.
   if (process.argv.includes('--qa') && path === '/get-quote-preview.html') {
-    const source = await readFile(resolve(root,'get-quote.html'),'utf8');
+    const source = await readFile(resolve(root,'get-quote/index.html'),'utf8');
     res.writeHead(200,{'Content-Type':types['.html']});res.end(source.replace('<head>','<head><meta name="robots" content="noindex">'));return;
   }
-  // Mirror the web server's directory-index URLs, without exposing source paths.
-  if (/^\/blog\/[a-z0-9-]+$/.test(path)) {
-    try {
-      if ((await stat(resolve(root, '.' + path, 'index.html'))).isFile()) {
-        res.writeHead(301, {Location:url.pathname + '/' + url.search}).end(); return;
-      }
-    } catch { /* Missing blog directories continue to the normal 404. */ }
-  }
+  // Local model of the explicit redirect map. This does not execute .htaccess.
+  const redirect=redirectFor(path);
+  if(redirect!==null){const mount=url.pathname.startsWith(site.previewPath)?previewMount:'';res.writeHead(301,{Location:mount+redirect+url.search}).end();return;}
   if (path.endsWith('/')) path += 'index.html';
   const file = resolve(root, '.' + path);
   const relative = file.slice(root.length).replaceAll('\\', '/');
   const publicFile = !relative.includes('..') && !relative.split('/').some(p => p.startsWith('.')) &&
-    (!relative.includes('/') || relative.startsWith('images/') || /^blog\/[a-z0-9-]+\/index\.html$/.test(relative)) && types[extname(file)];
+    (!relative.includes('/') || relative.startsWith('images/') || /^(?:[a-z0-9-]+\/)+index\.html$/.test(relative)) && types[extname(file)];
   try {
     if (!file.startsWith(root) || !publicFile || !(await stat(file)).isFile()) throw new Error('missing');
     res.writeHead(200, { 'Content-Type': types[extname(file)] }); res.end(await readFile(file));

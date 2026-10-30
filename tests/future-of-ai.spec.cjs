@@ -29,7 +29,7 @@ test('new article uses the clean URL, exact SEO metadata, real author and consis
   expect(article).toMatchObject({headline,description,url,mainEntityOfPage:url,datePublished:'2026-10-30',dateModified:'2026-10-30',articleSection:'Artificial Intelligence',author:{'@type':'Person',name:'Salman Ali Aqdas',jobTitle:'Founder & CEO, RumiWare'},publisher:{'@type':'Organization',name:'RumiWare'},image:'https://rumiware.com/images/social-preview.png'});
   await expect(page.locator('time')).toHaveAttribute('datetime',article.datePublished);await expect(page.locator('time')).toHaveText('30 October 2026');
   await expect(page.locator('.page-hero .meta')).toContainText('Salman Ali Aqdas');await expect(page.locator('.page-hero .meta')).toContainText('Founder & CEO, RumiWare');
-  expect(await page.locator('article a').evaluateAll(links=>links.map(a=>a.href))).toEqual(['https://rumiware.com/contact.html',...refs]);
+  expect(await page.locator('article a').evaluateAll(links=>links.map(a=>a.href))).toEqual(['https://rumiware.com/contact/',...refs]);
   await expect(page.locator('article')).not.toContainText('IMPLEMENTATION INSTRUCTIONS');await expect(page.locator('article')).not.toContainText('SEO METADATA');
   const headings=await page.locator('main h1,main h2,main h3').evaluateAll(nodes=>nodes.map(n=>Number(n.tagName.slice(1))));
   expect(headings.filter(n=>n===1)).toHaveLength(1);for(let i=1;i<headings.length;i++)expect(headings[i]-headings[i-1]).toBeLessThanOrEqual(1);
@@ -44,9 +44,9 @@ for(const theme of ['dark','light'])test(`article and Blog listing work at both 
  await page.route('https://**/*',r=>r.abort());const errors=[],failures=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1')&&r.status()>=400)failures.push(r.url())});
  for(const mount of ['/','/rumiware.com/'])for(const width of [375,1440]){
-  await page.setViewportSize({width,height:900});await page.goto(mount+'blog.html');
-  await expect(page.locator('main article')).toHaveCount(2);await expect(page.locator('a.more[href="blog-post.html"]')).toHaveCount(1);
-  await page.locator(`a.more[href="${route}"]`).click();await expect(page).toHaveURL(new RegExp(mount+route+'$'));
+  await page.setViewportSize({width,height:900});await page.goto(mount+'blog/');
+  await expect(page.locator('main article')).toHaveCount(2);await expect(page.locator('a.more[href$="blog/fast-mobile-website/"]')).toHaveCount(1);
+  await page.locator(`a.more[href$="${route}"]`).click();await expect(page).toHaveURL(new RegExp(mount+route+'$'));
   await page.locator('html.menu-ready.theme-ready').waitFor();await page.evaluate(()=>document.fonts.ready);
   await expect(page.locator('html')).toHaveAttribute('data-theme',theme);await expect(page.locator('h1')).toHaveText(headline);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
@@ -55,9 +55,9 @@ for(const theme of ['dark','light'])test(`article and Blog listing work at both 
   const menu=page.locator('#menuBtn');if(width<1100){await expect(page.locator('#nav')).toBeHidden();await menu.click();}
   await expect(page.locator('#nav [aria-current=page]')).toHaveText('Blog');
   expect(await page.locator('#nav [aria-current=page]').evaluate(a=>getComputedStyle(a).textDecorationLine)).toContain('underline');
-  await page.locator('#nav a[href="../../index.html"]').click();await expect(page).toHaveURL(new RegExp(mount+'index\\.html$'));
-  await page.goto(mount+route);await page.locator('.crumbs a[href="../../blog.html"]').click();await expect(page).toHaveURL(new RegExp(mount+'blog\\.html$'));
-  await page.locator(`a.more[href="${route}"]`).click();await page.getByRole('navigation',{name:'Article navigation'}).getByRole('link',{name:'Back to Blog'}).click();await expect(page).toHaveURL(new RegExp(mount+'blog\\.html$'));
+  await page.locator('#nav a').filter({hasText:/^Home$/}).click();await expect(page).toHaveURL(new RegExp(mount+'$'));
+  await page.goto(mount+route);await page.locator('.crumbs a[href$="../../blog/"]').click();await expect(page).toHaveURL(new RegExp(mount+'blog/$'));
+  await page.locator(`a.more[href$="${route}"]`).click();await page.getByRole('navigation',{name:'Article navigation'}).getByRole('link',{name:'Back to Blog'}).click();await expect(page).toHaveURL(new RegExp(mount+'blog/$'));
  }
  expect(errors).toEqual([]);expect(failures).toEqual([]);
 });
@@ -67,8 +67,8 @@ test('article and nested navigation remain available without JavaScript',async({
  const page=await context.newPage();try{
   for(const mount of ['/','/rumiware.com/']){
    expect((await page.goto('http://127.0.0.1:4173'+mount+route)).status()).toBe(200);
-   await expect(page.locator('h1')).toHaveText(headline);await expect(page.locator('#nav a[href="../../blog.html"]')).toBeVisible();
-   await page.locator('#nav a[href="../../blog.html"]').click();await expect(page.locator(`a.more[href="${route}"]`)).toBeVisible();
+   await expect(page.locator('h1')).toHaveText(headline);await expect(page.locator('#nav a[href$="../../blog/"]')).toBeVisible();
+   await page.locator('#nav a[href$="../../blog/"]').click();await expect(page.locator(`a.more[href$="${route}"]`)).toBeVisible();
   }
  }finally{await context.close()}
 });
