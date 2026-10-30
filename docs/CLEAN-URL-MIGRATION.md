@@ -98,3 +98,11 @@ The tool gets the endpoint/port only from the supplied trusted entry, uses the e
 Only files matching the retained final release and absent from the migration's original snapshot move to the fresh backup's `clean-url-quarantine/`. Removing the migration-created `.htaccess` restores its original absence and inherited rules. Only empty migration-created directories are removed. Pre-existing directories, old pages, hosting files and later/unrelated files remain. Changed migration files, symlinks, corrupted backups or concurrent changes stop the whole preflight before cleanup; resolve those individually without bypassing guards.
 
 Verify the homepage, `.html` URLs, article, forms, assets and status codes afterward. Retain all backups and quarantine. Recovery is explicit; normal deployment does not execute cleanup.
+
+## Subsequent canonical-host update
+
+[WWW-REDIRECT.md](WWW-REDIRECT.md) records the later www-to-non-www update, its
+separate verified backup, checksum-scoped deployment exception and targeted
+rollback. The original absence/backup records above remain historical facts.
+Use that targeted rollback for only the www update; preserve clean URLs and the
+Analytics release.

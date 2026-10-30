@@ -12,6 +12,11 @@ import tempfile
 
 TARGET = Path('/home/u721646606/domains/rumiware.com/public_html')
 BACKUPS = TARGET.parent / '.deployment-backups'
+# Exact, inspected configuration migration; never permits arbitrary .htaccess edits.
+REVIEWED_HTACCESS_TRANSITION = (
+    '8a51280002cd38ebe9f6cb4ff559d92a1bedc970a99eed99195ab1458d03d654',
+    '3f341c8cc89e139026ed9e01db0126f79da6359cbb509085c093eae88fab5347',
+)
 
 
 def require(condition, message):
@@ -144,8 +149,11 @@ def main():
         if path.is_file():
             if dest.exists() and protected(name):
                 if digest(path) != digest(dest):
-                    conflicts.append(name)
-                continue  # Identical hosting configuration is preserved in place.
+                    if name == '.htaccess' and (digest(dest), digest(path)) == REVIEWED_HTACCESS_TRANSITION:
+                        files.append((path, dest))
+                    else:
+                        conflicts.append(name)
+                continue  # Identical config stays in place; reviewed updates are queued.
             files.append((path, dest))
     if conflicts:
         print('Hosting configuration conflicts: ' + json.dumps(conflicts))
@@ -161,6 +169,13 @@ def main():
     # Activate new root routing only after its destination pages/assets exist.
     # All conflict, snapshot, backup and checksum guards remain unchanged.
     for source, dest in sorted(files, key=lambda pair: pair[1] == TARGET / '.htaccess'):
+        if dest == TARGET / '.htaccess':
+            original = before.get('.htaccess')
+            require(not dest.is_symlink() and
+                    ((not dest.exists()) if original is None else
+                     (dest.is_file() and digest(dest) == original[3] and
+                      (original[3], digest(source)) == REVIEWED_HTACCESS_TRANSITION)),
+                    'Root configuration changed before activation; stopping.')
         # Atomic per file. The whole deployment is not a single atomic transaction.
         with tempfile.NamedTemporaryFile(dir=dest.parent, prefix='.deploy-', delete=False) as output:
             temp = Path(output.name)
@@ -170,7 +185,7 @@ def main():
         os.replace(temp, dest)
     require(all(digest(source) == digest(dest) for source, dest in files),
             'Uploaded file verification failed; restore backup if needed.')
-    print('Deployment verified; remote-only files and existing hosting configuration preserved.')
+    print('Deployment verified; remote-only files preserved; configuration changes limited to the reviewed transition.')
 
 
 if __name__ == '__main__':

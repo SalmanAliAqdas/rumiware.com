@@ -29,6 +29,11 @@ function apacheRules() {
  return '# BEGIN RumiWare clean URLs\n<IfModule mod_rewrite.c>\nRewriteEngine On\n'+[...redirects].map(([old,route])=>
   '# External requests only: internal DirectoryIndex resolution must not redirect.\n'+
   'RewriteCond %{THE_REQUEST} "\\s/+'+escape(old.slice(1))+'(?:[?\\s])" [NC]\n'+
-  'RewriteRule ^'+escape(old.slice(1))+'$ '+route+' [R=301,L,NE]\n').join('\n')+'</IfModule>\nErrorDocument 404 /404.html\n# END RumiWare clean URLs\n';
+  'RewriteRule ^'+escape(old.slice(1))+'$ '+site.url+route+' [R=301,L,NE]\n').join('\n')+'\n# Canonical host only; independent of proxy/TLS scheme to avoid loops.\n'+
+  'RewriteCond %{HTTP_HOST} ^www\\.rumiware\\.com$ [NC]\n'+
+  '# Capture the original encoded path, not the decoded RewriteRule path.\n'+
+  'RewriteCond %{THE_REQUEST} "\\s(/[^?\\s]*)(?:\\?|\\s)"\n'+
+  'RewriteRule ^ https://rumiware.com%1 [R=301,L,NE]\n'+
+  '</IfModule>\nErrorDocument 404 /404.html\n# END RumiWare clean URLs\n';
 }
 module.exports={routes,outputFile,cleanLink,redirectFor,apacheRules};

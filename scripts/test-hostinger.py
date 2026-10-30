@@ -100,6 +100,67 @@ class DeploymentSafety(unittest.TestCase):
         self.assertFalse((self.target / '.htaccess').exists())
         self.assertEqual((self.target / 'index.html').read_text(), 'old website')
 
+    def reviewed_config(self):
+        current = (Path(__file__).resolve().parent.parent / 'config/clean-url-redirects.conf').read_text(encoding='utf-8')
+        previous = current.split('\n# Canonical host only;')[0] + '</IfModule>\nErrorDocument 404 /404.html\n# END RumiWare clean URLs\n'
+        previous = previous.replace('https://rumiware.com/', '/')
+        import hashlib
+        self.assertEqual(hashlib.sha256(previous.encode()).hexdigest(), '8a51280002cd38ebe9f6cb4ff559d92a1bedc970a99eed99195ab1458d03d654')
+        self.assertEqual(hashlib.sha256(current.encode()).hexdigest(), '3f341c8cc89e139026ed9e01db0126f79da6359cbb509085c093eae88fab5347')
+        (self.target / '.htaccess').write_bytes(previous.encode())
+        return previous, current
+
+    def test_reviewed_config_transition_retains_verified_backup_and_unrelated_files(self):
+        previous, current = self.reviewed_config()
+        self.call('backup')
+        self.call('deploy', self.payload({'index.html': 'new', '.htaccess': current}))
+        self.assertEqual((self.target / '.htaccess').read_text(), current)
+        with tarfile.open(self.backup / 'site.tar') as archive:
+            self.assertEqual(archive.extractfile('./.htaccess').read(), previous.encode())
+        self.assertEqual((self.target / '.hidden/settings').read_text(), 'private settings')
+        self.assertEqual((self.target / 'remote-only.txt').read_text(), 'keep this')
+
+    def test_reviewed_config_does_not_allow_modified_source_or_destination(self):
+        for alter_dest in [False, True]:
+            with self.subTest(alter_dest=alter_dest):
+                previous, current = self.reviewed_config()
+                self.run_id = '321-' + str(int(alter_dest) + 1)
+                if alter_dest:
+                    (self.target / '.htaccess').write_text('# unrelated security rule\n' + previous)
+                else:
+                    current += '# unreviewed incoming edit\n'
+                before = (self.target / '.htaccess').read_bytes()
+                self.call('backup')
+                self.call('deploy', self.payload({'index.html':'new', '.htaccess':current}), False)
+                self.assertEqual((self.target / 'index.html').read_text(), 'old website')
+                self.assertEqual((self.target / '.htaccess').read_bytes(), before)
+
+    def test_reviewed_transition_cannot_change_other_protected_paths(self):
+        previous, current = self.reviewed_config()
+        (self.target / '.hidden/settings').write_bytes(previous.encode())
+        self.call('backup')
+        self.call('deploy', self.payload({'index.html':'new', '.hidden/settings':current}), False)
+        self.assertEqual((self.target / 'index.html').read_text(), 'old website')
+        self.assertEqual((self.target / '.hidden/settings').read_bytes(), previous.encode())
+
+    def test_reviewed_replacement_is_activated_only_after_ordinary_uploads_succeed(self):
+        previous, current = self.reviewed_config()
+        self.call('backup')
+        self.code = self.code.replace('os.replace(temp, dest)',
+            "if dest.name == 'index.html': raise RuntimeError('fixture upload failure')\n        os.replace(temp, dest)")
+        self.call('deploy', self.payload({'index.html':'new', '.htaccess':current}), False)
+        self.assertEqual((self.target / '.htaccess').read_bytes(), previous.encode())
+
+    def test_config_change_during_upload_stops_reviewed_activation(self):
+        previous, current = self.reviewed_config()
+        self.call('backup')
+        self.code = self.code.replace('os.replace(temp, dest)',
+            "os.replace(temp, dest)\n        if dest.name == 'index.html': (TARGET / '.htaccess').write_text('concurrent config edit')")
+        self.call('deploy', self.payload({'index.html':'new', '.htaccess':current}), False)
+        self.assertEqual((self.target / '.htaccess').read_text(), 'concurrent config edit')
+        with tarfile.open(self.backup / 'site.tar') as archive:
+            self.assertEqual(archive.extractfile('./.htaccess').read(), previous.encode())
+
     def test_corrupt_backup_blocks_publish(self):
         self.call('backup')
         with (self.backup / 'site.tar').open('ab') as stream:

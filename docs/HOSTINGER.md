@@ -64,11 +64,13 @@ push deployment remains separate and unchanged.
 5. Check all destination conflicts before changing public files. Preserve every
    existing hidden path except `.nojekyll`, plus `web.config` and `php.ini`.
    Identical configuration files are left untouched. Different contents abort
-   with a list of conflicting relative paths and no website writes. File/directory
-   collisions also stop. Remote-only files are retained; no remote deletion is used.
+   with a list of conflicting relative paths and no website writes. The sole reviewed
+   exception is the exact old-to-new root `.htaccess` checksum pair recorded in
+   [WWW-REDIRECT.md](WWW-REDIRECT.md); arbitrary configuration edits remain blocked.
+   File/directory collisions also stop. Remote-only files are retained; no remote deletion is used.
 6. Recheck the destination and snapshot, then replace ordinary build files
-   atomically per file. Activate any new root `.htaccess` only after the ordinary
-   pages/assets have finished. Verify SHA-256 contents afterward. New public directories
+   atomically per file. Activate any new or explicitly reviewed root `.htaccess` only
+   after the ordinary pages/assets have finished. Verify SHA-256 contents afterward. New public directories
    receive 0755 and new public files 0644; existing file modes are retained.
 
 GitHub concurrency serializes this repository's Hostinger workflow runs; running

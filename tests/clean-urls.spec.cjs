@@ -75,7 +75,7 @@ test('Apache rule fixture is constrained and THE_REQUEST prevents DirectoryIndex
  expect(rules.length).toBeGreaterThan(30);
  function match(uri,original=uri){return rules.filter(r=>r.pattern.test(uri.slice(1))&&r.condition.test('GET '+original+' HTTP/1.1'));}
  for(const [file,route] of Object.entries(routes).filter(([file])=>file!=='404.html')){
-  expect(match('/'+file).map(r=>r.target)).toEqual([route]);
+  expect(match('/'+file).map(r=>r.target)).toEqual([site.url+route]);
   expect(match(route+'index.html',route)).toEqual([]);
  }
  expect(match('/nonexistent.html')).toEqual([]);
