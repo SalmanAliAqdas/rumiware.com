@@ -179,8 +179,11 @@ class CleanUrlRecovery(unittest.TestCase):
         self.code = Path(__file__).with_name('rollback-clean-urls.py').read_text(encoding='utf-8').replace(
             "Path('/home/u721646606/domains/rumiware.com/public_html')", 'Path(' + repr(str(self.target.resolve())) + ')')
 
-    def recover(self, success):
-        result = subprocess.run([sys.executable, '-c', self.code, '123-1', '124-1'], capture_output=True)
+    def recover(self, success, current_run='124-1', release_run=None):
+        arguments = [sys.executable, '-c', self.code, '123-1', current_run]
+        if release_run:
+            arguments.append(release_run)
+        result = subprocess.run(arguments, capture_output=True)
         self.assertEqual(result.returncode == 0, success, result.stdout.decode() + result.stderr.decode())
         return result
 
@@ -197,8 +200,7 @@ class CleanUrlRecovery(unittest.TestCase):
         (self.target / 'about/index.html').write_text('later work')
         self.fixture.run_id = '125-1'
         self.fixture.call('backup')
-        self.code = self.code.replace('migration_run, current_run = sys.argv[1:]', "migration_run, current_run = '123-1', '125-1'")
-        self.recover(False)
+        self.recover(False, current_run='125-1')
         self.assertEqual((self.target / '.htaccess').read_text(), 'migration redirects')
         self.assertEqual((self.target / 'about/index.html').read_text(), 'later work')
 
@@ -217,9 +219,22 @@ class CleanUrlRecovery(unittest.TestCase):
         (self.target / 'about/later.txt').write_text('keep later content')
         self.fixture.run_id = '125-1'
         self.fixture.call('backup')
-        self.code = self.code.replace('migration_run, current_run = sys.argv[1:]', "migration_run, current_run = '123-1', '125-1'")
-        self.recover(True)
+        self.recover(True, current_run='125-1')
         self.assertEqual((self.target / 'about/later.txt').read_text(), 'keep later content')
+
+    def test_final_followup_release_hashes_allow_targeted_migration_recovery(self):
+        self.fixture.run_id = '126-1'
+        self.fixture.call('backup')
+        self.fixture.call('deploy', self.fixture.payload({
+            'index.html': 'fixed home', '.htaccess': 'migration redirects',
+            'about/index.html': 'fixed clean about'}))
+        (self.target / 'index.html').write_text('old website')
+        self.fixture.run_id = '127-1'
+        self.fixture.call('backup')
+        self.recover(True, current_run='127-1', release_run='126-1')
+        self.assertFalse((self.target / '.htaccess').exists())
+        self.assertFalse((self.target / 'about').exists())
+        self.assertEqual((self.target / 'index.html').read_text(), 'old website')
 
 
 if __name__ == '__main__':

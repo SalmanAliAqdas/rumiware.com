@@ -12,7 +12,7 @@ Before any redirect configuration change, the unchanged deployment helper create
 
 It contains `site.tar`, `archive.sha256` and `snapshot.json`, including dotfiles, legacy pages, remote-only files and the absence of `.htaccess`. Every archived member/hash/size/mode matched an unchanged site snapshot. Retain this directory outside `public_html`.
 
-The automatic migration deployment independently creates its normal backup at `.deployment-backups/RUN_ID-RUN_ATTEMPT/`, retaining its release under `incoming/`. The actual migration run ID is available in GitHub Actions and the release report after pushing. Use that migration run for recovery, not the preparation-only backup.
+The automatic migration deployment independently creates its normal backup at `.deployment-backups/RUN_ID-RUN_ATTEMPT/`, retaining its release under `incoming/`. The migration run is `40991512982-1`: its verified backup is `/home/u721646606/domains/rumiware.com/.deployment-backups/40991512982-1/site.tar`. Use this baseline run for recovery, not the preparation-only backup.
 
 ## URL inventory
 
@@ -61,30 +61,40 @@ Run `npm run build`, `npm run check`, `npm test` and `python scripts/test-hostin
 
 The preview server models redirects; it and the regex fixture do not execute `.htaccess`. Apache/LiteSpeed was unavailable locally. Verify production separately with real HTTP status/Location/query/single-hop checks, unknown 404s and browser fragments. Hostinger CDN challenges may require normal browser completion before browser-context requests. Never weaken hosting protections for verification.
 
+## Live cache finding and narrow follow-up
+
+All 80 real HTTP route/status/Location/query checks passed after migration. Live browser verification exposed an older CDN-cached bare `script.js` (8,136 bytes) instead of the current 18,269-byte LF-normalized script. The existing versioned references on portfolio/team/articles worked. The follow-up commit `Version shared assets across clean URL pages` extends that existing content-version query to every normal public page; extensions and asset contents are unchanged. The 404 recovery page keeps its bare references. No CDN settings, credentials or security rules were changed.
+
+Because the migration was already pushed and force-pushing is forbidden, the fix is a separate small commit. Recovery must revert that companion first and use its retained final release payload hashes for new route files, while using the original migration snapshot to determine which paths were actually created.
+
 ## Targeted rollback
 
-Stop other publishers. Revert only this migration, preserving later commits. Do not reset, force-push, delete `public_html`, use broad deletion or restore the entire old archive over later work.
+Stop other publishers. Revert only this migration and its cache companion, preserving later commits. Do not reset, force-push, delete `public_html`, use broad deletion or restore the entire old archive over later work.
 
 Save the recovery tool before reverting (PowerShell, from the repository):
 
 ```powershell
 $migrationCommit = git log main -1 --format=%H --grep='^Migrate website pages to clean URLs with legacy redirects$'
-if (-not $migrationCommit) { throw 'Migration commit not found' }
-git show "${migrationCommit}:scripts/rollback-clean-urls.py" | Set-Content -Encoding utf8 test-results/rollback-clean-urls.py
-git revert --no-edit $migrationCommit
+$assetFixCommit = git log main -1 --format=%H --grep='^Version shared assets across clean URL pages$'
+if (-not $migrationCommit -or -not $assetFixCommit) { throw 'Migration/follow-up commit not found' }
+New-Item -ItemType Directory -Path test-results -Force | Out-Null
+git show "${assetFixCommit}:scripts/rollback-clean-urls.py" | Set-Content -Encoding utf8 test-results/rollback-clean-urls.py
+git revert --no-commit $assetFixCommit $migrationCommit
+if ($LASTEXITCODE -ne 0) { throw 'Resolve only these revert conflicts without discarding later work' }
+git commit -m 'Revert clean URL migration and asset cache follow-up'
 git push origin main
 ```
 
 Confirm the revert's Hostinger deployment succeeds. This restores working `.html` pages/navigation but intentionally preserves remote-only clean directories and the migration `.htaccess`. Git revert alone is therefore insufficient.
 
-Get the **migration** deployment run ID and attempt from its successful workflow/release report (not the revert run). Replace the final `RUN_ID-RUN_ATTEMPT` label below with that actual identifier. Do not use preparation backup `1793325662-1`, which has no `incoming/` release payload.
+The original migration baseline run is `40991512982-1`. Get the **asset-fix follow-up** deployment run ID/attempt from its successful workflow/release report, not the revert run. Replace the final `FINAL_RELEASE_RUN_ID-RUN_ATTEMPT` label below with that actual identifier. The tool checks baseline absence against the original migration snapshot, and compares current new-route bytes against the final follow-up payload. Do not use preparation backup `1793325662-1`, which has no `incoming/` release payload.
 
 ```powershell
-python test-results/rollback-clean-urls.py --ssh u721646606 C:\Users\SALMAN\.ssh\rumiware_hostinger C:\Users\SALMAN\.ssh\rumiware_known_hosts RUN_ID-RUN_ATTEMPT
+python test-results/rollback-clean-urls.py --ssh u721646606 C:\Users\SALMAN\.ssh\rumiware_hostinger C:\Users\SALMAN\.ssh\rumiware_known_hosts 40991512982-1 FINAL_RELEASE_RUN_ID-RUN_ATTEMPT
 ```
 
-The tool gets the endpoint/port only from the supplied trusted entry, uses the existing key without copying it, enforces strict host verification and disables password login. It first invokes the unchanged helper's inspection and creates a fresh verified full backup outside `public_html`. It verifies both backup checksums, archive membership/content against snapshots, the unchanged current tree and new-file hashes against the retained migration release before moving anything.
+The tool gets the endpoint/port only from the supplied trusted entry, uses the existing key without copying it, enforces strict host verification and disables password login. It first invokes the existing helper's inspection and creates a fresh verified full backup outside `public_html`. It verifies backup checksums, archive membership/content against snapshots, the unchanged current tree and new-file hashes against the retained final release before moving anything.
 
-Only unchanged files absent from the migration's original snapshot move to the fresh backup's `clean-url-quarantine/`. Removing the migration-created `.htaccess` restores its original absence and inherited rules. Only empty migration-created directories are removed. Pre-existing directories, old pages, hosting files and later/unrelated files remain. Changed migration files, symlinks, corrupted backups or concurrent changes stop the whole preflight before cleanup; resolve those individually without bypassing guards.
+Only files matching the retained final release and absent from the migration's original snapshot move to the fresh backup's `clean-url-quarantine/`. Removing the migration-created `.htaccess` restores its original absence and inherited rules. Only empty migration-created directories are removed. Pre-existing directories, old pages, hosting files and later/unrelated files remain. Changed migration files, symlinks, corrupted backups or concurrent changes stop the whole preflight before cleanup; resolve those individually without bypassing guards.
 
 Verify the homepage, `.html` URLs, article, forms, assets and status codes afterward. Retain all backups and quarantine. Recovery is explicit; normal deployment does not execute cleanup.

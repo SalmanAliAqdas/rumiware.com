@@ -1,6 +1,6 @@
 """Quarantine only unchanged migration-created files AFTER git revert deployment.
 
-Run over the same pinned SSH connection. Arguments: migration run, fresh backup run.
+Run over pinned SSH. Arguments: migration run, fresh backup run, optional final release run.
 Both backups must already have been verified by the unchanged deployment helper.
 """
 import hashlib
@@ -70,7 +70,9 @@ def backup(run):
 
 def operate_over_ssh():
     # Local convenience mode. SSH alone reads the existing private key.
-    user, key_path, known_path, migration_run = sys.argv[2:]
+    require(len(sys.argv) in (6, 7), 'Provide user, key, trusted hosts, migration run, optional final release run.')
+    user, key_path, known_path, migration_run = sys.argv[2:6]
+    release_run = sys.argv[6] if len(sys.argv) == 7 else migration_run
     require(re.fullmatch(r'[A-Za-z_][A-Za-z0-9_-]*', user), 'Invalid confirmed SSH username.')
     require(re.fullmatch(r'[0-9]+-[0-9]+', migration_run), 'Invalid migration identifier.')
     require(Path(key_path).is_file() and Path(known_path).is_file(), 'Existing key or trusted hosts file missing.')
@@ -95,19 +97,22 @@ def operate_over_ssh():
     current_run = str(int(time.time())) + '-1'
     execute(helper, 'inspect', current_run)
     execute(helper, 'backup', current_run)
-    execute(Path(__file__).read_text(encoding='utf-8-sig'), migration_run, current_run)
+    execute(Path(__file__).read_text(encoding='utf-8-sig'), migration_run, current_run, release_run)
 
 
 def main():
-    migration_run, current_run = sys.argv[1:]
+    require(len(sys.argv) in (3, 4), 'Provide migration run, recovery backup run, optional final release run.')
+    migration_run, current_run = sys.argv[1:3]
+    release_run = sys.argv[3] if len(sys.argv) == 4 else migration_run
     require(migration_run != current_run, 'Use a fresh backup of the post-revert site.')
     require(TARGET.is_dir() and TARGET.resolve() == TARGET, 'Unsafe target.')
     require(BACKUPS.is_dir() and BACKUPS.resolve() == BACKUPS, 'Unsafe backup root.')
     migration, before = backup(migration_run)
+    release, _ = backup(release_run)
     current, preserved = backup(current_run)
     require('.htaccess' not in before, 'This migration expected no previous .htaccess; manual review required.')
     require(snapshot(TARGET) == preserved, 'Site changed after recovery backup; stop.')
-    incoming = migration / 'incoming'
+    incoming = release / 'incoming'
     require(incoming.is_dir() and incoming.resolve() == incoming, 'Migration payload missing.')
     expected = snapshot(incoming)
     require('.htaccess' in expected and expected['.htaccess'][0] == 'file', 'Migration redirect file missing.')

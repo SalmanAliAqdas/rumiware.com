@@ -13,6 +13,8 @@ test('central route inventory drives output, canonical metadata, structured data
   const html=fs.readFileSync(path.join(root,'dist',outputFile(file)),'utf8');
   expect(html).toContain(`<link rel="canonical" href="${site.url+route}">`);
   expect(html).toContain(`<meta property="og:url" content="${site.url+route}">`);
+  expect(html).toMatch(/src="(?:..\/)*script\.js\?v=[a-f0-9]{12}"/);
+  expect(html).toMatch(/href="(?:..\/)*style\.css\?v=[a-f0-9]{12}"/);
   expect(html).toContain(`<title>${pages[file].title.replaceAll('&','&amp;')}</title>`);
   for(const match of html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g))expect(match[1]).not.toMatch(/https:\/\/rumiware\.com\/[^"\s]*\.html/);
   if(!file.includes('/')&&file!=='index.html')expect(fs.existsSync(path.join(root,'dist',file))).toBe(false);

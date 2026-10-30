@@ -67,7 +67,7 @@ for(const [file,page] of Object.entries(pages)){
  SCHEMA:schemas.map(s=>`<script type="application/ld+json">${json(s)}</script>`).join('\n'),HEADER:render(read('src/layout/header.html'),values),FOOTER:render(read('src/layout/footer.html'),values),CONTENT:render(read('src/pages/'+file),values)});
  const target=outputFile(file);
  outputs[target]=render(read('src/layout/document.html'),values);
- if(file==='portfolio.html'||file==='team.html'||page.article)outputs[target]=outputs[target].replace('href="style.css"','href="'+pageAssets['style.css']+'"').replace('src="script.js"','src="'+pageAssets['script.js']+'"');
+ if(file!=='404.html')outputs[target]=outputs[target].replace('href="style.css"','href="'+pageAssets['style.css']+'"').replace('src="script.js"','src="'+pageAssets['script.js']+'"');
  // Keep nested pages portable at the domain root and the repository preview mount.
  const prefix='../'.repeat(target.split('/').length-1);
  outputs[target]=outputs[target].replace(/\b(href|src)="([^"]+)"/gi,(_,attribute,url)=>{

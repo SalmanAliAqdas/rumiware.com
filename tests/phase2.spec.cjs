@@ -131,11 +131,11 @@ test('quote focus, packages, required semantics, stale errors, review and full-b
 
 test('early theme before shared script and storage denied do not break essential features',async({page})=>{
   await page.goto('/');await page.evaluate(()=>localStorage.setItem('rw-theme','light'));
-  await page.route('**/script.js',r=>r.abort());await page.goto('/contact/');
+  await page.route('**/script.js*',r=>r.abort());await page.goto('/contact/');
   await expect(page.locator('html')).toHaveAttribute('data-theme','light');
   expect(await page.locator('html').evaluate(el=>getComputedStyle(el).colorScheme)).toBe('light');
   await expect(page.locator('.rv').first()).toHaveCSS('opacity','1');
-  await page.unroute('**/script.js');
+  await page.unroute('**/script.js*');
   await page.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Storage blocked','SecurityError');}});});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/get-quote/');
   await page.locator('#themeBtn').click();await expect(page.locator('html')).toHaveAttribute('data-theme','light');
@@ -145,7 +145,7 @@ test('early theme before shared script and storage denied do not break essential
 
 test('missing optional feature nodes and failed observer cannot disable unrelated features',async({page})=>{
   await page.emulateMedia({reducedMotion:'no-preference'});
-  await page.route('**/script.js',async r=>{
+  await page.route('**/script.js*',async r=>{
     const response=await r.fetch();const source=await response.text();
     await r.fulfill({response,body:"['nav','privacy-status','qprog'].forEach(id=>document.getElementById(id)?.remove()); window.IntersectionObserver=function(){throw Error('Observer unavailable');};\n"+source});
   });
