@@ -1,0 +1,1570 @@
+[
+  {
+    "id": "intro",
+    "category": "Company",
+    "question": "What does RumiWare do?",
+    "alternates": [
+      "Who are you",
+      "Tell me about RumiWare",
+      "What is RumiWare",
+      "What services do you offer",
+      "Our services",
+      "List your services"
+    ],
+    "answer": "RumiWare is a software house in Lahore offering websites, web apps, mobile apps, full-stack development and AI solutions, alongside design, support and SEO.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "about.html"
+      }
+    ]
+  },
+  {
+    "id": "location",
+    "category": "Company",
+    "question": "Where is RumiWare located?",
+    "alternates": [
+      "Where are you based",
+      "Where is your office",
+      "RumiWare address"
+    ],
+    "answer": "388 Block A Revenue Society, Johar Town, Lahore, Pakistan",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "contact.html"
+      }
+    ]
+  },
+  {
+    "id": "international",
+    "category": "Company",
+    "question": "Do you work with international clients?",
+    "alternates": [
+      "Do you work outside Pakistan",
+      "Can overseas clients contact you"
+    ],
+    "answer": "Yes. The website states that RumiWare works worldwide, communicating by email, WhatsApp and video calls.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "faq.html"
+      }
+    ]
+  },
+  {
+    "id": "nontechnical",
+    "category": "Company",
+    "question": "Can I start without technical knowledge?",
+    "alternates": [
+      "I am not technical",
+      "Do I need programming knowledge"
+    ],
+    "answer": "Yes. The team explains the project in plain language. Describe your goals and ask for a consultation.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "team",
+    "category": "Company",
+    "question": "Who will work on my project?",
+    "alternates": [
+      "Meet your team",
+      "Who is on the team"
+    ],
+    "answer": "The published team is Salman Ali Aqdas, Aamir Ashraf, Hassan and Hussain. Their roles and profiles are on the team page.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "team.html"
+      }
+    ]
+  },
+  {
+    "id": "email",
+    "category": "Contact",
+    "question": "How can I email RumiWare?",
+    "alternates": [
+      "What is your email address",
+      "Email contact"
+    ],
+    "answer": "Email the team at info@rumiware.com.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "contact.html"
+      }
+    ]
+  },
+  {
+    "id": "phone",
+    "category": "Contact",
+    "question": "What is your phone number?",
+    "alternates": [
+      "Can I call you",
+      "Telephone number"
+    ],
+    "answer": "The published phone number is +92 333 5767687.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "contact.html"
+      }
+    ]
+  },
+  {
+    "id": "hours",
+    "category": "Contact",
+    "question": "What are your office hours?",
+    "alternates": [
+      "When are you open",
+      "Business hours"
+    ],
+    "answer": "Mon–Fri, 2:00–10:00 PM PKT. Saturday and Sunday: closed.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "contact.html"
+      }
+    ]
+  },
+  {
+    "id": "whatsapp",
+    "category": "Contact",
+    "question": "How can I contact you on WhatsApp?",
+    "alternates": [
+      "WhatsApp contact",
+      "Contact on WhatsApp",
+      "Talk on WhatsApp"
+    ],
+    "answer": "Use Chat on WhatsApp to open the existing RumiWare contact. You review and send any message yourself.",
+    "links": [
+      {
+        "label": "Chat on WhatsApp",
+        "url": "https://wa.me/923335767687"
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "category": "Contact",
+    "question": "How do I contact RumiWare?",
+    "alternates": [
+      "Contact your team",
+      "Contact details",
+      "Get in touch"
+    ],
+    "answer": "Contact the team by WhatsApp, email, phone or the existing contact form.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "contact.html"
+      }
+    ]
+  },
+  {
+    "id": "request-quote",
+    "category": "Planning & pricing",
+    "question": "How do I request a quote?",
+    "alternates": [
+      "Request a quote",
+      "Get a quotation",
+      "Request a consultation",
+      "I want a website quote"
+    ],
+    "answer": "Use the consultation page and describe your project, goals and required features. The team can discuss the scope and provide an individual quotation.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "project-cost",
+    "category": "Planning & pricing",
+    "question": "How much does a project cost?",
+    "alternates": [
+      "What is your pricing",
+      "Website pricing",
+      "How much is a website",
+      "How much do you charge",
+      "How much will my website cost"
+    ],
+    "answer": "Prices depend on the agreed scope. The pricing page lists starting packages; request a written quote for your project.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "pricing.html"
+      }
+    ]
+  },
+  {
+    "id": "requirements",
+    "category": "Planning & pricing",
+    "question": "What should I prepare for a consultation?",
+    "alternates": [
+      "What project details do you need",
+      "How do I describe my project"
+    ],
+    "answer": "Share your business goals, audience, essential features, existing website if any, and preferred budget and timeline. The team will assess the scope.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "payment",
+    "category": "Planning & pricing",
+    "question": "How do payments work?",
+    "alternates": [
+      "Payment milestones",
+      "What are your payment terms"
+    ],
+    "answer": "Payment milestones are agreed in the written quote before work begins. Confirm the arrangement with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "extra-costs",
+    "category": "Planning & pricing",
+    "question": "Are domain and hosting costs included?",
+    "alternates": [
+      "Are there extra costs",
+      "What costs are separate"
+    ],
+    "answer": "Package prices are starting points. Domain, hosting and paid third-party tools are separate; the written quote lists the agreed scope and costs.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "pricing.html"
+      }
+    ]
+  },
+  {
+    "id": "timeline",
+    "category": "Planning & pricing",
+    "question": "How long will my project take?",
+    "alternates": [
+      "What is the delivery timeline",
+      "When will my website be ready",
+      "How long does a website take"
+    ],
+    "answer": "Ask the team for a timeline based on your features, content and technical requirements. This assistant does not set a delivery date.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "discounts",
+    "category": "Planning & pricing",
+    "question": "Do you offer discounts?",
+    "alternates": [
+      "Can I get a discount",
+      "Is there a special offer"
+    ],
+    "answer": "Ask the team on WhatsApp about your quotation. Discount availability must be confirmed individually.",
+    "links": [
+      {
+        "label": "Chat on WhatsApp",
+        "url": "https://wa.me/923335767687"
+      }
+    ]
+  },
+  {
+    "id": "process",
+    "category": "Project process",
+    "question": "What are your development steps?",
+    "alternates": [
+      "How does your process work",
+      "What is the project process"
+    ],
+    "answer": "The published process covers discovery, design, development, testing, launch and support.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "discovery",
+    "category": "Project process",
+    "question": "What happens during discovery?",
+    "alternates": [
+      "How do you plan a project",
+      "What is discovery"
+    ],
+    "answer": "Discovery focuses on your business, goals and customers, followed by an agreed scope, budget and timeline.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "design-review",
+    "category": "Project process",
+    "question": "Can I review designs before development?",
+    "alternates": [
+      "Will I see a prototype",
+      "Do you create wireframes"
+    ],
+    "answer": "The process page describes layouts and clickable prototypes for feedback and approval before development.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "progress",
+    "category": "Project process",
+    "question": "Can I see progress during development?",
+    "alternates": [
+      "Will you share demo links",
+      "Can I review work in progress"
+    ],
+    "answer": "The website describes working demo links and regular progress updates during development. Discuss the review arrangements for your project.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "revisions",
+    "category": "Project process",
+    "question": "Can I request project changes?",
+    "alternates": [
+      "How do revisions work",
+      "Can I change the scope"
+    ],
+    "answer": "Changes can be discussed during the project. Confirm the scope and any effect on costs or timing with the team before additional work begins.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "faq.html"
+      }
+    ]
+  },
+  {
+    "id": "testing",
+    "category": "Project process",
+    "question": "How do you test before launch?",
+    "alternates": [
+      "Do you test on different devices",
+      "What testing do you perform"
+    ],
+    "answer": "The process page lists device and browser checks, speed and security checks, and a final client review. Agree project-specific acceptance requirements with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "launch",
+    "category": "Project process",
+    "question": "What happens when the website launches?",
+    "alternates": [
+      "How do you take a website live",
+      "What is the launch process"
+    ],
+    "answer": "The published launch stage includes a go-live checklist, domain and hosting setup, handover and training.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "ownership",
+    "category": "Project process",
+    "question": "Who owns the website and code?",
+    "alternates": [
+      "Who owns the code",
+      "Will I own my website"
+    ],
+    "answer": "The FAQ states that code, designs and account access are handed over once the project is paid for. Confirm the details in your written agreement.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "faq.html"
+      }
+    ]
+  },
+  {
+    "id": "redesign",
+    "category": "Websites",
+    "question": "Can you improve my existing website?",
+    "alternates": [
+      "Can you redesign my website",
+      "My site is already built can you improve it"
+    ],
+    "answer": "Yes. The FAQ describes reviewing an existing site and discussing what to keep, fix, extend or rebuild.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "responsive",
+    "category": "Websites",
+    "question": "Will my website work on mobile phones?",
+    "alternates": [
+      "Do you build responsive websites",
+      "Is the website mobile friendly"
+    ],
+    "answer": "The web development page describes mobile-friendly websites for phones, tablets and larger screens.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "business-site",
+    "category": "Websites",
+    "question": "Do you build business websites?",
+    "alternates": [
+      "Can you make a company website",
+      "I need a business website",
+      "Can you build a website",
+      "I need a website"
+    ],
+    "answer": "Business and brand websites are listed services, including business information, product menus and enquiry flows.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "landing-page",
+    "category": "Websites",
+    "question": "What is a landing page?",
+    "alternates": [
+      "Explain landing pages",
+      "What does landing page mean"
+    ],
+    "answer": "A landing page is a focused page designed around a specific action, such as making an enquiry. Ask the team to assess a landing-page project.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "portfolio-site",
+    "category": "Websites",
+    "question": "Can I discuss a personal portfolio website?",
+    "alternates": [
+      "I need a portfolio website",
+      "Can you make my portfolio"
+    ],
+    "answer": "Share your portfolio goals, work samples and preferred presentation through the consultation page so the team can assess the scope.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "wordpress",
+    "category": "Websites",
+    "question": "Do you have a WordPress example?",
+    "alternates": [
+      "Show a WordPress website",
+      "WordPress portfolio",
+      "Do you work with WordPress"
+    ],
+    "answer": "Rumi Dental Care is listed as a published WordPress website. Discuss your own WordPress requirements with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "portfolio.html#rumi-dental-care"
+      }
+    ]
+  },
+  {
+    "id": "custom-site",
+    "category": "Websites",
+    "question": "Do you have a custom coded website example?",
+    "alternates": [
+      "Show an HTML CSS JavaScript website",
+      "Custom website example"
+    ],
+    "answer": "Mani Bakes is listed as a published website built with HTML, CSS and JavaScript.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "portfolio.html#mani-bakes"
+      }
+    ]
+  },
+  {
+    "id": "ecommerce",
+    "category": "Websites",
+    "question": "Do you build e-commerce stores?",
+    "alternates": [
+      "Can you build an online shop",
+      "Do you offer ecommerce"
+    ],
+    "answer": "E-commerce stores are listed on the web development page, covering catalogues, checkout, local payment options and order management. Ask the team to assess your specific requirements.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "content-updates",
+    "category": "Websites",
+    "question": "Can I update website content myself?",
+    "alternates": [
+      "Can I edit text and images",
+      "Can you manage content updates"
+    ],
+    "answer": "The web development page says content editing can be planned into the site, or updates can be handled under a support plan. Agree the editing setup in your quote.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "enquiry-forms",
+    "category": "Websites",
+    "question": "Can a website include an enquiry form?",
+    "alternates": [
+      "Do you build contact forms",
+      "Can visitors submit enquiries"
+    ],
+    "answer": "Enquiry forms and flows are mentioned in the web development service. Discuss required fields and where enquiries should go.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "whatsapp-integration",
+    "category": "Websites",
+    "question": "Can you connect WhatsApp to my website?",
+    "alternates": [
+      "Website WhatsApp integration",
+      "Can you add a WhatsApp button"
+    ],
+    "answer": "The full-stack page lists WhatsApp among possible integrations. Tell the team whether you need a simple contact link or a more involved workflow.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "full-stack.html"
+      }
+    ]
+  },
+  {
+    "id": "domain",
+    "category": "Website essentials",
+    "question": "What is a domain name?",
+    "alternates": [
+      "Explain domain names",
+      "What does domain mean"
+    ],
+    "answer": "A domain name is the address people use to reach a website, such as rumiware.com. Registration and renewal details should be agreed with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "hosting",
+    "category": "Website essentials",
+    "question": "What is web hosting?",
+    "alternates": [
+      "Explain website hosting",
+      "What does hosting mean"
+    ],
+    "answer": "Web hosting provides the resources that serve your website to visitors. The right setup depends on the type of website and its requirements.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "hosting-help",
+    "category": "Website essentials",
+    "question": "Do you help connect a domain and hosting?",
+    "alternates": [
+      "Can you set up my domain",
+      "Do you help with hosting"
+    ],
+    "answer": "The web development page says RumiWare helps choose, set up and connect hosting and domain names. Costs and account arrangements should be confirmed in the quote.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "https",
+    "category": "Website essentials",
+    "question": "What is HTTPS?",
+    "alternates": [
+      "Explain SSL",
+      "What does HTTPS mean"
+    ],
+    "answer": "HTTPS encrypts the connection between a visitor and a website. It does not guarantee that every part of an application is secure. Ask the team to assess your setup.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "seo-basics",
+    "category": "Website essentials",
+    "question": "What is basic SEO?",
+    "alternates": [
+      "Explain search engine optimization",
+      "What does SEO mean"
+    ],
+    "answer": "SEO helps search engines understand and discover website content. It can include page titles, useful content, crawlable links and technical improvements; it does not guarantee rankings.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#seo"
+      }
+    ]
+  },
+  {
+    "id": "speed",
+    "category": "Website essentials",
+    "question": "Why does website speed matter?",
+    "alternates": [
+      "How can a website load faster",
+      "Explain website performance"
+    ],
+    "answer": "Faster pages can be easier to use, especially on mobile connections. The blog discusses image sizes, simple code and mobile-first design.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "blog-post.html"
+      }
+    ]
+  },
+  {
+    "id": "accessibility",
+    "category": "Website essentials",
+    "question": "What is website accessibility?",
+    "alternates": [
+      "Explain accessible websites",
+      "What does accessibility mean"
+    ],
+    "answer": "Accessibility means helping people with different abilities use a website, for example through keyboard controls, labels and readable contrast. Ask the team about your project requirements and assessment.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "get-quote.html"
+      }
+    ]
+  },
+  {
+    "id": "browsers",
+    "category": "Website essentials",
+    "question": "Will you check browser compatibility?",
+    "alternates": [
+      "Do you test different browsers",
+      "Browser testing"
+    ],
+    "answer": "Device and browser checks are listed in the project testing stage. Confirm the browsers and versions required for your project.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "process.html"
+      }
+    ]
+  },
+  {
+    "id": "web-app",
+    "category": "Applications",
+    "question": "What is a web application?",
+    "alternates": [
+      "Explain web apps",
+      "Website versus web application"
+    ],
+    "answer": "A web application offers interactive tools in a browser, such as a dashboard or portal. RumiWare lists custom web apps and dashboards in its services.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "business-software",
+    "category": "Applications",
+    "question": "Can you build business management software?",
+    "alternates": [
+      "Can you replace spreadsheets with software",
+      "Do you build internal tools"
+    ],
+    "answer": "The full-stack page describes business software that replaces spreadsheets and connects separate tools. Discuss your workflows and data needs with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "full-stack.html"
+      }
+    ]
+  },
+  {
+    "id": "booking",
+    "category": "Applications",
+    "question": "Do you build booking systems?",
+    "alternates": [
+      "Can you build an appointment system",
+      "Booking application development"
+    ],
+    "answer": "Booking and appointment systems are listed among the web development use cases. Ask for an assessment of your booking rules and integrations.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "saas",
+    "category": "Applications",
+    "question": "Do you develop SaaS platforms?",
+    "alternates": [
+      "Can you build subscription software",
+      "SaaS development"
+    ],
+    "answer": "SaaS platforms are listed on the web development page, including accounts, billing and admin panels. Specific features and scope need an individual quote.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "api",
+    "category": "Applications",
+    "question": "Can you integrate external tools?",
+    "alternates": [
+      "Do you build API integrations",
+      "Connect my app to other tools"
+    ],
+    "answer": "The full-stack page lists API integrations with tools such as payments, WhatsApp, email and accounting software. Compatibility needs a technical assessment.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "full-stack.html"
+      }
+    ]
+  },
+  {
+    "id": "database",
+    "category": "Applications",
+    "question": "Do you design databases?",
+    "alternates": [
+      "Can you plan data storage",
+      "Database development"
+    ],
+    "answer": "Database and data design are listed full-stack services. Share the records, users and reporting needs for your application.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "full-stack.html"
+      }
+    ]
+  },
+  {
+    "id": "android",
+    "category": "Mobile apps",
+    "question": "Do you develop Android apps?",
+    "alternates": [
+      "Can you build an Android app",
+      "Android development"
+    ],
+    "answer": "Android apps are a listed mobile service. Discuss the intended users and required features with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "ios",
+    "category": "Mobile apps",
+    "question": "Do you develop iOS apps?",
+    "alternates": [
+      "Can you build an iPhone app",
+      "iOS development"
+    ],
+    "answer": "iOS apps for iPhone and iPad are listed on the mobile apps page. Ask the team to assess your app idea.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "flutter",
+    "category": "Mobile apps",
+    "question": "Do you offer Flutter development?",
+    "alternates": [
+      "Can one app run on Android and iOS",
+      "Cross platform app development"
+    ],
+    "answer": "Flutter and cross-platform apps are listed services. This approach can share a codebase across Android and iOS; suitability depends on your requirements.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "app-publishing",
+    "category": "Mobile apps",
+    "question": "Do you help publish apps to stores?",
+    "alternates": [
+      "Can you publish to Google Play",
+      "Can you publish to the App Store"
+    ],
+    "answer": "App store publishing is listed as a mobile service. The mobile page says store fees are paid directly by the client; discuss accounts and submission requirements with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "app-website",
+    "category": "Mobile apps",
+    "question": "Can an app connect to my website?",
+    "alternates": [
+      "Connect mobile app to website",
+      "Can my app share a database"
+    ],
+    "answer": "The mobile page describes connecting apps to websites, databases or payment systems. The team needs to assess the existing systems and access requirements.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "ai-chatbots",
+    "category": "AI & automation",
+    "question": "Do you build AI chatbots?",
+    "alternates": [
+      "Do you offer website chatbots",
+      "Can you build a WhatsApp chatbot"
+    ],
+    "answer": "AI chatbots for websites and WhatsApp are listed services. Ask the team to define the workflow, data sources and integrations. Ask RumiWare itself uses prepared FAQ answers.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "ai-solutions.html"
+      }
+    ]
+  },
+  {
+    "id": "automation",
+    "category": "AI & automation",
+    "question": "Do you automate business workflows?",
+    "alternates": [
+      "Can you automate repetitive tasks",
+      "AI automation services"
+    ],
+    "answer": "AI workflow automation is listed, including connecting forms, email, sheets and CRM tools. Discuss one specific task to assess suitability.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "ai-solutions.html"
+      }
+    ]
+  },
+  {
+    "id": "ai-agents",
+    "category": "AI & automation",
+    "question": "Do you develop AI agents?",
+    "alternates": [
+      "Can you build an AI agent",
+      "AI agent development"
+    ],
+    "answer": "AI agents are listed on the AI solutions page. The page describes assistants for multi-step tasks with approval. Discuss boundaries and requirements with the team.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "ai-solutions.html"
+      }
+    ]
+  },
+  {
+    "id": "machine-learning",
+    "category": "AI & automation",
+    "question": "Do you offer machine learning integration?",
+    "alternates": [
+      "Can you integrate ML",
+      "Machine learning services"
+    ],
+    "answer": "Machine-learning integration is a listed AI service. Ask the team to assess your task, available data and evaluation needs.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "ai-solutions.html"
+      }
+    ]
+  },
+  {
+    "id": "assistant-type",
+    "category": "AI & automation",
+    "question": "Is Ask RumiWare an AI chatbot?",
+    "alternates": [
+      "Are you AI",
+      "Are you a real person",
+      "How does this assistant work"
+    ],
+    "answer": "Ask RumiWare is an automated FAQ assistant using prepared answers. It does not generate answers or send your questions to an AI service."
+  },
+  {
+    "id": "support",
+    "category": "Support",
+    "question": "Do you provide maintenance after launch?",
+    "alternates": [
+      "Do you offer website support",
+      "Post launch support"
+    ],
+    "answer": "Maintenance and support are listed services. The written quote defines support scope, dates and ongoing fees; ask the team about the arrangement for your project.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#support"
+      }
+    ]
+  },
+  {
+    "id": "backups",
+    "category": "Support",
+    "question": "Do you offer backups?",
+    "alternates": [
+      "Website backup options",
+      "Can you back up my website"
+    ],
+    "answer": "Security and backups are listed under maintenance and support. Confirm backup frequency, retention and restore arrangements in your quote.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#support"
+      }
+    ]
+  },
+  {
+    "id": "security",
+    "category": "Support",
+    "question": "Can you help with website security?",
+    "alternates": [
+      "Website security support",
+      "Do you provide security maintenance"
+    ],
+    "answer": "Security is listed under maintenance and support. Ask for a technical assessment and a written scope; this assistant does not guarantee protection.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#support"
+      }
+    ]
+  },
+  {
+    "id": "bug-fixes",
+    "category": "Support",
+    "question": "Can you fix website bugs?",
+    "alternates": [
+      "Do you fix application errors",
+      "Can you maintain an existing website"
+    ],
+    "answer": "Bug fixes and updates are listed maintenance services. Share the problem and existing system with the team for assessment.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#support"
+      }
+    ]
+  },
+  {
+    "id": "support-response",
+    "category": "Support",
+    "question": "How quickly will support respond?",
+    "alternates": [
+      "What is your support response time",
+      "Do you have a support SLA"
+    ],
+    "answer": "Ask the team to confirm support availability and any response terms in writing for your project.",
+    "links": [
+      {
+        "label": "Chat on WhatsApp",
+        "url": "https://wa.me/923335767687"
+      }
+    ]
+  },
+  {
+    "id": "projects",
+    "category": "Projects",
+    "question": "Where can I see your projects?",
+    "alternates": [
+      "Explore projects",
+      "Show your portfolio",
+      "Show live demos"
+    ],
+    "answer": "The portfolio lists published websites, business and data applications, productivity tools and a game demo. Open individual entries for details and demo links.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "portfolio.html"
+      }
+    ]
+  },
+  {
+    "id": "schoolos-features",
+    "category": "Projects",
+    "question": "What features of SchoolOS are verified?",
+    "alternates": [
+      "Can SchoolOS manage school records",
+      "SchoolOS modules"
+    ],
+    "answer": "The portfolio describes SchoolOS as a school administration application. Its public evidence is a sign-in screen; individual administration modules are not documented there. Contact the team for a feature walkthrough.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "portfolio.html#schoolos"
+      }
+    ]
+  },
+  {
+    "id": "blog",
+    "category": "Learning",
+    "question": "Where can I read your blog?",
+    "alternates": [
+      "Do you have learning resources",
+      "Show blog articles"
+    ],
+    "answer": "The blog lists articles on fast mobile websites and the future of AI.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "blog.html"
+      }
+    ]
+  },
+  {
+    "id": "ai-article",
+    "category": "Learning",
+    "question": "Do you have an article about the future of AI?",
+    "alternates": [
+      "Read about AI and jobs",
+      "AI business article"
+    ],
+    "answer": "Read The Future of AI: What It Means for Businesses, Jobs, and Everyday Life for discussion of business, jobs and practical skills.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "blog/future-of-ai/"
+      }
+    ]
+  },
+  {
+    "id": "mobile-article",
+    "category": "Learning",
+    "question": "Where is the fast mobile website article?",
+    "alternates": [
+      "Read about fast mobile websites",
+      "Mobile website blog"
+    ],
+    "answer": "Read Why Your Business Needs a Fast Mobile Website for practical discussion of images, simple code and mobile-first design.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "blog-post.html"
+      }
+    ]
+  },
+  {
+    "id": "newsletter",
+    "category": "Learning",
+    "question": "Can I subscribe to your newsletter?",
+    "alternates": [
+      "Newsletter signup",
+      "Do you have a newsletter"
+    ],
+    "answer": "The website says newsletter subscriptions are currently unavailable. Available articles are listed on the blog.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "blog.html"
+      }
+    ]
+  },
+  {
+    "id": "greeting",
+    "category": "Conversation",
+    "question": "Hello",
+    "alternates": [
+      "Hi",
+      "Hey",
+      "Good morning",
+      "Good afternoon",
+      "Good evening",
+      "Assalamualaikum"
+    ],
+    "answer": "Welcome to RumiWare. Choose a topic or type a question about our services, projects or contacting the team."
+  },
+  {
+    "id": "thanks",
+    "category": "Conversation",
+    "question": "Thank you",
+    "alternates": [
+      "Thanks",
+      "Thanks a lot",
+      "Shukriya"
+    ],
+    "answer": "You are welcome. You can explore another topic or contact the team on WhatsApp."
+  },
+  {
+    "id": "chat-privacy",
+    "category": "Conversation",
+    "question": "Do you store my chat messages?",
+    "alternates": [
+      "Are my questions saved",
+      "Chat privacy"
+    ],
+    "answer": "This FAQ assistant keeps messages only in page memory. They clear on reload or when you start a new conversation. It does not send your questions to a server or collect contact details."
+  },
+  {
+    "id": "project-schoolos",
+    "category": "Projects",
+    "question": "What is Rumiware SchoolOS?",
+    "alternates": [
+      "Tell me about Rumiware SchoolOS",
+      "Show Rumiware SchoolOS",
+      "Rumiware SchoolOS",
+      "What is SchoolOS",
+      "Show SchoolOS",
+      "SchoolOS demo"
+    ],
+    "answer": "A school administration application designed to organize everyday school operations.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-schoolos.vercel.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-portfolio-demo",
+    "category": "Projects",
+    "question": "What is Rumi Enquiry Assistant?",
+    "alternates": [
+      "Tell me about Rumi Enquiry Assistant",
+      "Show Rumi Enquiry Assistant",
+      "Rumi Enquiry Assistant",
+      "Open Rumi Enquiry Assistant"
+    ],
+    "answer": "Rumi Enquiry Assistant is a customer enquiry application with enquiry submission, an admin dashboard and AI-assisted reply drafting. The homepage links to a demo with fictional examples; replies are not sent automatically.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumi-portfolio-demo.vercel.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-stock-market",
+    "category": "Projects",
+    "question": "What is Rumiware Stock Market App?",
+    "alternates": [
+      "Tell me about Rumiware Stock Market App",
+      "Show Rumiware Stock Market App",
+      "Rumiware Stock Market App",
+      "Open Rumiware Stock Market App"
+    ],
+    "answer": "A stock research dashboard with symbol search, available quotes and company information.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-stock-market.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-pdf-toolkit",
+    "category": "Projects",
+    "question": "What is Rumiware PDF Toolkit?",
+    "alternates": [
+      "Tell me about Rumiware PDF Toolkit",
+      "Show Rumiware PDF Toolkit",
+      "Rumiware PDF Toolkit",
+      "Open Rumiware PDF Toolkit"
+    ],
+    "answer": "A PDF workspace offering merge, split, compression and text-extraction tools.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-pdf-toolkit.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-python-2d-platformer",
+    "category": "Projects",
+    "question": "What is Python 2D Platformer?",
+    "alternates": [
+      "Tell me about Python 2D Platformer",
+      "Show Python 2D Platformer",
+      "Python 2D Platformer",
+      "Open Python 2D Platformer"
+    ],
+    "answer": "A 2D platform-game project with a browser-game demonstration.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://salmanaliaqdas.github.io/python-2d-game-super-mario/"
+      }
+    ]
+  },
+  {
+    "id": "project-weather",
+    "category": "Projects",
+    "question": "What is Rumiware Weather App?",
+    "alternates": [
+      "Tell me about Rumiware Weather App",
+      "Show Rumiware Weather App",
+      "Rumiware Weather App",
+      "Open Rumiware Weather App"
+    ],
+    "answer": "A city-weather dashboard with current conditions, an hourly outlook and a five-day forecast.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-weather-app.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-expense-tracker",
+    "category": "Projects",
+    "question": "What is Rumiware Expense Tracker?",
+    "alternates": [
+      "Tell me about Rumiware Expense Tracker",
+      "Show Rumiware Expense Tracker",
+      "Rumiware Expense Tracker",
+      "Open Rumiware Expense Tracker"
+    ],
+    "answer": "An expense dashboard with income, spending and balance summaries, plus monthly and category charts.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-expense-tracker.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-qr-code-studio",
+    "category": "Projects",
+    "question": "What is Rumiware QR Code Studio?",
+    "alternates": [
+      "Tell me about Rumiware QR Code Studio",
+      "Show Rumiware QR Code Studio",
+      "Rumiware QR Code Studio",
+      "Open Rumiware QR Code Studio"
+    ],
+    "answer": "A website QR-code generator with a preview, customization and PNG/SVG download controls.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-qr-code-studio.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-movies",
+    "category": "Projects",
+    "question": "What is Rumiware Movies?",
+    "alternates": [
+      "Tell me about Rumiware Movies",
+      "Show Rumiware Movies",
+      "Rumiware Movies",
+      "Open Rumiware Movies"
+    ],
+    "answer": "A movie catalogue with title search, sorting, displayed ratings and detail links.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumiware-movies.streamlit.app/"
+      }
+    ]
+  },
+  {
+    "id": "project-rumi-dental-care",
+    "category": "Projects",
+    "question": "What is Rumi Dental Care?",
+    "alternates": [
+      "Tell me about Rumi Dental Care",
+      "Show Rumi Dental Care",
+      "Rumi Dental Care",
+      "Open Rumi Dental Care"
+    ],
+    "answer": "A dental clinic website presenting treatments, clinic information, and contact options.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumidentalcare.com/"
+      }
+    ]
+  },
+  {
+    "id": "project-mani-bakes",
+    "category": "Projects",
+    "question": "What is Mani Bakes?",
+    "alternates": [
+      "Tell me about Mani Bakes",
+      "Show Mani Bakes",
+      "Mani Bakes",
+      "Open Mani Bakes"
+    ],
+    "answer": "A bakery website showcasing baked products and business contact information.",
+    "links": [
+      {
+        "label": "Open project",
+        "url": "https://rumi-ware.github.io/Mani-Bakes/"
+      }
+    ]
+  },
+  {
+    "id": "service-web",
+    "category": "Services",
+    "question": "What web development services do you offer?",
+    "alternates": [
+      "Web development services",
+      "Tell me about Web development",
+      "Web development"
+    ],
+    "answer": "Business websites, menus, service information and enquiry forms. Explore the project collection.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "web-development.html"
+      }
+    ]
+  },
+  {
+    "id": "service-fullstack",
+    "category": "Services",
+    "question": "What full-stack development services do you offer?",
+    "alternates": [
+      "Full-stack development services",
+      "Tell me about Full-stack development",
+      "Full-stack development"
+    ],
+    "answer": "User interfaces, APIs and databases planned as one product.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "full-stack.html"
+      }
+    ]
+  },
+  {
+    "id": "service-ai",
+    "category": "Services",
+    "question": "What ai solutions services do you offer?",
+    "alternates": [
+      "AI solutions services",
+      "Tell me about AI solutions",
+      "AI solutions"
+    ],
+    "answer": "Discuss a chatbot, document workflow or automation for a specific task.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "ai-solutions.html"
+      }
+    ]
+  },
+  {
+    "id": "service-mobile",
+    "category": "Services",
+    "question": "What mobile apps services do you offer?",
+    "alternates": [
+      "Mobile apps services",
+      "Tell me about Mobile apps",
+      "Do you build mobile apps",
+      "Can you make a mobile application",
+      "Mobile apps"
+    ],
+    "answer": "Android, iOS and Flutter interfaces for your app idea.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "mobile-apps.html"
+      }
+    ]
+  },
+  {
+    "id": "service-design",
+    "category": "Services",
+    "question": "What ui/ux design services do you offer?",
+    "alternates": [
+      "UI/UX design services",
+      "Tell me about UI/UX design",
+      "UI/UX design"
+    ],
+    "answer": "Layouts and interfaces planned around the people using them.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#design"
+      }
+    ]
+  },
+  {
+    "id": "service-support",
+    "category": "Services",
+    "question": "What maintenance & support services do you offer?",
+    "alternates": [
+      "Maintenance & support services",
+      "Tell me about Maintenance & support",
+      "Maintenance & support"
+    ],
+    "answer": "Updates, fixes and maintenance with scope agreed in the quote.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#support"
+      }
+    ]
+  },
+  {
+    "id": "service-seo",
+    "category": "Services",
+    "question": "What marketing & seo services do you offer?",
+    "alternates": [
+      "Marketing & SEO services",
+      "Tell me about Marketing & SEO",
+      "Marketing & SEO"
+    ],
+    "answer": "Search visibility, content and reporting for your website.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "services.html#seo"
+      }
+    ]
+  },
+  {
+    "id": "team-salman",
+    "category": "Company",
+    "question": "Who is Salman Ali Aqdas?",
+    "alternates": [
+      "Salman Ali Aqdas",
+      "Tell me about Salman Ali Aqdas"
+    ],
+    "answer": "Salman Ali Aqdas is Founder & CEO. Leads client relationships, project management and DevOps.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "team.html"
+      }
+    ]
+  },
+  {
+    "id": "team-aamir",
+    "category": "Company",
+    "question": "Who is Aamir Ashraf?",
+    "alternates": [
+      "Aamir Ashraf",
+      "Tell me about Aamir Ashraf"
+    ],
+    "answer": "Aamir Ashraf is Data Scientist & CTO. Guides technical direction and data science and AI work.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "team.html"
+      }
+    ]
+  },
+  {
+    "id": "team-hassan",
+    "category": "Company",
+    "question": "Who is Hassan?",
+    "alternates": [
+      "Hassan",
+      "Tell me about Hassan"
+    ],
+    "answer": "Hassan is Python & full-stack developer. Builds Python applications and backend systems.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "team.html"
+      }
+    ]
+  },
+  {
+    "id": "team-hussain",
+    "category": "Company",
+    "question": "Who is Hussain?",
+    "alternates": [
+      "Hussain",
+      "Tell me about Hussain"
+    ],
+    "answer": "Hussain is Frontend & full-stack developer. Builds frontend interfaces and full-stack applications.",
+    "links": [
+      {
+        "label": "Read more",
+        "url": "team.html"
+      }
+    ]
+  }
+]

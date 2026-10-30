@@ -1,0 +1,26 @@
+/* Ask RumiWare: shared with every page, using existing theme tokens. */
+.wa{bottom:calc(18px + env(safe-area-inset-bottom))}
+#chat-launcher{position:fixed;right:18px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:.5rem;border:1px solid var(--dome);border-radius:999px;padding:.65rem 1rem;background:var(--teal);color:#fff;box-shadow:var(--sh);font:600 .95rem var(--fb);cursor:pointer}
+#chat-launcher[hidden],#rumi-chat[hidden]{display:none}
+#rumi-chat{position:fixed;right:18px;top:8px;z-index:50;width:min(410px,calc(100vw - 24px));height:min(620px,calc(100dvh - 224px - env(safe-area-inset-bottom)));min-height:150px;display:flex;flex-direction:column;padding:0;background:var(--card);color:var(--text);border:1px solid var(--dome);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;font-size:.93rem}
+.chat-heading{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.7rem 1rem;border-bottom:1px solid var(--line)}
+.chat-heading h2{font-size:1.2rem}.chat-heading p{font-size:.8rem;color:var(--sec)}
+#rumi-chat button{font:inherit;cursor:pointer;color:var(--text);background:var(--bg);border:1px solid var(--control-line);border-radius:8px;padding:.4rem .6rem;line-height:1.4}
+.chat-tools{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;padding:.5rem .8rem}
+.chat-note{padding:0 .8rem .4rem;font-size:.75rem;color:var(--sec)}
+#chat-messages{flex:1 1 100px;min-height:45px;overflow:auto;overscroll-behavior:contain;padding:.5rem .8rem;overflow-wrap:anywhere}
+.chat-message{padding:.65rem;margin-bottom:.6rem;background:var(--bg);border-radius:9px}.chat-message.visitor{border-left:3px solid var(--dome)}
+.chat-message a{display:block;margin-top:.4rem;font-weight:600}
+#chat-choices{display:flex;flex-wrap:wrap;gap:.4rem;padding:.5rem .8rem;max-height:125px;overflow:auto;overscroll-behavior:contain;border-top:1px solid var(--line);flex-shrink:0}
+#chat-choices button{text-align:left;font-size:.82rem}
+.chat-input{display:flex;gap:.4rem;padding:.6rem .8rem;flex-shrink:0;border-top:1px solid var(--line)}
+#chat-question{min-width:0;width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--control-line);border-radius:8px;padding:.5rem}
+#rumi-chat :focus-visible,#chat-launcher:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+body:has(#cookie:not([hidden])) #chat-launcher,body:has(#cookie:not([hidden])) #rumi-chat,body:has(#cookie:not([hidden])) .wa,body:has(#cookie:not([hidden])) #top{visibility:hidden}
+#rumi-chat.chat-short{height:calc(var(--chat-viewport-height) - 16px)}.chat-short .chat-note{display:none}.chat-short #chat-choices{max-height:80px}body:has(#rumi-chat.chat-short:not([hidden])) .wa,body:has(#rumi-chat.chat-short:not([hidden])) #top,body:has(#rumi-chat.chat-short:not([hidden])) #chat-launcher{visibility:hidden}
+@media(max-width:480px){#rumi-chat{right:12px}.chat-note{font-size:.7rem}}
+.chat-compact .chat-heading{padding:.2rem .6rem}.chat-compact .chat-heading h2{font-size:1rem}.chat-compact .chat-heading p{font-size:.65rem}.chat-compact .chat-tools{font-size:.75rem;gap:.3rem;padding:.25rem .6rem}.chat-compact #chat-choices{max-height:45px;padding:.25rem .6rem}.chat-compact #chat-messages{min-height:20px;padding:.25rem .6rem}.chat-compact .chat-input{padding:.25rem .6rem}
+@media(prefers-reduced-motion:reduce){#rumi-chat *{scroll-behavior:auto;animation:none;transition:none}}
+
+#top{bottom:calc(146px + env(safe-area-inset-bottom))}
+body:has(form:focus-within) #chat-launcher{visibility:hidden}

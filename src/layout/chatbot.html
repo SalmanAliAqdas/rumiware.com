@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="{{CHAT_STYLE}}">
+<button type="button" id="chat-launcher" aria-label="Ask RumiWare" aria-expanded="false" aria-controls="rumi-chat" hidden>{{icon:chat}} <span>Ask RumiWare</span></button>
+<section id="rumi-chat" role="region" aria-labelledby="chat-title" hidden>
+ <div class="chat-heading"><div><h2 id="chat-title">Ask RumiWare</h2><p>Automated FAQ assistant</p></div><button type="button" id="chat-close" aria-label="Close Ask RumiWare">Close</button></div>
+ <div class="chat-tools"><button type="button" id="chat-reset">New conversation</button><a href="{{WHATSAPP}}" target="_blank" rel="noopener noreferrer">Chat on WhatsApp<span class="sr-only"> (opens in a new tab)</span></a></div>
+ <p class="chat-note">Prepared answers. Messages stay in this page and clear on reload. WhatsApp opens only when you select its link; you review and send your message there.</p>
+ <div id="chat-messages" tabindex="0" role="region" aria-label="Conversation"></div>
+ <div id="chat-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+ <div id="chat-choices" role="group" aria-label="Suggested questions"></div>
+ <div class="chat-input"><label class="sr-only" for="chat-question">Your question</label><input type="text" id="chat-question" maxlength="400" autocomplete="off" placeholder="Type your question"><button type="button" id="chat-send">Send</button></div>
+</section>
+<script type="application/json" id="chat-data">{{CHAT_DATA}}</script>
+<script src="{{CHAT_RESOLVER}}" defer></script>
+<script src="{{CHAT_SCRIPT}}" defer></script>

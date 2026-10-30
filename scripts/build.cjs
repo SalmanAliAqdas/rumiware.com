@@ -5,8 +5,11 @@ if(path.relative(root,out)!=='dist'||(fs.existsSync(out)&&fs.lstatSync(out).isSy
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');const data=name=>JSON.parse(read(`src/data/${name}.json`));
 const site=data('site'),pages=data('pages'),plans=data('pricing'),team=data('team'),services=data('services'),commercial=data('commercial'),icons=data('icons'),projects=data('projects');
 const homeEnquiry=data('home-enquiry');
+const chatbot=data('chatbot-faq');
+require('./validate-chatbot.cjs')(chatbot);
 // These updated pages must not reuse older CSS/JS cached under the bare URLs.
 const pageAssets=Object.fromEntries(['style.css','script.js'].map(file=>[file,file+'?v='+createHash('sha256').update(read('src/assets/'+file).replace(/\r\n/g,'\n')).digest('hex').slice(0,12)]));
+const chatAssets=Object.fromEntries(['chatbot.css','chatbot-resolver.js','chatbot.js'].map(file=>[file,file+'?v='+createHash('sha256').update(read('src/assets/'+file).replace(/\r\n/g,'\n')).digest('hex').slice(0,12)]));
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const json=s=>JSON.stringify(s).replaceAll('<','\\u003c');
 const icon=name=>{if(!icons[name])throw Error('Unknown icon '+name);return `<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;};
@@ -37,6 +40,9 @@ const pagePath=file=>'/'+file.replace(/(^|\/)index\.html$/,'$1');
 for(const [file,page] of Object.entries(pages)){
  if(!/^(?:[a-z0-9-]+\/)*[a-z0-9-]+\.html$/.test(file)||typeof page.title!=='string'||!page.title.trim()||typeof page.description!=='string'||!page.description.trim())throw Error('Invalid filename or missing page metadata: '+file);
  const values=tokens(file);values.ROBOT=read('src/assets/robot.svg');values.WEEKENDS=esc(site.weekends);
+ values.CHAT_DATA=json({entries:chatbot,whatsapp:site.whatsapp});
+ Object.assign(values,{CHAT_STYLE:chatAssets['chatbot.css'],CHAT_RESOLVER:chatAssets['chatbot-resolver.js'],CHAT_SCRIPT:chatAssets['chatbot.js']});
+ values.CHATBOT=file==='404.html'?'':render(read('src/layout/chatbot.html'),values);
  values.SERVICE_JUMPS=services.map(s=>`<a href="#${s.id}">${esc(s.name)}</a>`).join('');
  values.SERVICE_DETAILS=services.map(s=>`<article class="svc rv" id="${s.id}"><div class="ico" aria-hidden="true">${icon(s.icon)}</div><div><h2>${esc(s.name)}</h2><p>${esc(s.description)}</p><a class="more" href="get-quote.html">Request a consultation</a></div><ul class="checks">${s.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></article>`).join('');
  const pageUrl=site.url+pagePath(file);
@@ -65,6 +71,7 @@ for(const [file,page] of Object.entries(pages)){
 fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});
 for(const [file,source] of Object.entries(outputs)){const target=path.join(out,file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,source);}
 for(const file of ['style.css','script.js'])fs.copyFileSync(path.join(root,'src/assets',file),path.join(out,file));
+for(const file of ['chatbot.css','chatbot.js','chatbot-resolver.js'])fs.copyFileSync(path.join(root,'src/assets',file),path.join(out,file));
 const assets=['images/favicon.png','images/social-preview.png',...team.map(p=>`images/portraits/${p.image}.webp`),...projects.filter(p=>p.visible&&p.image).flatMap(p=>[p.image,p.imageSmall].filter(Boolean).map(f=>`images/projects/${f}`)),...[homeEnquiry.image,homeEnquiry.imageSmall].map(f=>`images/projects/${f}`),...['bricolage-latin.woff2','dm-sans-latin.woff2','bricolagegrotesque-OFL.txt','dmsans-OFL.txt'].map(f=>'images/fonts/'+f)];
 for(const asset of assets){const dest=path.join(out,asset);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,asset),dest);}
 fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc></url>`).join('')}</urlset>\n`);
