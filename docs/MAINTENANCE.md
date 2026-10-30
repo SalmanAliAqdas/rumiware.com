@@ -99,7 +99,7 @@ and restore instructions.
 
 The contact and quote forms use public Formspree endpoints configured in `site.json`. Provider-side recipients, allowed domains, spam controls, and inbox delivery require separate operational verification. Browser tests intercept submissions rather than sending production messages.
 
-Newsletter subscriptions remain unavailable until a dedicated mailing-list integration is configured. Optional analytics are disabled. Privacy settings and essential theme preferences remain available.
+Newsletter subscriptions remain unavailable until a dedicated mailing-list integration is configured. Google Analytics uses a versioned consent-first preference and is restricted to production public pages. See [ANALYTICS.md](ANALYTICS.md) for implementation, verification and required dashboard settings. Privacy settings and essential theme preferences remain available.
 
 ## Verification records
 

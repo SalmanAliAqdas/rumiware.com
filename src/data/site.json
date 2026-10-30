@@ -1,6 +1,11 @@
 {
   "name": "Rumiware",
   "url": "https://rumiware.com",
+  "analytics": {
+    "measurementId": "G-DM1NSE0FJ0",
+    "consentKey": "rw-analytics-v1",
+    "productionOrigins": ["https://rumiware.com", "https://www.rumiware.com"]
+  },
   "previewHost": "salmanaliaqdas.github.io",
   "previewPath": "/rumiware.com/",
   "email": "info@rumiware.com",

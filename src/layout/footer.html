@@ -18,8 +18,9 @@
 {{CHATBOT}}
 <div id="cookie" role="dialog" aria-labelledby="privacy-title" aria-describedby="privacy-detail" hidden>
  <h2 id="privacy-title">Privacy settings</h2>
- <p id="privacy-detail">Optional analytics, including Google Analytics, are disabled. We use local storage to remember your theme and privacy preference. <a href="privacy/">Read our Privacy Policy</a>.</p>
+ <p id="privacy-detail">May we use Google Analytics to measure page visits? Google Analytics loads only after you accept. Declining keeps the website and forms usable. We remember your choice in this browser; you can change it here anytime. <a href="privacy/">Read our Privacy Policy</a>.</p>
  <p id="privacy-status" role="status" aria-live="polite"></p>
- <div class="row"><button class="btn" type="button" data-cookie="no">Decline optional analytics</button><button class="btn ghost" type="button" data-privacy-close>Close</button></div>
+ <div class="row"><button class="btn" type="button" data-cookie="no">Decline analytics</button><button class="btn" type="button" data-cookie="yes">Accept analytics</button><button class="btn ghost" type="button" data-privacy-close>Close</button></div>
 </div>
+<script type="application/json" id="analytics-config">{{ANALYTICS_CONFIG}}</script>
 <script src="script.js"></script>

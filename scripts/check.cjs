@@ -18,9 +18,14 @@ for(const [file,source] of pages){
  }
  for(const m of source.matchAll(/<form\b[^>]*>/g)){forms++;const action=m[0].match(/action="([^"]+)"/)?.[1];if(!Object.values(config.forms).includes(action))fail(file+': unexpected form action');if(/YOUR_|placeholder|access_key/i.test(m[0]))fail(file+': placeholder form');}
  for(const img of source.matchAll(/<img\b[^>]*>/g))if(!/\bwidth="\d+"/.test(img[0])||!/\bheight="\d+"/.test(img[0])||!/\balt="[^"]+"/.test(img[0]))fail(file+': image needs intrinsic dimensions and alt');
- if(/googletagmanager\.com|google-analytics\.com/.test(source))fail(file+': optional analytics enabled');
+ if(/googletagmanager\.com|google-analytics\.com/.test(source))fail(file+': Google tag must be isolated behind consent');
+ if((source.match(/id="analytics-config"/g)||[]).length!==1)fail(file+': missing or duplicate analytics configuration');
  if(/www\.linkedin\.com\/["']|github\.com\/["']/.test(source))fail(file+': generic profile link');
 }
+if(!/^G-[A-Z0-9]+$/.test(config.analytics.measurementId))fail('Invalid public measurement ID');
+const frame=fs.readFileSync(path.join(out,'analytics-frame.htm'),'utf8');
+if(!frame.includes('event.source !== parent')||!frame.includes('ga-disable-')||!frame.includes(config.analytics.measurementId))fail('Missing isolated analytics consent guard');
+try{execFileSync(process.execPath,['--check',path.join(root,'src/assets/analytics-frame.js')],{stdio:'pipe'});}catch{fail('Invalid analytics frame script');}
 const css=fs.readFileSync(path.join(out,'style.css'),'utf8');for(const m of css.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g))if(!fs.existsSync(path.join(out,m[1])))fail('Missing CSS asset '+m[1]);
 for(const dev of ['head.html','header.html','footer.html','get-quote-preview.html','src','reference','.vscode','node_modules','verification'])if(fs.existsSync(path.join(out,dev)))fail('Private/development path published: '+dev);
 if(!fs.existsSync(path.join(out,'images/social-preview.png')))fail('Missing sharing asset');

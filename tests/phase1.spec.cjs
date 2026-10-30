@@ -183,14 +183,14 @@ test('analytics stay absent before choice, with legacy Accept, after Decline and
   expect((await context.cookies()).filter(c=>c.name.startsWith('_ga'))).toEqual([]);
   await page.locator('footer [data-privacy-open]').click();
   await expect(page.locator('#cookie')).toBeVisible();
-  await page.getByRole('button',{name:'Decline optional analytics'}).press('Enter');
+  await page.getByRole('button',{name:'Decline analytics'}).press('Enter');
   await expect(page.locator('#privacy-status')).toContainText('declined');
-  expect(await page.evaluate(()=>localStorage.getItem('rw-cookie'))).toBe('no');
+  expect(await page.evaluate(()=>localStorage.getItem('rw-analytics-v1'))).toBe('no');
   await page.keyboard.press('Escape'); await expect(page.locator('footer [data-privacy-open]')).toBeFocused();
-  for(const file of documents) { await page.goto('/'+file); expect(await page.evaluate(()=>localStorage.getItem('rw-cookie'))).toBe('no'); }
+  for(const file of documents) { await page.goto('/'+file); expect(await page.evaluate(()=>localStorage.getItem('rw-analytics-v1'))).toBe('no'); }
   await page.goto('/privacy/'); await page.locator('main [data-privacy-open]').click();
   await expect(page.locator('#privacy-status')).toContainText('saved preference is Decline');
-  await expect(page.locator('[data-cookie]')).toBeFocused();
+  await expect(page.locator('[data-cookie="no"]')).toBeFocused();
   await page.getByRole('button',{name:'Close',exact:true}).click();
   await expect(page.locator('main [data-privacy-open]')).toBeFocused();
   expect(analytics).toEqual([]);

@@ -9,7 +9,7 @@ const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const site = JSON.parse(await readFile(new URL('../src/data/site.json', import.meta.url), 'utf8'));
 if (!site.previewPath.startsWith('/') || !site.previewPath.endsWith('/')) throw new Error('previewPath must start and end with /');
 const previewMount = site.previewPath.slice(0, -1);
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.webp':'image/webp', '.woff2':'font/woff2', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain' };
+const types = { '.htm': 'text/html; charset=utf-8', '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.webp':'image/webp', '.woff2':'font/woff2', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain' };
 const port = Number(process.env.PORT || 4174);
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');

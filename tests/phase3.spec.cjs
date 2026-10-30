@@ -57,10 +57,10 @@ test('all public images and font resources load at the repository mount',async({
  for(const file of ['index.html','team/','portfolio/']){await page.goto('/rumiware.com/'+file);for(const img of await page.locator('img').all()){await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);}}
  expect(failed).toEqual([]);
 });
-test('generated output is reproducible and no analytics or active placeholder destinations return',async({page})=>{
+test('generated output is reproducible and declined analytics stay absent and active placeholder destinations do not return',async({page})=>{
  const before=fingerprint();
  const inputs=JSON.parse(fs.readFileSync(path.join(root,'src/data/pages.json'),'utf8'));expect(Object.keys(inputs)).toHaveLength(21);
- const network=[];page.on('request',r=>{if(/googletagmanager|google-analytics|\/g\/collect/.test(r.url()))network.push(r.url());});await page.goto('/');await page.locator('footer [data-privacy-open]').click();await page.getByRole('button',{name:'Decline optional analytics'}).click();
+ const network=[];page.on('request',r=>{if(/googletagmanager|google-analytics|\/g\/collect/.test(r.url()))network.push(r.url());});await page.goto('/');await page.locator('footer [data-privacy-open]').click();await page.getByRole('button',{name:'Decline analytics'}).click();
  await page.goto('/contact/');expect(network).toEqual([]);
  execFileSync(process.execPath,[path.join(root,'scripts/build.cjs')],{cwd:root});
  expect(before).toBe(fingerprint());

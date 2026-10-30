@@ -95,9 +95,16 @@
   var top = d.getElementById('top');
   if (top) { addEventListener('scroll', function () { top.classList.toggle('show', scrollY > 600); }, { passive: true }); top.onclick = function () { scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' }); }; }
 
-  // Optional analytics are deliberately disabled for Phase 1. Never load gtag.
-  // Retire legacy GA cookies on all known path/domain scopes accessible to JS.
-  window['ga-disable-G-DM1NSE0FJ0'] = true;
+  // Basic consent: no Google resource is created until this version is accepted.
+  var analyticsConfig;
+  try { analyticsConfig = JSON.parse(d.getElementById('analytics-config').textContent); } catch (e) {}
+  var analyticsId = analyticsConfig && analyticsConfig.measurementId;
+  var consentKey = analyticsConfig ? analyticsConfig.consentKey : 'rw-analytics-v1';
+  var analyticsFrame, pageMeasured = false, consentChoice = store(consentKey);
+  var analyticsAllowed = !!analyticsConfig && analyticsConfig.productionOrigins.indexOf(location.origin) !== -1 &&
+    analyticsConfig.publicPaths.indexOf(location.pathname) !== -1 && location.pathname === analyticsConfig.pagePath &&
+    !d.querySelector('meta[name="robots"][content*="noindex"]');
+  if (analyticsId) window['ga-disable-' + analyticsId] = true;
   function clearAnalyticsCookies() {
     var paths = ['/'], parts = location.pathname.split('/').filter(Boolean), path = '';
     parts.forEach(function (part) { path += '/' + part; paths.push(path, path + '/'); });
@@ -112,24 +119,73 @@
       }); });
     });
   }
-  clearAnalyticsCookies();
-  // The old Accept preference never enables analytics in this version.
+  function stopAnalytics() {
+    if (analyticsId) window['ga-disable-' + analyticsId] = true;
+    if (analyticsFrame) {
+      // Google's documented opt-out flag takes effect before destroying the context.
+      try { analyticsFrame.contentWindow['ga-disable-' + analyticsId] = true; } catch (e) {}
+      analyticsFrame.remove(); analyticsFrame = null;
+    }
+    clearAnalyticsCookies();
+  }
+  function startAnalytics() {
+    if (!analyticsAllowed || analyticsFrame || pageMeasured) return;
+    window['ga-disable-' + analyticsId] = false;
+    var referrer = '';
+    // Keep only a known public path; external referrers are reduced to their origin.
+    try {
+      var ref = new URL(d.referrer);
+      if (/^https?:$/.test(ref.protocol)) referrer = ref.origin +
+        (analyticsConfig.productionOrigins.indexOf(ref.origin) !== -1 && analyticsConfig.publicPaths.indexOf(ref.pathname) !== -1 ? ref.pathname : '/');
+    } catch (e) {}
+    var config = {
+      send_page_view: false, page_location: analyticsConfig.pageLocation,
+      page_referrer: referrer, page_title: analyticsConfig.pageTitle,
+      allow_google_signals: false, allow_ad_personalization_signals: false,
+      cookie_flags: 'SameSite=Lax;Secure', cookie_path: '/', cookie_expires: 34560000,
+      // Do not accept user-provided campaign overrides from the parent URL.
+      campaign_source: '', campaign_medium: '', campaign_name: '', campaign_term: '', campaign_content: '', campaign_id: ''
+    };
+    // Isolate the tag from forms, chat, links, history and the visitor's raw URL.
+    // Removing this frame also stops engagement timers and unload collection.
+    analyticsFrame = d.createElement('iframe');
+    analyticsFrame.hidden = true; analyticsFrame.title = 'Consented page analytics';
+    analyticsFrame.referrerPolicy = 'no-referrer';
+    analyticsFrame.src = '/analytics-frame.htm';
+    analyticsFrame.onload = function () {
+      if (!analyticsFrame) return;
+      analyticsFrame.contentWindow.postMessage({type:'rw-page-analytics', measurementId:analyticsId, config:config}, location.origin);
+    };
+    pageMeasured = true;
+    d.body.appendChild(analyticsFrame);
+  }
+  if (consentChoice === 'yes') startAnalytics(); else stopAnalytics();
   var ck = d.getElementById('cookie');
   var privacyStatus = d.getElementById('privacy-status');
   var privacyTrigger;
+  function showPrivacyStatus() {
+    if (!privacyStatus) return;
+    var choice = consentChoice;
+    privacyStatus.textContent = choice === 'no' ? 'Your saved preference is Decline. Optional analytics declined; analytics are off.' :
+      choice === 'yes' ? 'Your saved preference is Accept. ' + (analyticsAllowed ? 'Page analytics are allowed. Decline analytics to withdraw consent.' : 'Analytics are off on this development or preview page.') :
+      'Analytics are off until you accept. Choose Accept analytics or Decline analytics.';
+    if ((choice === 'yes' || choice === 'no') && store(consentKey) !== choice) privacyStatus.textContent = 'Browser storage is unavailable; this choice lasts for this page only. ' + (choice === 'yes' && analyticsAllowed ? 'Page analytics are allowed.' : 'Analytics are off.');
+  }
   function closePrivacy() {
     if (ck) ck.hidden = true;
     if (privacyTrigger) privacyTrigger.focus();
   }
   d.querySelectorAll('[data-privacy-open]').forEach(function (b) { b.onclick = function () {
     if (!ck || !privacyStatus || !ck.querySelector('[data-cookie]')) return;
-    privacyTrigger = b; ck.hidden = false;
-    privacyStatus.textContent = store('rw-cookie') === 'no' ? 'Your saved preference is Decline. Analytics are off.' : 'Analytics are off. You can withdraw a previously saved acceptance below.';
+    privacyTrigger = b; ck.hidden = false; showPrivacyStatus();
     ck.querySelector('[data-cookie]').focus();
   }; });
   d.querySelectorAll('[data-cookie]').forEach(function (b) { b.onclick = function () {
-    store('rw-cookie', 'no'); clearAnalyticsCookies();
-    if (privacyStatus) privacyStatus.textContent = 'Optional analytics declined for this browser. Analytics remain off.';
+    var choice = b.getAttribute('data-cookie');
+    consentChoice = choice; store(consentKey, choice);
+    if (choice === 'yes') startAnalytics(); else stopAnalytics();
+    showPrivacyStatus();
+    if (!privacyTrigger) closePrivacy();
   }; });
   d.querySelectorAll('[data-privacy-close]').forEach(function (b) { b.onclick = closePrivacy; });
   d.addEventListener('keydown', function (e) {
@@ -141,7 +197,15 @@
       else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
-  addEventListener('storage', function (e) { if (e.key === 'rw-cookie') clearAnalyticsCookies(); });
+  addEventListener('storage', function (e) {
+    if (e.key === consentKey || e.key === null) {
+      consentChoice = store(consentKey);
+      if (consentChoice === 'yes') startAnalytics(); else stopAnalytics();
+      showPrivacyStatus();
+    }
+  });
+  // A fresh visitor sees both choices; the notice never takes focus on page load.
+  if (ck && consentChoice !== 'yes' && consentChoice !== 'no') { ck.hidden = false; showPrivacyStatus(); }
 
   // One bounded submission path for contact and quote forms. No automatic retries.
   function sendForm(form, status, success) {

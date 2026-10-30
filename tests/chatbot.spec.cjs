@@ -43,7 +43,7 @@ test('weak, misleading, unknown and human requests use exact fallback; ambiguity
 async function open(page,path='/') {
  await page.goto(path);
  const privacy=page.locator('#cookie');
- if(await privacy.isVisible())await page.getByRole('button',{name:'Decline optional analytics',exact:true}).click();
+ if(await privacy.isVisible())await page.getByRole('button',{name:'Decline analytics',exact:true}).click();
  await page.getByRole('button',{name:'Ask RumiWare',exact:true}).click();
 }
 async function ask(page,text) {await page.locator('#chat-question').fill(text); await page.locator('#chat-question').press('Enter');}

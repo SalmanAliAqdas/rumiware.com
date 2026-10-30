@@ -51,6 +51,7 @@ for(const [file,page] of Object.entries(pages)){
  values.SERVICE_JUMPS=services.map(s=>`<a href="#${s.id}">${esc(s.name)}</a>`).join('');
  values.SERVICE_DETAILS=services.map(s=>`<article class="svc rv" id="${s.id}"><div class="ico" aria-hidden="true">${icon(s.icon)}</div><div><h2>${esc(s.name)}</h2><p>${esc(s.description)}</p><a class="more" href="get-quote.html">Request a consultation</a></div><ul class="checks">${s.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></article>`).join('');
  const pageUrl=site.url+pagePath(file);
+ values.ANALYTICS_CONFIG=json({...site.analytics, pageLocation:pageUrl, pageTitle:page.title, pagePath:pagePath(file), publicPaths:Object.values(routes).filter(p=>p!=='/404.html')});
  const schemas=[organization,...page.schemas];if(file==='faq.html')schemas.push({'@context':'https://schema.org','@type':'FAQPage',mainEntity:questions()});
  values.ARTICLE_META='';
  if(page.article){
@@ -85,6 +86,9 @@ const assets=['images/favicon.png','images/social-preview.png',...team.map(p=>`i
 for(const asset of assets){const dest=path.join(out,asset);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,asset),dest);}
 fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc></url>`).join('')}</urlset>\n`);
 fs.writeFileSync(path.join(out,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
+// A tag document with a real HTTP URL, no forms and no inherited referrer.
+const frameScript=read('src/assets/analytics-frame.js').replace('PRODUCTION_ORIGINS',json(site.analytics.productionOrigins)).replace('MEASUREMENT_ID',json(site.analytics.measurementId));
+fs.writeFileSync(path.join(out,'analytics-frame.htm'),'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><title>Page analytics</title></head><body><script>'+frameScript+'</script></body></html>');
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
 // Live inspection confirmed no existing .htaccess. The deployment conflict guard
 // still refuses to overwrite any different configuration created in the meantime.
