@@ -328,3 +328,14 @@ body:has(form:focus-within) .wa,body:has(form:focus-within) #top{visibility:hidd
 .security-article{padding:2rem 0 3rem}.security-article h2{scroll-margin-top:1.5rem}.security-article h3{margin:1.5rem 0 .5rem}
 .article-toc{padding:1rem 1.2rem;margin:1.8rem 0;background:var(--alt);border:1px solid var(--line);border-radius:var(--r)}
 .article-toc p{margin:0}.article-toc ul{margin:.5rem 0 0;padding-left:1.2rem}.article-toc li{font-size:.95rem}
+
+/* Generated once for article pages; the manual link also works without JavaScript. */
+.article-sharing{padding-block:2rem 3rem;border-top:1px solid var(--line)}
+.article-sharing h2{font-size:1.5rem;margin:0 0 1rem}
+.article-share-actions .btn{font-size:.9rem;padding:.65rem 1rem;white-space:normal;text-align:center}
+.article-share-actions .icon{flex-shrink:0;width:20px;height:20px}
+.article-sharing [hidden]{display:none}
+.article-share-status{min-height:1.65em;margin:1rem 0 .5rem}
+.article-sharing label{display:block;font-size:.9rem;margin-bottom:.5rem}
+.article-sharing input{box-sizing:border-box;width:100%;min-width:0;padding:.75rem;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:8px;font:inherit}
+@media(max-width:480px){.article-share-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:.65rem}.article-share-actions .btn{width:100%;box-sizing:border-box;justify-content:center}}

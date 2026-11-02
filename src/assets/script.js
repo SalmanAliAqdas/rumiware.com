@@ -95,6 +95,33 @@
   var top = d.getElementById('top');
   if (top) { addEventListener('scroll', function () { top.classList.toggle('show', scrollY > 600); }, { passive: true }); top.onclick = function () { scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' }); }; }
 
+  // Sharing stays local until a visitor follows a link. Never use location.href.
+  var sharing = d.querySelector('[data-article-sharing]');
+  if (sharing) {
+    var copyArticle = sharing.querySelector('[data-copy-article]');
+    var shareStatus = sharing.querySelector('[data-share-status]');
+    var shareManual = sharing.querySelector('[data-share-manual]');
+    var shareUrl = sharing.querySelector('#article-share-url');
+    copyArticle.hidden = false;
+    shareManual.hidden = true;
+    copyArticle.addEventListener('click', async function () {
+      copyArticle.disabled = true;
+      shareStatus.textContent = '';
+      try {
+        await navigator.clipboard.writeText(shareUrl.value);
+        shareManual.hidden = true;
+        shareStatus.textContent = 'Link copied.';
+      } catch (e) {
+        shareManual.hidden = false;
+        shareStatus.textContent = 'Clipboard unavailable. Select and copy the article link below.';
+        shareUrl.focus();
+        shareUrl.select();
+      } finally {
+        copyArticle.disabled = false;
+      }
+    });
+  }
+
   // Basic consent: no Google resource is created until this version is accepted.
   var analyticsConfig;
   try { analyticsConfig = JSON.parse(d.getElementById('analytics-config').textContent); } catch (e) {}

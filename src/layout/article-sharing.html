@@ -1,0 +1,14 @@
+<section class="wrap narrow article-sharing" aria-labelledby="article-share-heading" data-article-sharing>
+ <h2 id="article-share-heading">Share this article</h2>
+ <div class="row article-share-actions">
+  <a class="btn ghost" href="{{SHARE_FACEBOOK}}" target="_blank" rel="noopener noreferrer">{{icon:share}}Share on Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="btn ghost" href="{{SHARE_LINKEDIN}}" target="_blank" rel="noopener noreferrer">{{icon:share}}Share on LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="btn ghost" href="{{SHARE_WHATSAPP}}" target="_blank" rel="noopener noreferrer">{{icon:share}}Share on WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <button class="btn" type="button" data-copy-article hidden>{{icon:copy}}Copy Link</button>
+ </div>
+ <p class="article-share-status" role="status" aria-live="polite" aria-atomic="true" data-share-status></p>
+ <div data-share-manual>
+  <label for="article-share-url">Article link — select and copy manually</label>
+  <input id="article-share-url" type="url" value="{{SHARE_CANONICAL}}" readonly spellcheck="false">
+ </div>
+</section>

@@ -30,6 +30,21 @@ The template engine supports named markers such as `{{EMAIL}}` and icon markers 
 
 A public page requires both its body in `src/pages/` and metadata in `src/data/pages.json`. Sitemap entries are generated from those pages; the 404 page is excluded.
 
+### Automatic article sharing
+
+Register a new article with `type: "article"`, its existing `article` metadata
+(including `headline`), and a clean `/blog/slug/` route in `src/data/routes.json`.
+The shared build adds `src/layout/article-sharing.html` after the page content,
+exactly once. Do not add sharing markup or scripts to individual articles.
+Ordinary pages receive no sharing section. `scripts/article-sharing.cjs` uses only
+the production canonical and article headline: Facebook and LinkedIn share the
+canonical link and use its social metadata; WhatsApp also receives the headline.
+The shared local script copies that same canonical, announces success only after
+clipboard confirmation, and reveals a selected manual-copy field on failure.
+Links and the manual field also work without JavaScript. No social SDK is loaded.
+Run `npm test -- tests/article-sharing.spec.cjs` for endpoint, clipboard,
+accessibility, layout and isolated future-article build coverage.
+
 ## Portfolio and images
 
 Project visibility and homepage selection use the `visible` and `featured` fields. IDs also form project anchors, so changing an ID requires updating links that target it. Categories and filters are generated from the same records.

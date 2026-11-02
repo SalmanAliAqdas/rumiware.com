@@ -51,6 +51,8 @@ for(const [file,page] of Object.entries(pages)){
  values.SERVICE_JUMPS=services.map(s=>`<a href="#${s.id}">${esc(s.name)}</a>`).join('');
  values.SERVICE_DETAILS=services.map(s=>`<article class="svc rv" id="${s.id}"><div class="ico" aria-hidden="true">${icon(s.icon)}</div><div><h2>${esc(s.name)}</h2><p>${esc(s.description)}</p><a class="more" href="get-quote.html">Request a consultation</a></div><ul class="checks">${s.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></article>`).join('');
  const pageUrl=site.url+pagePath(file);
+ // One shared section for every explicitly classified article, including future posts.
+ values.ARTICLE_SHARING=page.type==='article'?render(read('src/layout/article-sharing.html'),Object.fromEntries(Object.entries(require('./article-sharing.cjs')(pageUrl,page.article?.headline||page.title)).map(([key,value])=>[key,esc(value)]))):'';
  const socialImage=site.url+(page.socialImage||'/images/social-preview.png');
  values.ANALYTICS_CONFIG=json({...site.analytics, pageLocation:pageUrl, pageTitle:page.title, pagePath:pagePath(file), publicPaths:Object.values(routes).filter(p=>p!=='/404.html')});
  const schemas=[organization,...page.schemas];if(file==='faq.html')schemas.push({'@context':'https://schema.org','@type':'FAQPage',mainEntity:questions()});
