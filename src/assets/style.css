@@ -320,3 +320,11 @@ body:has(form:focus-within) .wa,body:has(form:focus-within) #top{visibility:hidd
 .portfolio-grid .project-links{margin-top:auto}
 .project-status-note{max-width:800px;font-size:.9rem;margin-block:var(--space-3)}
 .project-count{margin-bottom:var(--space-3);font-size:.9rem}
+
+/* Editorial illustration and in-page navigation share both theme palettes. */
+.article-cover{margin-top:2rem}.article-cover img,.blog-cover img{display:block;width:100%;height:auto;border-radius:10px}
+.article-cover figcaption{margin-top:.6rem;color:var(--sec);font-size:.85rem}
+.blog-cover{display:block;margin-bottom:1rem}.blog-cover img{aspect-ratio:1200/630;object-fit:contain}
+.security-article{padding:2rem 0 3rem}.security-article h2{scroll-margin-top:1.5rem}.security-article h3{margin:1.5rem 0 .5rem}
+.article-toc{padding:1rem 1.2rem;margin:1.8rem 0;background:var(--alt);border:1px solid var(--line);border-radius:var(--r)}
+.article-toc p{margin:0}.article-toc ul{margin:.5rem 0 0;padding-left:1.2rem}.article-toc li{font-size:.95rem}

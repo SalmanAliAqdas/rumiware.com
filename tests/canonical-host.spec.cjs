@@ -1,6 +1,7 @@
 ﻿const {test,expect}=require('@playwright/test');
 const fs=require('node:fs');const path=require('node:path');const crypto=require('node:crypto');
 const {apacheRules,routes}=require('../scripts/routes.cjs');
+const pages=require('../src/data/pages.json');
 const root=path.resolve(__dirname,'..');
 const block=()=>fs.readFileSync(path.join(root,'config/clean-url-redirects.conf'),'utf8').replace(/\r\n/g,'\n');
 
@@ -25,7 +26,7 @@ test('canonical host rules retain raw encoded paths, queries and a fixed destina
 test('known legacy URLs target final non-www clean URLs before the host fallback',()=>{
  const source=block();expect(source).toBe(apacheRules());
  const fallback=source.indexOf('RewriteCond %{HTTP_HOST}');
- for(const [file,route] of Object.entries(routes).filter(([f])=>f!=='404.html')){
+ for(const [file,route] of Object.entries(routes).filter(([f])=>f!=='404.html'&&pages[f].legacyRedirect!==false)){
   const pattern=file.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const rule='RewriteRule ^'+pattern+'$ https://rumiware.com'+route+' [R=301,L,NE]';
   expect(source).toContain(rule);expect(source.indexOf(rule)).toBeLessThan(fallback);

@@ -2,6 +2,8 @@ const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
+const sourcePages=require('../src/data/pages.json');
+const {outputFile}=require('../scripts/routes.cjs');
 const published = path.join(root,'dist');
 const pages = fs.readdirSync(published,{recursive:true}).filter(p => p.endsWith('.html')).map(p=>p.replaceAll('\\','/'));
 const documents = pages.filter(p => fs.readFileSync(path.join(published, p), 'utf8').startsWith('<!DOCTYPE'));
@@ -59,7 +61,7 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
   await page.goto('/careers/'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(2);
+  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(3);
   await page.locator('a.more[href$="blog/fast-mobile-website/"]').click();
   await expect(page.locator('h1')).toHaveText('Why Your Business Needs a Fast Mobile Website');
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content','article');
@@ -75,7 +77,11 @@ test('social metadata references a real 1200 by 630 asset and production canonic
   expect(png.length).toBeLessThan(100000);
   for(const file of documents) {
     await page.goto('/'+file);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://rumiware.com/images/social-preview.png');
+    const source=Object.keys(sourcePages).find(name=>outputFile(name)===file);
+    const image=sourcePages[source].socialImage||'/images/social-preview.png';
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://rumiware.com'+image);
+    const social=await request.get(image);expect(social.status()).toBe(200);
+    const bytes=await social.body();expect(bytes.readUInt32BE(16)).toBe(1200);expect(bytes.readUInt32BE(20)).toBe(630);
     const description=await page.locator('meta[name=description]').getAttribute('content');
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description);
     expect(await page.locator('link[rel=icon]').evaluate(el=>el.href)).toBe(new URL('/images/favicon.png',page.url()).href);

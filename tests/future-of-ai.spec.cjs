@@ -45,7 +45,7 @@ for(const theme of ['dark','light'])test(`article and Blog listing work at both 
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1')&&r.status()>=400)failures.push(r.url())});
  for(const mount of ['/','/rumiware.com/'])for(const width of [375,1440]){
   await page.setViewportSize({width,height:900});await page.goto(mount+'blog/');
-  await expect(page.locator('main article')).toHaveCount(2);await expect(page.locator('a.more[href$="blog/fast-mobile-website/"]')).toHaveCount(1);
+  await expect(page.locator('main article')).toHaveCount(3);await expect(page.locator('a.more[href$="blog/fast-mobile-website/"]')).toHaveCount(1);
   await page.locator(`a.more[href$="${route}"]`).click();await expect(page).toHaveURL(new RegExp(mount+route+'$'));
   await page.locator('html.menu-ready.theme-ready').waitFor();await page.evaluate(()=>document.fonts.ready);
   await expect(page.locator('html')).toHaveAttribute('data-theme',theme);await expect(page.locator('h1')).toHaveText(headline);

@@ -51,6 +51,7 @@ for(const [file,page] of Object.entries(pages)){
  values.SERVICE_JUMPS=services.map(s=>`<a href="#${s.id}">${esc(s.name)}</a>`).join('');
  values.SERVICE_DETAILS=services.map(s=>`<article class="svc rv" id="${s.id}"><div class="ico" aria-hidden="true">${icon(s.icon)}</div><div><h2>${esc(s.name)}</h2><p>${esc(s.description)}</p><a class="more" href="get-quote.html">Request a consultation</a></div><ul class="checks">${s.features.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></article>`).join('');
  const pageUrl=site.url+pagePath(file);
+ const socialImage=site.url+(page.socialImage||'/images/social-preview.png');
  values.ANALYTICS_CONFIG=json({...site.analytics, pageLocation:pageUrl, pageTitle:page.title, pagePath:pagePath(file), publicPaths:Object.values(routes).filter(p=>p!=='/404.html')});
  const schemas=[organization,...page.schemas];if(file==='faq.html')schemas.push({'@context':'https://schema.org','@type':'FAQPage',mainEntity:questions()});
  values.ARTICLE_META='';
@@ -60,9 +61,9 @@ for(const [file,page] of Object.entries(pages)){
   if(a.dateModified<a.datePublished)throw Error('Article modification precedes publication: '+file);
   Object.assign(values,{ARTICLE_HEADING:esc(a.headline),ARTICLE_AUTHOR:esc(a.author),ARTICLE_ROLE:esc(a.role),ARTICLE_PUBLISHED:a.datePublished,ARTICLE_DATE:esc(new Date(a.datePublished+'T12:00:00Z').toLocaleDateString('en-GB',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'})),ARTICLE_CATEGORY:esc(a.category)});
   values.ARTICLE_META=`<meta property="article:published_time" content="${a.datePublished}"><meta property="article:modified_time" content="${a.dateModified}"><meta name="author" content="${esc(a.author)}">`;
-  schemas.push({'@context':'https://schema.org','@type':'BlogPosting',headline:a.headline,description:page.description,url:pageUrl,mainEntityOfPage:pageUrl,datePublished:a.datePublished,dateModified:a.dateModified,articleSection:a.category,image:site.url+'/images/social-preview.png',author:{'@type':'Person',name:a.author,jobTitle:a.role},publisher:{'@type':'Organization',name:'RumiWare',url:site.url}});
+  schemas.push({'@context':'https://schema.org','@type':'BlogPosting',headline:a.headline,description:page.description,url:pageUrl,mainEntityOfPage:pageUrl,datePublished:a.datePublished,dateModified:a.dateModified,articleSection:a.category,image:socialImage,author:{'@type':'Person',name:a.author,jobTitle:a.role},publisher:{'@type':'Organization',name:'RumiWare',url:site.url}});
  }
- Object.assign(values,{TITLE:esc(page.title),DESCRIPTION:esc(page.description),OG_TYPE:page.type,PAGE_URL:pageUrl,SOCIAL_IMAGE:site.url+'/images/social-preview.png',CANONICAL:file==='404.html'?'':`<link rel="canonical" href="${pageUrl}">`,ROBOTS:file==='404.html'?'<meta name="robots" content="noindex">':'',
+ Object.assign(values,{TITLE:esc(page.title),DESCRIPTION:esc(page.description),OG_TYPE:page.type,PAGE_URL:pageUrl,SOCIAL_IMAGE:esc(socialImage),SOCIAL_IMAGE_ALT:esc(page.socialImageAlt||'Rumiware — Websites, mobile apps and AI solutions. Lahore, Pakistan.'),TWITTER_META:page.socialImage?`<meta name="twitter:title" content="${esc(page.title)}"><meta name="twitter:description" content="${esc(page.description)}"><meta name="twitter:image" content="${esc(socialImage)}"><meta name="twitter:image:alt" content="${esc(page.socialImageAlt)}">`:'',CANONICAL:file==='404.html'?'':`<link rel="canonical" href="${pageUrl}">`,ROBOTS:file==='404.html'?'<meta name="robots" content="noindex">':'',
  BASE:file==='404.html'?`<base href="${site.url}/"><script>document.querySelector('base').setAttribute('href', location.hostname === ${json(site.previewHost)} || location.pathname.indexOf(${json(site.previewPath)}) === 0 ? ${json(site.previewPath)} : '/');</script><noscript><style>.js-recovery{display:none}</style></noscript>`:'',
  FALLBACK_STYLE:file==='404.html'?'<style>body{margin:0;background:#0B1E2D;color:#E6E0D0;font:1rem/1.65 system-ui,sans-serif}a{color:#3FD0CB}h1,h2{color:#F4EEDD}</style>':'',
  SCHEMA:schemas.map(s=>`<script type="application/ld+json">${json(s)}</script>`).join('\n'),HEADER:render(read('src/layout/header.html'),values),FOOTER:render(read('src/layout/footer.html'),values),CONTENT:render(read('src/pages/'+file),values)});
@@ -84,6 +85,10 @@ for(const file of ['style.css','script.js'])fs.copyFileSync(path.join(root,'src/
 for(const file of ['chatbot.css','chatbot.js','chatbot-resolver.js'])fs.copyFileSync(path.join(root,'src/assets',file),path.join(out,file));
 const assets=['images/favicon.png','images/social-preview.png',...team.map(p=>`images/portraits/${p.image}.webp`),...projects.filter(p=>p.visible&&p.image).flatMap(p=>[p.image,p.imageSmall].filter(Boolean).map(f=>`images/projects/${f}`)),...[homeEnquiry.image,homeEnquiry.imageSmall].map(f=>`images/projects/${f}`),...['bricolage-latin.woff2','dm-sans-latin.woff2','bricolagegrotesque-OFL.txt','dmsans-OFL.txt'].map(f=>'images/fonts/'+f)];
 for(const asset of assets){const dest=path.join(out,asset);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,asset),dest);}
+for(const asset of new Set(Object.values(pages).flatMap(p=>p.assets||[]))){
+ if(!/^images\/blog\/[a-z0-9-]+\.(?:svg|webp|png)$/.test(asset))throw Error('Invalid article asset: '+asset);
+ const dest=path.join(out,asset);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,asset),dest);
+}
 fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc></url>`).join('')}</urlset>\n`);
 fs.writeFileSync(path.join(out,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 // A tag document with a real HTTP URL, no forms and no inherited referrer.

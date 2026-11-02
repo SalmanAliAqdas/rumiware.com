@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+ <title id="title">Binance’s $6.3B Hack — Security Lessons for the AI Era</title>
+ <desc id="desc">An original conceptual illustration of a developer laptop connected to a cloud and a digital vault. A red warning interrupts the access path.</desc>
+ <defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0B1E2D"/><stop offset="1" stop-color="#102F40"/></linearGradient>
+  <linearGradient id="vault" x2="1" y2="1"><stop stop-color="#1D4656"/><stop offset="1" stop-color="#102A43"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#3FD0CB" stroke-opacity=".06"/></pattern>
+ </defs>
+ <rect width="1200" height="630" fill="url(#bg)"/>
+ <rect width="1200" height="630" fill="url(#grid)"/>
+ <circle cx="1030" cy="415" r="210" fill="#16A6A3" opacity=".05"/>
+ <path d="M64 66H128" stroke="#D9B65C" stroke-width="5"/>
+ <g font-family="Arial, sans-serif">
+  <text x="64" y="142" fill="#F4EEDD" font-size="57" font-weight="700" letter-spacing="-1.5">BINANCE’S $6.3B HACK</text>
+  <text x="66" y="195" fill="#3FD0CB" font-size="33">Security Lessons for the AI Era</text>
+ </g>
+ <!-- The access path: ordinary infrastructure, not an attack reconstruction. -->
+ <g fill="none" stroke="#3FD0CB" stroke-width="4" stroke-linecap="round">
+  <path d="M339 408H404M493 408H568V366H603" stroke-dasharray="8 10"/>
+  <path d="M742 366H818V408H880"/>
+  <circle cx="339" cy="408" r="6" fill="#3FD0CB"/>
+  <circle cx="880" cy="408" r="6" fill="#3FD0CB"/>
+ </g>
+ <!-- Developer laptop -->
+ <g stroke-linejoin="round">
+  <rect x="111" y="308" width="238" height="164" rx="13" fill="#102A43" stroke="#7A9DAA" stroke-width="3"/>
+  <rect x="124" y="322" width="212" height="133" rx="5" fill="#0B1E2D"/>
+  <circle cx="143" cy="338" r="3" fill="#D9B65C"/><circle cx="155" cy="338" r="3" fill="#16A6A3"/>
+  <path d="M153 377L139 390L153 403M188 377L202 390L188 403M178 371L165 410" fill="none" stroke="#3FD0CB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M221 379H306M221 392H283M143 430H261" stroke="#547584" stroke-width="4" stroke-linecap="round"/>
+  <path d="M111 472L83 494Q81 501 95 501H365Q379 501 377 494L349 472Z" fill="#244557" stroke="#7A9DAA" stroke-width="3"/>
+  <path d="M202 476H257L263 484H196Z" fill="#7A9DAA"/>
+ </g>
+ <!-- Red warning interrupts access -->
+ <circle cx="448" cy="408" r="46" fill="#331F2B"/>
+ <path d="M448 371L483 434H413Z" fill="#F27A6B" stroke="#FFB5A4" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M448 392V411" stroke="#0B1E2D" stroke-width="5" stroke-linecap="round"/>
+ <circle cx="448" cy="422" r="3" fill="#0B1E2D"/>
+ <!-- Cloud service -->
+ <path d="M609 393C573 391 568 347 599 335C597 297 643 278 670 300C699 271 747 289 749 325C789 327 798 379 762 392Z" fill="#123D4B" stroke="#3FD0CB" stroke-width="3"/>
+ <rect x="641" y="330" width="67" height="17" rx="4" fill="#0B1E2D" stroke="#688D97"/>
+ <rect x="641" y="355" width="67" height="17" rx="4" fill="#0B1E2D" stroke="#688D97"/>
+ <circle cx="697" cy="338" r="3" fill="#D9B65C"/><circle cx="697" cy="363" r="3" fill="#3FD0CB"/>
+ <!-- Digital vault -->
+ <rect x="880" y="290" width="204" height="218" rx="17" fill="url(#vault)" stroke="#7A9DAA" stroke-width="3"/>
+ <rect x="896" y="307" width="172" height="181" rx="10" fill="#0B1E2D" stroke="#466877" stroke-width="2"/>
+ <rect x="889" y="337" width="15" height="26" rx="3" fill="#7A9DAA"/><rect x="889" y="437" width="15" height="26" rx="3" fill="#7A9DAA"/>
+ <circle cx="982" cy="398" r="49" fill="#102F40" stroke="#D9B65C" stroke-width="3"/>
+ <circle cx="982" cy="398" r="14" fill="#D9B65C"/>
+ <g stroke="#D9B65C" stroke-width="6" stroke-linecap="round"><path d="M982 365V384M982 412V431M949 398H968M996 398H1015"/></g>
+ <path d="M1048 353V443" stroke="#3FD0CB" stroke-width="5" stroke-linecap="round"/>
+ <g font-family="Arial, sans-serif" fill="#B4C2CE" font-size="16" letter-spacing="2">
+  <text x="147" y="539">DEVELOPER DEVICE</text><text x="598" y="438">CLOUD SERVICE</text><text x="913" y="539">DIGITAL VAULT</text>
+ </g>
+ <path d="M64 575H1136" stroke="#355364"/>
+ <text x="66" y="609" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#F4EEDD">Rumi<tspan fill="#3FD0CB">Ware</tspan></text>
+ <text x="1134" y="607" text-anchor="end" font-family="Arial, sans-serif" font-size="14" letter-spacing="2" fill="#D9B65C">CYBERSECURITY / 2026</text>
+</svg>

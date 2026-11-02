@@ -16,6 +16,11 @@ function cleanLink(value) {
 }
 const redirects=new Map();
 for(const [file,route] of Object.entries(routes))if(file!=='404.html') {
+ // New directory-only posts have no legacy URL to migrate. Keep hosting rules stable.
+ if(pages[file].legacyRedirect===false){
+  if(file!==route.slice(1)+'index.html')throw Error('Only directory-native pages can omit legacy redirects');
+  continue;
+ }
  redirects.set('/'+file,route);
  if(route!=='/')redirects.set(route+'index.html',route);
 }

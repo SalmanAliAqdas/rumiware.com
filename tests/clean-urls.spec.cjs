@@ -8,7 +8,7 @@ const root=path.resolve(__dirname,'..');
 
 test('central route inventory drives output, canonical metadata, structured data and sitemap',()=>{
  const canonical=Object.entries(routes).filter(([file])=>file!=='404.html');
- expect(canonical).toHaveLength(20);
+ expect(canonical).toHaveLength(21);
  for(const [file,route] of canonical){
   const html=fs.readFileSync(path.join(root,'dist',outputFile(file)),'utf8');
   expect(html).toContain(`<link rel="canonical" href="${site.url+route}">`);
@@ -50,7 +50,7 @@ test('every canonical route refreshes at both mounts and shared navigation reach
 });
 
 test('local redirect model preserves queries and fragments, is single-hop and leaves unknown pages at 404',async({request,page})=>{
- for(const mount of ['/','/rumiware.com/'])for(const [file,route] of Object.entries(routes).filter(([file])=>file!=='404.html')){
+ for(const mount of ['/','/rumiware.com/'])for(const [file,route] of Object.entries(routes).filter(([file])=>file!=='404.html'&&pages[file].legacyRedirect!==false)){
   const query='?plan=business&utm_source=legacy%20link&x=%26%3D';
   for(const old of new Set([file,route.slice(1)+'index.html'])){
    const response=await request.get(mount+old+query,{maxRedirects:0});
@@ -74,7 +74,7 @@ test('Apache rule fixture is constrained and THE_REQUEST prevents DirectoryIndex
  const rules=[...block.matchAll(/RewriteCond %\{THE_REQUEST\} "([^"]+)" \[NC\]\nRewriteRule (\S+) (\S+) \[R=301,L,NE\]/g)].map(m=>({condition:new RegExp(m[1],'i'),pattern:new RegExp(m[2]),target:m[3]}));
  expect(rules.length).toBeGreaterThan(30);
  function match(uri,original=uri){return rules.filter(r=>r.pattern.test(uri.slice(1))&&r.condition.test('GET '+original+' HTTP/1.1'));}
- for(const [file,route] of Object.entries(routes).filter(([file])=>file!=='404.html')){
+ for(const [file,route] of Object.entries(routes).filter(([file])=>file!=='404.html'&&pages[file].legacyRedirect!==false)){
   expect(match('/'+file).map(r=>r.target)).toEqual([site.url+route]);
   expect(match(route+'index.html',route)).toEqual([]);
  }
