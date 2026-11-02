@@ -3,7 +3,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-const {redirectFor}=createRequire(import.meta.url)('./routes.cjs');
+const {redirectFor,retiredFor}=createRequire(import.meta.url)('./routes.cjs');
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const site = JSON.parse(await readFile(new URL('../src/data/site.json', import.meta.url), 'utf8'));
@@ -28,6 +28,7 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200,{'Content-Type':types['.html']});res.end(source.replace('<head>','<head><meta name="robots" content="noindex">'));return;
   }
   // Local model of the explicit redirect map. This does not execute .htaccess.
+  if(retiredFor(path)){res.writeHead(410,{'Content-Type':'text/plain; charset=utf-8'}).end('This article has been retired.');return;}
   const redirect=redirectFor(path);
   if(redirect!==null){const mount=url.pathname.startsWith(site.previewPath)?previewMount:'';res.writeHead(301,{Location:mount+redirect+url.search}).end();return;}
   if (path.endsWith('/')) path += 'index.html';

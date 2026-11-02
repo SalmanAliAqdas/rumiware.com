@@ -38,5 +38,5 @@ test('reviewed deployment transition matches generated configuration and inspect
  const helper=fs.readFileSync(path.join(root,'scripts/hostinger-remote.py'),'utf8');
  const digest=crypto.createHash('sha256').update(block()).digest('hex');
  expect(helper).toContain("'8a51280002cd38ebe9f6cb4ff559d92a1bedc970a99eed99195ab1458d03d654'");expect(helper).toContain("'"+digest+"'");
- expect(helper).toContain("name == '.htaccess' and (digest(dest), digest(path)) == REVIEWED_HTACCESS_TRANSITION");
+ expect(helper).toContain("name == '.htaccess' and reviewed_transition(digest(dest), digest(path))");
 });

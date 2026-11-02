@@ -17,30 +17,6 @@
     "type": "website",
     "schemas": []
   },
-  "blog-post.html": {
-    "title": "Why Your Business Needs a Fast Mobile Website | Rumiware Blog",
-    "description": "Most visitors browse on their phones. Learn why a fast mobile website decides whether customers stay or leave.",
-    "type": "article",
-    "schemas": [
-      {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Why Your Business Needs a Fast Mobile Website",
-        "description": "Most visitors browse on their phones. Learn why a fast mobile website decides whether customers stay or leave.",
-        "url": "https://rumiware.com/blog/fast-mobile-website/",
-        "mainEntityOfPage": "https://rumiware.com/blog/fast-mobile-website/",
-        "image": "https://rumiware.com/images/social-preview.png",
-        "author": {
-          "@type": "Organization",
-          "name": "Rumiware"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Rumiware"
-        }
-      }
-    ]
-  },
   "blog/future-of-ai/index.html": {
     "title": "The Future of AI: Business, Jobs & Skills | RumiWare",
     "description": "Explore the future of AI, its impact on business and jobs, and the practical skills small businesses and professionals need to prepare.",
@@ -52,8 +28,15 @@
       "role": "Founder & CEO, RumiWare",
       "category": "Artificial Intelligence",
       "datePublished": "2026-10-30",
-      "dateModified": "2026-10-30"
-    }
+      "dateModified": "2026-11-02"
+    },
+    "socialImage": "/images/blog/future-of-ai-social.png",
+    "socialImageAlt": "People using AI assistance at work, while learning with books, and for everyday planning.",
+    "assets": [
+      "images/blog/future-of-ai-cover.webp",
+      "images/blog/future-of-ai-cover-640.webp",
+      "images/blog/future-of-ai-social.png"
+    ]
   },
   "blog.html": {
     "title": "Blog | Rumiware - Web, Mobile & AI Tips for Business",

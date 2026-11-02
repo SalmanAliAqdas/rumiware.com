@@ -1,0 +1,13 @@
+{
+  "inspectionDate": "2026-11-02",
+  "paths": [
+    "/blog-post.html",
+    "/blog/fast-mobile-website",
+    "/blog/fast-mobile-website/",
+    "/blog/fast-mobile-website/index.html"
+  ],
+  "retiredFiles": {
+    "blog-post.html": "2dfbe14cb37fa8ecf4a6f7f66a73d76ba3e99a5628a698eaceea50acc1b75b76",
+    "blog/fast-mobile-website/index.html": "3d9c23a5c50d74661183a418d59844330d1d7bcdda41a012905c114e01163648"
+  }
+}

@@ -51,7 +51,7 @@ test('Binance article has complete SEO, dated attribution, original social artwo
  for(const suffix of ['-cover.svg','-cover.webp','-cover-640.webp'])expect((await request.get('/'+stem+suffix)).status()).toBe(200);
  const sitemap=await (await request.get('/sitemap.xml')).text();expect(sitemap.split(url).length-1).toBe(1);
  const rules=fs.readFileSync(path.resolve(__dirname,'../dist/.htaccess'));
- expect(crypto.createHash('sha256').update(rules).digest('hex')).toBe('3f341c8cc89e139026ed9e01db0126f79da6359cbb509085c093eae88fab5347');
+ expect(crypto.createHash('sha256').update(rules).digest('hex')).toBe('a2db54ab781fb142fa9d23110b5d031e375a84c8289b0d3ce277d3c330fd3bd7');
 });
 
 for(const theme of ['dark','light'])for(const width of [375,1440])test(`Binance article and Blog cover at ${width}px in ${theme} theme`,async({page})=>{

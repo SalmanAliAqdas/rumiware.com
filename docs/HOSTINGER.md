@@ -64,9 +64,10 @@ push deployment remains separate and unchanged.
 5. Check all destination conflicts before changing public files. Preserve every
    existing hidden path except `.nojekyll`, plus `web.config` and `php.ini`.
    Identical configuration files are left untouched. Different contents abort
-   with a list of conflicting relative paths and no website writes. The sole reviewed
-   exception is the exact old-to-new root `.htaccess` checksum pair recorded in
-   [WWW-REDIRECT.md](WWW-REDIRECT.md); arbitrary configuration edits remain blocked.
+   with a list of conflicting relative paths and no website writes. The reviewed
+   exceptions are the exact root `.htaccess` checksum transitions recorded in
+   [WWW-REDIRECT.md](WWW-REDIRECT.md) and the narrowly scoped
+   [article retirement](BLOG-POSTER-AND-RETIREMENT.md); arbitrary configuration edits remain blocked.
    File/directory collisions also stop. Remote-only files are retained; no remote deletion is used.
 6. Recheck the destination and snapshot, then replace ordinary build files
    atomically per file. Activate any new or explicitly reviewed root `.htaccess` only
@@ -94,6 +95,11 @@ creates a fresh full backup and repeats every check.
 No step changes DNS, SSL, email, other domains, or account-wide settings. Website
 configuration can affect those features indirectly, which is why existing
 configuration is preserved.
+
+The normal deployment still preserves remote-only files. The explicit, backup-verified
+two-file quarantine for the retired mobile-website article is documented in
+[BLOG-POSTER-AND-RETIREMENT.md](BLOG-POSTER-AND-RETIREMENT.md); it is not a general
+deployment deletion mode.
 
 ## Restore a backup
 

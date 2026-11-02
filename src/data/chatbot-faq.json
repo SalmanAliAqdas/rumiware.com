@@ -679,13 +679,8 @@
       "How can a website load faster",
       "Explain website performance"
     ],
-    "answer": "Faster pages can be easier to use, especially on mobile connections. The blog discusses image sizes, simple code and mobile-first design.",
-    "links": [
-      {
-        "label": "Read more",
-        "url": "blog/fast-mobile-website/"
-      }
-    ]
+    "answer": "Faster pages can be easier to use, especially on mobile connections.",
+    "links": []
   },
   {
     "id": "accessibility",
@@ -1091,7 +1086,7 @@
       "Do you have learning resources",
       "Show blog articles"
     ],
-    "answer": "The blog lists articles on fast mobile websites and the future of AI.",
+    "answer": "The blog lists articles on the future of AI and cybersecurity.",
     "links": [
       {
         "label": "Read more",
@@ -1123,11 +1118,11 @@
       "Read about fast mobile websites",
       "Mobile website blog"
     ],
-    "answer": "Read Why Your Business Needs a Fast Mobile Website for practical discussion of images, simple code and mobile-first design.",
+    "answer": "This article has been retired. Currently available articles are listed on the blog.",
     "links": [
       {
-        "label": "Read more",
-        "url": "blog/fast-mobile-website/"
+        "label": "View available articles",
+        "url": "blog/"
       }
     ]
   },

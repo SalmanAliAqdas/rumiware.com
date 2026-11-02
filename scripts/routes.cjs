@@ -2,6 +2,8 @@
 const routes=require('../src/data/routes.json');
 const pages=require('../src/data/pages.json');
 const site=require('../src/data/site.json');
+const retired=require('../config/mobile-article-retirement.json');
+const retiredFor=pathname=>retired.paths.some(p=>p.toLowerCase()===pathname.toLowerCase());
 if(Object.keys(routes).length!==Object.keys(pages).length||Object.keys(pages).some(p=>!Object.hasOwn(routes,p)))throw Error('Route mapping must cover every source page');
 if(new Set(Object.values(routes)).size!==Object.keys(routes).length)throw Error('Duplicate public route');
 for(const [file,route] of Object.entries(routes))if(file!=='404.html'&&!/^\/(?:[a-z0-9-]+\/)*$/.test(route))throw Error('Invalid canonical route: '+route);
@@ -31,7 +33,9 @@ function redirectFor(pathname) {
 }
 function apacheRules() {
  const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
- return '# BEGIN RumiWare clean URLs\n<IfModule mod_rewrite.c>\nRewriteEngine On\n'+[...redirects].map(([old,route])=>
+ return '# BEGIN RumiWare clean URLs\n<IfModule mod_rewrite.c>\nRewriteEngine On\n'+
+  '# Retired article: return 410 even if an old deployment file remains.\n'+
+  'RewriteRule ^(?:'+retired.paths.map(p=>escape(p.slice(1))).join('|')+')$ - [G,L,NC]\n'+[...redirects].map(([old,route])=>
   '# External requests only: internal DirectoryIndex resolution must not redirect.\n'+
   'RewriteCond %{THE_REQUEST} "\\s/+'+escape(old.slice(1))+'(?:[?\\s])" [NC]\n'+
   'RewriteRule ^'+escape(old.slice(1))+'$ '+site.url+route+' [R=301,L,NE]\n').join('\n')+'\n# Canonical host only; independent of proxy/TLS scheme to avoid loops.\n'+
@@ -41,4 +45,4 @@ function apacheRules() {
   'RewriteRule ^ https://rumiware.com%1 [R=301,L,NE]\n'+
   '</IfModule>\nErrorDocument 404 /404.html\n# END RumiWare clean URLs\n';
 }
-module.exports={routes,outputFile,cleanLink,redirectFor,apacheRules};
+module.exports={routes,outputFile,cleanLink,redirectFor,retiredFor,apacheRules};

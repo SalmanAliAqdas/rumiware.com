@@ -61,14 +61,16 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
   await page.goto('/careers/'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(3);
-  await page.locator('a.more[href$="blog/fast-mobile-website/"]').click();
-  await expect(page.locator('h1')).toHaveText('Why Your Business Needs a Fast Mobile Website');
+  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(2);
+  await expect(page.locator('a[href$="blog/fast-mobile-website/"]')).toHaveCount(0);
+  await page.locator('a.more[href$="blog/future-of-ai/"]').click();
+  await expect(page.locator('h1')).toHaveText('The Future of AI: What It Means for Businesses, Jobs, and Everyday Life');
   await expect(page.locator('meta[property="og:type"]')).toHaveAttribute('content','article');
-  const data = await page.locator('script[type="application/ld+json"]').allTextContents();
-  const article = data.map(JSON.parse).find(d => d['@type'] === 'BlogPosting');
-  expect(article.datePublished).toBeUndefined(); expect(article.url).toBe('https://rumiware.com/blog/fast-mobile-website/');
-  expect(await (await request.get('/sitemap.xml')).text()).toContain('https://rumiware.com/blog/fast-mobile-website/');
+  const data=await page.locator('script[type="application/ld+json"]').allTextContents();
+  const article=data.map(JSON.parse).find(d=>d['@type']==='BlogPosting');
+  expect(article.datePublished).toBe('2026-10-30');
+  const sitemap=await (await request.get('/sitemap.xml')).text();
+  expect(sitemap).toContain('https://rumiware.com/blog/future-of-ai/');expect(sitemap).not.toContain('fast-mobile-website');
 });
 
 test('social metadata references a real 1200 by 630 asset and production canonicals', async ({page,request})=>{

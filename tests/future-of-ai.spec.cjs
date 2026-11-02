@@ -20,13 +20,13 @@ test('new article uses the clean URL, exact SEO metadata, real author and consis
   expect((await page.reload()).status()).toBe(200);
   await expect(page).toHaveTitle(title);await expect(page.locator('h1')).toHaveText(headline);
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href',url);
-  for(const [property,value] of Object.entries({'og:type':'article','og:title':title,'og:description':description,'og:url':url,'og:image':'https://rumiware.com/images/social-preview.png','article:published_time':'2026-10-30','article:modified_time':'2026-10-30'}))await expect(page.locator(`meta[property="${property}"]`)).toHaveAttribute('content',value);
+  for(const [property,value] of Object.entries({'og:type':'article','og:title':title,'og:description':description,'og:url':url,'og:image':'https://rumiware.com/images/blog/future-of-ai-social.png','article:published_time':'2026-10-30','article:modified_time':'2026-11-02'}))await expect(page.locator(`meta[property="${property}"]`)).toHaveAttribute('content',value);
   await expect(page.locator('meta[name=description]')).toHaveAttribute('content',description);
   await expect(page.locator('meta[name=author]')).toHaveAttribute('content','Salman Ali Aqdas');
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content','summary_large_image');
   await expect(page.locator('meta[name=keywords]')).toHaveCount(0);
   const article=(await page.locator('script[type="application/ld+json"]').allTextContents()).map(JSON.parse).find(s=>s['@type']==='BlogPosting');
-  expect(article).toMatchObject({headline,description,url,mainEntityOfPage:url,datePublished:'2026-10-30',dateModified:'2026-10-30',articleSection:'Artificial Intelligence',author:{'@type':'Person',name:'Salman Ali Aqdas',jobTitle:'Founder & CEO, RumiWare'},publisher:{'@type':'Organization',name:'RumiWare'},image:'https://rumiware.com/images/social-preview.png'});
+  expect(article).toMatchObject({headline,description,url,mainEntityOfPage:url,datePublished:'2026-10-30',dateModified:'2026-11-02',articleSection:'Artificial Intelligence',author:{'@type':'Person',name:'Salman Ali Aqdas',jobTitle:'Founder & CEO, RumiWare'},publisher:{'@type':'Organization',name:'RumiWare'},image:'https://rumiware.com/images/blog/future-of-ai-social.png'});
   await expect(page.locator('time')).toHaveAttribute('datetime',article.datePublished);await expect(page.locator('time')).toHaveText('30 October 2026');
   await expect(page.locator('.page-hero .meta')).toContainText('Salman Ali Aqdas');await expect(page.locator('.page-hero .meta')).toContainText('Founder & CEO, RumiWare');
   expect(await page.locator('article a').evaluateAll(links=>links.map(a=>a.href))).toEqual(['https://rumiware.com/contact/',...refs]);
@@ -45,7 +45,7 @@ for(const theme of ['dark','light'])test(`article and Blog listing work at both 
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1')&&r.status()>=400)failures.push(r.url())});
  for(const mount of ['/','/rumiware.com/'])for(const width of [375,1440]){
   await page.setViewportSize({width,height:900});await page.goto(mount+'blog/');
-  await expect(page.locator('main article')).toHaveCount(3);await expect(page.locator('a.more[href$="blog/fast-mobile-website/"]')).toHaveCount(1);
+  await expect(page.locator('main article')).toHaveCount(2);await expect(page.locator('a.more[href$="blog/fast-mobile-website/"]')).toHaveCount(0);
   await page.locator(`a.more[href$="${route}"]`).click();await expect(page).toHaveURL(new RegExp(mount+route+'$'));
   await page.locator('html.menu-ready.theme-ready').waitFor();await page.evaluate(()=>document.fonts.ready);
   await expect(page.locator('html')).toHaveAttribute('data-theme',theme);await expect(page.locator('h1')).toHaveText(headline);

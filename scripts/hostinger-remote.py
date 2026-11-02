@@ -17,6 +17,15 @@ REVIEWED_HTACCESS_TRANSITION = (
     '8a51280002cd38ebe9f6cb4ff559d92a1bedc970a99eed99195ab1458d03d654',
     '3f341c8cc89e139026ed9e01db0126f79da6359cbb509085c093eae88fab5347',
 )
+# Inspected article retirement; unrelated hosting edits remain blocked.
+REVIEWED_RETIREMENT_TRANSITION = (
+    '3f341c8cc89e139026ed9e01db0126f79da6359cbb509085c093eae88fab5347',
+    'a2db54ab781fb142fa9d23110b5d031e375a84c8289b0d3ce277d3c330fd3bd7',
+)
+
+def reviewed_transition(old, new):
+    return (old, new) in (REVIEWED_HTACCESS_TRANSITION, REVIEWED_RETIREMENT_TRANSITION)
+
 
 
 def require(condition, message):
@@ -149,7 +158,7 @@ def main():
         if path.is_file():
             if dest.exists() and protected(name):
                 if digest(path) != digest(dest):
-                    if name == '.htaccess' and (digest(dest), digest(path)) == REVIEWED_HTACCESS_TRANSITION:
+                    if name == '.htaccess' and reviewed_transition(digest(dest), digest(path)):
                         files.append((path, dest))
                     else:
                         conflicts.append(name)
@@ -174,7 +183,7 @@ def main():
             require(not dest.is_symlink() and
                     ((not dest.exists()) if original is None else
                      (dest.is_file() and digest(dest) == original[3] and
-                      (original[3], digest(source)) == REVIEWED_HTACCESS_TRANSITION)),
+                      reviewed_transition(original[3], digest(source)))),
                     'Root configuration changed before activation; stopping.')
         # Atomic per file. The whole deployment is not a single atomic transaction.
         with tempfile.NamedTemporaryFile(dir=dest.parent, prefix='.deploy-', delete=False) as output:

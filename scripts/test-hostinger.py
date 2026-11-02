@@ -101,7 +101,7 @@ class DeploymentSafety(unittest.TestCase):
         self.assertEqual((self.target / 'index.html').read_text(), 'old website')
 
     def reviewed_config(self):
-        current = (Path(__file__).resolve().parent.parent / 'config/clean-url-redirects.conf').read_text(encoding='utf-8')
+        current = (Path(__file__).resolve().parent.parent / 'tests/fixtures/pre-article-retirement.htaccess').read_text(encoding='utf-8')
         previous = current.split('\n# Canonical host only;')[0] + '</IfModule>\nErrorDocument 404 /404.html\n# END RumiWare clean URLs\n'
         previous = previous.replace('https://rumiware.com/', '/')
         import hashlib
@@ -222,6 +222,32 @@ class DeploymentSafety(unittest.TestCase):
         self.assertEqual(list(self.root.glob('hostinger-*')), [])
 
 
+class ArticleRetirementDeployment(unittest.TestCase):
+    # Reuse the production helper with only its exact target substituted for a fixture.
+    setUp = DeploymentSafety.setUp
+    call = DeploymentSafety.call
+    payload = DeploymentSafety.payload
+    def test_new_reviewed_transition_preserves_backup_and_unrelated_content(self):
+        old = (Path(__file__).resolve().parent.parent / 'tests/fixtures/pre-article-retirement.htaccess').read_text(encoding='utf-8')
+        new = (Path(__file__).resolve().parent.parent / 'config/clean-url-redirects.conf').read_text(encoding='utf-8')
+        (self.target / '.htaccess').write_bytes(old.encode())
+        self.call('backup')
+        self.call('deploy', self.payload({'index.html': 'new', '.htaccess': new}))
+        self.assertEqual((self.target / '.htaccess').read_text(), new)
+        self.assertEqual((self.target / 'remote-only.txt').read_text(), 'keep this')
+        with tarfile.open(self.backup / 'site.tar') as archive:
+            self.assertEqual(archive.extractfile('./.htaccess').read(), old.encode())
+
+    def test_modified_retirement_config_is_rejected_before_public_writes(self):
+        old = (Path(__file__).resolve().parent.parent / 'tests/fixtures/pre-article-retirement.htaccess').read_text(encoding='utf-8')
+        new = (Path(__file__).resolve().parent.parent / 'config/clean-url-redirects.conf').read_text(encoding='utf-8')
+        (self.target / '.htaccess').write_bytes(old.encode())
+        self.call('backup')
+        self.call('deploy', self.payload({'index.html': 'new', '.htaccess': new + '# unreviewed\n'}), False)
+        self.assertEqual((self.target / 'index.html').read_text(), 'old website')
+        self.assertEqual((self.target / '.htaccess').read_text(), old)
+
+
 class CleanUrlRecovery(unittest.TestCase):
     def setUp(self):
         self.fixture = DeploymentSafety(methodName='runTest')
@@ -299,4 +325,8 @@ class CleanUrlRecovery(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    spec = importlib.util.spec_from_file_location('retirement_safety_tests', Path(__file__).with_name('test-retire-mobile-article.py'))
+    retirement_tests = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(retirement_tests)
+    ArticleRetirement = retirement_tests.ArticleRetirement
     unittest.main(verbosity=2)
