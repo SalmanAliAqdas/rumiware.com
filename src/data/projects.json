@@ -16,8 +16,7 @@
     "image": "schoolos.png",
     "width": 1440,
     "height": 1000,
-    "alt": "SchoolOS public sign-in page",
-    "caption": "Public sign-in screen; school records and administration modules were not inspected."
+    "alt": "SchoolOS public sign-in page"
   },
   {
     "id": "portfolio-demo",
@@ -31,13 +30,12 @@
     "summary": "An enquiry-workflow demonstration using fictional examples for classification, clarification and drafts for human review.",
     "problem": "Shows how an enquiry can move through classification, clarification and a draft for human review.",
     "featured": false,
-    "presentation": "Fictional-data demo",
+    "presentation": "Fixed fictional enquiries only; replies are not sent automatically.",
     "linkLabel": "Explore demo",
     "image": "portfolio-demo.png",
     "width": 1440,
     "height": 1000,
-    "alt": "Enquiry workflow demo showing clearly fictional saved examples",
-    "caption": "Public fictional-example screen; no enquiry was processed or generated."
+    "alt": "Enquiry workflow demo showing clearly fictional saved examples"
   },
   {
     "id": "stock-market",
@@ -51,13 +49,12 @@
     "summary": "A stock research dashboard with symbol search, available quotes and company information.",
     "problem": "Brings quoted market information and company context into one research view.",
     "featured": false,
-    "presentation": "",
+    "presentation": "Quotes may be delayed.",
     "linkLabel": "Open project",
     "image": "stock-market.webp",
     "width": 1280,
     "height": 800,
     "alt": "Market Atlas dashboard with a stock search, Apple quote cards and company context",
-    "caption": "Stock quote overview; the app notes that quotes may be delayed.",
     "imageSmall": "stock-market-640.webp"
   },
   {
@@ -78,7 +75,6 @@
     "width": 1280,
     "height": 800,
     "alt": "PDF Toolkit dashboard showing document tools and workspace navigation",
-    "caption": "PDF workspace overview; no documents were uploaded.",
     "imageSmall": "pdf-toolkit-640.webp"
   },
   {
@@ -98,8 +94,7 @@
     "image": "python-2d-platformer.png",
     "width": 1440,
     "height": 1000,
-    "alt": "Coin Runner browser-game start screen with keyboard instructions",
-    "caption": "Public browser-game start screen; gameplay was not exercised."
+    "alt": "Coin Runner browser-game start screen with keyboard instructions"
   },
   {
     "id": "weather",
@@ -119,7 +114,6 @@
     "width": 1280,
     "height": 800,
     "alt": "Lahore weather dashboard with current conditions, hourly outlook and forecast",
-    "caption": "Lahore conditions and forecast overview.",
     "imageSmall": "weather-640.webp"
   },
   {
@@ -140,8 +134,7 @@
     "imageSmall": "rumi-library-640.webp",
     "width": 1280,
     "height": 800,
-    "alt": "Rumi Library public homepage with book search, collection counts and browse-by-subject section",
-    "caption": "Public library homepage with an empty catalogue at capture; no library records were changed."
+    "alt": "Rumi Library public homepage with book search, collection counts and browse-by-subject section"
   },
   {
     "id": "expense-tracker",
@@ -155,13 +148,12 @@
     "summary": "An expense dashboard with income, spending and balance summaries, plus monthly and category charts.",
     "problem": "Brings expense totals and spending patterns into one overview.",
     "featured": false,
-    "presentation": "",
+    "presentation": "Fictional demo data.",
     "linkLabel": "Open project",
     "image": "expense-tracker.webp",
     "width": 1280,
     "height": 800,
     "alt": "Expense Tracker dashboard with financial summaries and fictional demo spending charts",
-    "caption": "Dashboard using the app's existing fictional demo data.",
     "imageSmall": "expense-tracker-640.webp"
   },
   {
@@ -182,7 +174,6 @@
     "width": 1280,
     "height": 800,
     "alt": "QR Code Studio showing a website URL and its generated QR preview",
-    "caption": "Website QR preview generated for rumiware.com.",
     "imageSmall": "qr-code-studio-640.webp"
   },
   {
@@ -203,7 +194,6 @@
     "width": 1280,
     "height": 800,
     "alt": "CineMatch movie discovery screen with navigation, search and movie cards",
-    "caption": "Movie discovery overview with catalogue navigation.",
     "imageSmall": "movies-640.webp"
   },
   {
@@ -223,8 +213,7 @@
     "imageSmall": "rumi-dental-care-640.webp",
     "width": 1280,
     "height": 800,
-    "alt": "Rumi Dental Care homepage with dental clinic information and appointment contact options",
-    "caption": "Public clinic homepage; no appointment form was submitted."
+    "alt": "Rumi Dental Care homepage with dental clinic information and appointment contact options"
   },
   {
     "id": "mani-bakes",
@@ -244,7 +233,6 @@
     "imageSmall": "mani-bakes-home-640.webp",
     "width": 1280,
     "height": 800,
-    "alt": "Mani Bakes homepage showing its homemade cakes introduction, bakery illustration and product menu",
-    "caption": "Public bakery homepage; no order was submitted."
+    "alt": "Mani Bakes homepage showing its homemade cakes introduction, bakery illustration and product menu"
   }
 ]

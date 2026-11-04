@@ -135,3 +135,69 @@ node scripts/capture-portfolio.cjs
 Public capture regeneration is separate: `node scripts/capture-streamlit.cjs` (or supply one of the six IDs to refresh only that app), then visually review each new original before running `python scripts/optimize-project-previews.py`. Do not publish a new capture just because a request succeeded. Future app states or data may change; recheck privacy and fictional-demo labels each time. The capture helper does not log in, upload files, modify expense records or execute trades.
 
 Chrome was used locally. No manual screen-reader speech, Safari/Firefox, real-phone or production deployment check was performed. Automated scans and screenshots support review but do not establish complete accessibility conformance. Live app operations involving private data or uploads were deliberately not exercised; descriptions reflect visible interfaces, not backend audits. Earlier unrelated project-verification limits remain as recorded in `PORTFOLIO-UPDATE.md`.
+
+
+## Project caption cleanup ? November 5, 2026
+
+Removed screenshot captions from all 12 Portfolio records and the separate
+homepage Enquiry Assistant record. The shared preview renderer now emits only
+the image and its existing larger-preview link where available. Alt text, image
+dimensions, responsive sources, project descriptions, status, links, categories,
+filters and homepage featured selection remain unchanged. Removed caption-only
+CSS; article illustration captions are unaffected.
+
+Visitor disclosures use the existing `presentation` field on both pages: delayed
+market quotes, fictional expense data, and fixed fictional enquiry examples with
+no automatic replies. A read-only visit to the public Enquiry Assistant `/explore`
+page confirmed fixed fictional messages, optional explicitly enabled live
+generation, and manual review. No simulation, generation, form submission or
+private dashboard was exercised. No unavailable AI capability is advertised.
+
+### Former caption text retained as historical capture evidence
+
+These notes describe earlier captures; they are no longer customer-facing copy.
+
+| Project | Former caption |
+| --- | --- |
+| Rumiware SchoolOS | Public sign-in screen; school records and administration modules were not inspected. |
+| Rumi Enquiry Assistant | Public fictional-example screen; no enquiry was processed or generated. |
+| Rumiware Stock Market App | Stock quote overview; the app notes that quotes may be delayed. |
+| Rumiware PDF Toolkit | PDF workspace overview; no documents were uploaded. |
+| Python 2D Platformer | Public browser-game start screen; gameplay was not exercised. |
+| Rumiware Weather App | Lahore conditions and forecast overview. |
+| Rumi Library | Public library homepage with an empty catalogue at capture; no library records were changed. |
+| Rumiware Expense Tracker | Dashboard using the app's existing fictional demo data. |
+| Rumiware QR Code Studio | Website QR preview generated for rumiware.com. |
+| Rumiware Movies | Movie discovery overview with catalogue navigation. |
+| Rumi Dental Care | Public clinic homepage; no appointment form was submitted. |
+| Mani Bakes | Public bakery homepage; no order was submitted. |
+| Rumi Enquiry Assistant (homepage) | Public Explore screen with fictional enquiries; no replies are sent automatically. |
+
+### Cleanup verification
+
+- `npm run build`: 21 complete public HTML pages generated.
+- `npm run check`: no errors across 21 pages, 668 internal links, 192 asset
+  references and two active forms; JavaScript syntax and HTML checks included.
+- `npm run validate:html`: 22 files, no issues.
+- `npm test -- tests/portfolio.spec.cjs tests/phase3.spec.cjs tests/client-sites-team.spec.cjs`:
+  all 22 relevant browser tests passed. Coverage includes both URL mounts,
+  project links and assets, larger previews, filters, no-JavaScript fallback,
+  enlarged-text reflow and unchanged homepage selection.
+- Four caption-cleanup cases cover 375px/1440px in dark/light themes. They check
+  all cards for removed notes/containers, retained disclosures, loaded images,
+  bounded content, no horizontal overflow, and zero automated WCAG A/AA issues
+  in the homepage project section and Portfolio grid.
+- Visually reviewed both pages at both widths in both themes. Screenshots remain
+  aligned; caption containers and their spacing are absent. Captures are retained
+  under ignored `test-results/portfolio-project-cards-*` directories. Fixed site
+  controls may overlay long region captures at the viewport position; their
+  behavior and styling were not changed by this cleanup.
+- Compared every project and homepage record with the previous commit. All fields
+  except captions and demo disclosures are unchanged. No image asset changed.
+- `git diff --check` passed. The final diff excludes hosting configuration, DNS,
+  SSL, analytics/consent, chatbot, WhatsApp and deployment workflows.
+
+Local browser checks use installed Chrome with desktop/mobile viewports, not
+physical mobile devices or other browser engines. Forms remain mocked in browser
+regression checks. The existing deployment workflow runs the complete suite
+before uploading; CI and post-deployment results are reported with the release.

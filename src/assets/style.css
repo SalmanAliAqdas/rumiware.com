@@ -287,7 +287,6 @@ section{padding:clamp(var(--space-4),6vw,var(--space-6)) 0}
 .case-heading{max-width:780px}.case-heading h2{margin-block:.6rem var(--space-2)}
 .project-evidence{margin-block:var(--space-4);max-width:960px}
 .project-evidence img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r)}
-.project-evidence figcaption{font-size:.85rem;color:var(--sec);margin-top:var(--space-1)}
 .project-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-block:var(--space-4)}
 .project-facts dt{font-weight:700;color:var(--head);margin-bottom:var(--space-1)}
 .project-facts dd{margin:0;color:var(--sec)}
@@ -305,9 +304,7 @@ body:has(form:focus-within) .wa,body:has(form:focus-within) #top{visibility:hidd
 /* Project collection uses the shared card system in both themes. */
 .project-card .project-evidence{width:100%;margin:0 0 var(--space-3)}
 .project-card .project-evidence img{aspect-ratio:8/5;object-fit:contain;background:#0B1E2D}
-.project-card .project-evidence figcaption{line-height:1.5}
 .project-evidence .preview-link{display:block;border-radius:var(--r)}
-.project-evidence .preview-hint{display:block;margin-top:.25rem}
 .project-card .project-category{font-size:.85rem;color:var(--link);margin-top:var(--space-2)}
 .project-card h2{font-size:1.65rem;line-height:1.2;margin-block:var(--space-2)}
 .project-card .project-presentation{font-weight:700;color:var(--head);margin-bottom:var(--space-2)}

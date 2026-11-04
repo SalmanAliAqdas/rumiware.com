@@ -49,7 +49,7 @@ accessibility, layout and isolated future-article build coverage.
 
 Project visibility and homepage selection use the `visible` and `featured` fields. IDs also form project anchors, so changing an ID requires updating links that target it. Categories and filters are generated from the same records.
 
-Published image files, dimensions, alternatives, and captions are specified in the project records. Streamlit previews have 640px and 1280px WebP variants. Original captures are retained in `reference/project-captures/`. Retired project records remain in `reference/portfolio-before-nine-projects.json`.
+Published image files, dimensions and alternatives are specified in the project records. Project cards show previews without screenshot captions. Use the shared `presentation` field for useful demo disclosures; keep capture and inspection notes in verification reports. Streamlit previews have 640px and 1280px WebP variants. Original captures are retained in `reference/project-captures/`. Retired project records remain in `reference/portfolio-before-nine-projects.json`.
 
 Optional image-generation commands:
 

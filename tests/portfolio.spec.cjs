@@ -19,12 +19,42 @@ test('portfolio records publish exact URLs, safe previews and project status at 
    await expect(card.locator('.tag')).toHaveText(p.status);await expect(card.locator('.project-category')).toContainText(p.category);
    const link=card.locator('a.more').first();await expect(link).toHaveAttribute('href',p.url);await expect(link).toHaveAttribute('rel','noopener noreferrer');await expect(link).toHaveAccessibleName(/opens in a new tab/);
    const img=card.locator('img');await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);await expect(img).toHaveAttribute('alt',p.alt);
-   if(p.image.endsWith('.svg'))await expect(card.locator('figcaption')).toHaveText('Branded project cover, not an application screenshot.');
+   await expect(card.locator('figcaption')).toHaveCount(0);
+   await expect(img).toHaveAttribute('width',String(p.width));await expect(img).toHaveAttribute('height',String(p.height));
   }
   await page.goto(mount+'contact/');await expect(page.locator('main')).toContainText('Rumi Dental Care');
  }
  const archive=JSON.parse(fs.readFileSync('reference/portfolio-before-nine-projects.json','utf8'));expect(archive.map(p=>p.id)).toEqual(['mani-bakes','rumi-dental-care']);
  expect(errors).toEqual([]);
+});
+
+for(const width of [375,1440])for(const theme of ['dark','light'])test(`project cards have no capture notes, retain demo disclosures and fit at ${width}px in ${theme}`,async({page},testInfo)=>{
+ const AxeBuilder=require('@axe-core/playwright').default;
+ await page.setViewportSize({width,height:1000});
+ await page.addInitScript(t=>localStorage.setItem('rw-theme',t),theme);
+ for(const [route,selector] of [['/','.home-work'],['/portfolio/','.portfolio-grid']]){
+  await page.goto(route);const decline=page.getByRole('button',{name:'Decline analytics',exact:true});if(await decline.isVisible())await decline.click();
+  await page.evaluate(()=>document.fonts.ready);
+  const cards=page.locator(selector+' .project-card');await expect(cards).toHaveCount(route==='/'?3:12);
+  await expect(cards.locator('figcaption, .preview-hint')).toHaveCount(0);
+  expect((await cards.allTextContents()).join(' ')).not.toMatch(/not inspected|at capture|records were changed|no .* (?:submitted|uploaded|processed|generated)|gameplay was not exercised|public .* screen|workspace overview|catalogue navigation/i);
+  const enquiry=route==='/'?cards.nth(1):page.locator('#portfolio-demo');
+  await expect(enquiry.locator('.project-presentation')).toBeVisible();
+  await expect(enquiry.locator('.project-presentation')).toHaveText('Fixed fictional enquiries only; replies are not sent automatically.');
+  if(route!=='/'){
+   await expect(page.locator('#stock-market .project-presentation')).toHaveText('Quotes may be delayed.');
+   await expect(page.locator('#expense-tracker .project-presentation')).toHaveText('Fictional demo data.');
+  }
+  for(const card of await cards.all()){
+   const img=card.locator('img');await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());
+   expect(await card.evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);
+   // Every content block stays inside the card after removing its caption.
+   expect(await card.evaluate(el=>{const box=el.getBoundingClientRect();return [...el.children].every(child=>{const b=child.getBoundingClientRect();return b.left>=box.left-1&&b.right<=box.right+1&&b.top>=box.top-1&&b.bottom<=box.bottom+1;});})).toBe(true);
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  const accessibility=await new AxeBuilder({page}).include(selector).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(accessibility.violations).toEqual([]);
+  await page.locator(selector).screenshot({path:testInfo.outputPath(route==='/'?'homepage.png':'portfolio.png')});
+ }
 });
 
 test('category filters work by keyboard in both themes and retain visible focus',async({page})=>{
@@ -53,7 +83,7 @@ test('homepage selection preserves card order, enquiry presentation and the port
   await expect(enquiry.locator('a.more')).toHaveAttribute('href','https://rumi-portfolio-demo.vercel.app/');
   await expect(enquiry.locator('a.more')).toHaveAttribute('rel','noopener noreferrer');
   await expect(enquiry.locator('a.more')).toHaveAttribute('target','_blank');
-  await expect(enquiry.locator('figcaption')).toContainText('fictional enquiries; no replies are sent automatically');
+  await expect(enquiry.locator('.project-presentation')).toHaveText('Fixed fictional enquiries only; replies are not sent automatically.');
   await expect(enquiry.locator('img')).toHaveAttribute('alt',/public Explore screen.*fictional/);
   await expect(page.locator('.home-work')).not.toContainText(/PDF Toolkit|Expense Tracker/);
   await page.goto(mount+'portfolio/#pdf-toolkit');await expect(page.locator('#pdf-toolkit')).toBeVisible();
@@ -89,7 +119,7 @@ test('six authentic responsive previews load at both mounts and open larger imag
    expect(await img.evaluate(i=>Math.abs(i.naturalWidth/i.naturalHeight-1.6))).toBeLessThan(.02);
    const box=await img.boundingBox();expect(Math.abs(box.width/box.height-1.6)).toBeLessThan(.02);
    await expect(img).toHaveAttribute('srcset',new RegExp(p.id+'-640\\.webp 640w'));
-   await expect(card.locator('figcaption')).not.toContainText('Branded project cover');
+   await expect(card.locator('figcaption')).toHaveCount(0);
    const link=card.locator('.preview-link');await link.focus();await expect(link).toBeFocused();
    expect(await link.evaluate(e=>getComputedStyle(e).outlineStyle)).not.toBe('none');
    await expect(link).toHaveAccessibleName('View larger screenshot of '+p.name+' (opens in a new tab)');

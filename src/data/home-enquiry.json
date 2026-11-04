@@ -12,5 +12,5 @@
   "width": 1280,
   "height": 800,
   "alt": "Rumi Enquiry Assistant public Explore screen showing clearly fictional customer enquiry examples",
-  "caption": "Public Explore screen with fictional enquiries; no replies are sent automatically."
+  "presentation": "Fixed fictional enquiries only; replies are not sent automatically."
 }

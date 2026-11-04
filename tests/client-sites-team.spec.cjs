@@ -23,7 +23,7 @@ test('client websites use the Websites filter, authentic responsive previews and
    await expect(img).toHaveAttribute('width','1280');await expect(img).toHaveAttribute('height','800');
    await expect(img).toHaveAttribute('srcset',new RegExp(image+'-640\\.webp 640w'));
    expect(await img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
-   await expect(card.locator('figcaption')).toContainText('Public');
+   await expect(card.locator('figcaption')).toHaveCount(0);
   }
   await expect(page.locator('#rumi-dental-care a.more')).toHaveCount(1);
   await expect(page.locator('#rumi-dental-care a[href*="github.com"]')).toHaveCount(0);

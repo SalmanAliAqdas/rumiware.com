@@ -33,7 +33,7 @@ test('homepage prioritizes real project records and links to exact cases',async(
  await expect(page.locator('.home-work article')).toHaveCount(3);
  await page.locator('.home-work a[href$="portfolio/#schoolos"]').click();await expect(page.locator('#schoolos')).toBeVisible();
  await expect(page.locator('.case-study')).toHaveCount(12);await expect(page.locator('main')).not.toContainText('Sample project');
- await expect(page.locator('#schoolos figcaption')).toContainText('Public sign-in screen');
+ await expect(page.locator('#schoolos figcaption')).toHaveCount(0);
  await expect(page.locator('#mani-bakes, #rumi-dental-care')).toHaveCount(2);
 });
 test('local fonts load, portraits have dimensions, and no generic social profile links remain',async({page})=>{
