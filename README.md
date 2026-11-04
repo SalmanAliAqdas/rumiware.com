@@ -35,6 +35,7 @@ The website uses HTML, CSS, and vanilla JavaScript, with a lightweight Node.js b
 | Rumiware PDF Toolkit | PDF document tools in one workspace | [Open toolkit](https://rumiware-pdf-toolkit.streamlit.app/) |
 | Python 2D Platformer | Platform-game project with a browser demonstration | [Play demo](https://salmanaliaqdas.github.io/python-2d-game-super-mario/) |
 | Rumiware Weather App | Location-based weather conditions and forecasts | [Open app](https://rumiware-weather-app.streamlit.app/) |
+| Rumi Library | Multilingual library catalogue with search, filters and offline public browsing | [Open library](https://rumi-library.vercel.app/) |
 | Rumiware Expense Tracker | Expense summaries and spending visualizations | [Open app](https://rumiware-expense-tracker.streamlit.app/) |
 | Rumiware QR Code Studio | Website QR-code generation and export | [Open studio](https://rumiware-qr-code-studio.streamlit.app/) |
 | Rumiware Movies | Movie discovery and catalogue browsing | [Open app](https://rumiware-movies.streamlit.app/) |

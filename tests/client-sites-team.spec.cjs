@@ -29,8 +29,8 @@ test('client websites use the Websites filter, authentic responsive previews and
   await expect(page.locator('#rumi-dental-care a[href*="github.com"]')).toHaveCount(0);
   await expect(page.locator('#mani-bakes a.more')).toHaveCount(2);
   await expect(page.locator('#mani-bakes').getByRole('link',{name:/View Code\s*:\s*Mani Bakes/})).toHaveAttribute('href','https://github.com/Rumi-Ware/Mani-Bakes');
-  await page.getByRole('button',{name:'All projects',exact:true}).click();await expect(page.locator('.proj:visible')).toHaveCount(11);
-  await page.goto(mount);await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumiware Expense Tracker']);
+  await page.getByRole('button',{name:'All projects',exact:true}).click();await expect(page.locator('.proj:visible')).toHaveCount(12);
+  await page.goto(mount);await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumi Library']);
   await expect(page.locator('.home-work')).not.toContainText(/Rumi Dental Care|Mani Bakes/);
  }
 });

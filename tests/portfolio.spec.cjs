@@ -5,9 +5,9 @@ test.beforeEach(async({context})=>{await context.route(/formspree\.io|api\.web3f
 
 test('portfolio records publish exact URLs, safe previews and project status at both mounts',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- expect(projects).toHaveLength(11);expect(new Set(projects.map(p=>p.id)).size).toBe(11);
+ expect(projects).toHaveLength(12);expect(new Set(projects.map(p=>p.id)).size).toBe(12);
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio/');await expect(page.locator('.proj')).toHaveCount(11);
+  await page.goto(mount+'portfolio/');await expect(page.locator('.proj')).toHaveCount(12);
   await expect(page.locator('main')).toContainText('development status supplied by the project owner');
   await expect(page.locator('main')).not.toContainText(/contribution|Sample project/);
   await expect(page.locator('main iframe')).toHaveCount(0);
@@ -42,10 +42,10 @@ test('category filters work by keyboard in both themes and retain visible focus'
  }
 });
 
-test('homepage enquiry replacement preserves card order, other featured links and the portfolio PDF entry',async({page})=>{
+test('homepage selection preserves card order, enquiry presentation and the portfolio PDF entry',async({page})=>{
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount);const featured=projects.filter(p=>p.featured);expect(featured.map(p=>p.id)).toEqual(['schoolos','pdf-toolkit','expense-tracker']);
-  await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumiware Expense Tracker']);
+  await page.goto(mount);const featured=projects.filter(p=>p.featured);expect(featured.map(p=>p.id)).toEqual(['schoolos','pdf-toolkit','rumi-library']);
+  await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumi Library']);
   for(const p of featured.filter(p=>p.id!=='pdf-toolkit'))await expect(page.locator('.home-work a[href$="portfolio/#'+p.id+'"]').locator('..')).toContainText(p.summary);
   const enquiry=page.locator('.home-work article').nth(1);
   await expect(enquiry.locator('.project-category')).toHaveText('Business Applications / Customer Enquiries');
@@ -55,7 +55,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
   await expect(enquiry.locator('a.more')).toHaveAttribute('target','_blank');
   await expect(enquiry.locator('figcaption')).toContainText('fictional enquiries; no replies are sent automatically');
   await expect(enquiry.locator('img')).toHaveAttribute('alt',/public Explore screen.*fictional/);
-  await expect(page.locator('.home-work')).not.toContainText('PDF Toolkit');
+  await expect(page.locator('.home-work')).not.toContainText(/PDF Toolkit|Expense Tracker/);
   await page.goto(mount+'portfolio/#pdf-toolkit');await expect(page.locator('#pdf-toolkit')).toBeVisible();
   await expect(page.locator('#pdf-toolkit a.more')).toHaveAttribute('href','https://rumiware-pdf-toolkit.streamlit.app/');
   await page.locator('[data-filter=games]').click();await expect(page.locator('#schoolos')).toBeHidden();
@@ -66,7 +66,7 @@ test('homepage enquiry replacement preserves card order, other featured links an
 for(const mode of ['disabled','failed'])test('portfolio remains readable with JavaScript '+mode,async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route(/\/script\.js(?:\?.*)?$/,r=>r.abort());
  const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio/#expense-tracker');
- await expect(page.locator('.proj:visible')).toHaveCount(11);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
+ await expect(page.locator('.proj:visible')).toHaveCount(12);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
 });
 
 test('project collection reflows with enlarged text at all requested widths',async({page})=>{
@@ -104,11 +104,36 @@ test('mobile and desktop homepage select small screenshots for the shared featur
  for(const width of [375,1440]){
   const context=await browser.newContext({viewport:{width,height:900},deviceScaleFactor:1,reducedMotion:'reduce'});const page=await context.newPage();
   await page.goto('http://127.0.0.1:4173/');
-  for(const id of ['enquiry-assistant','expense-tracker']){
+  for(const id of ['enquiry-assistant','rumi-library']){
    const img=page.locator('.home-work img[src="images/projects/'+id+'.webp"]');await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());
    expect(await img.evaluate(i=>new URL(i.currentSrc).pathname)).toBe('/images/projects/'+id+'-640.webp');
    await expect(img).toHaveAttribute('loading','lazy');
   }
   await context.close();
+ }
+});
+
+
+test('Rumi Library uses authentic previews, exact links and the business filter on mobile and desktop in both themes',async({page})=>{
+ for(const width of [375,1440])for(const theme of ['dark','light']){
+  await page.setViewportSize({width,height:900});await page.goto('/');
+  await page.evaluate(t=>localStorage.setItem('rw-theme',t),theme);await page.reload();
+  await expect(page.locator('.home-work h3')).toHaveText(['Rumiware SchoolOS','Rumi Enquiry Assistant','Rumi Library']);
+  const home=page.locator('.home-work article').filter({has:page.getByRole('heading',{name:'Rumi Library',exact:true})});
+  await expect(home).toHaveCount(1);await expect(page.locator('.home-work')).not.toContainText('Expense Tracker');
+  await home.locator('img').scrollIntoViewIfNeeded();await home.locator('img').evaluate(i=>i.decode());
+  await home.locator('a.more').click();await expect(page).toHaveURL(/portfolio\/#rumi-library$/);
+  const library=page.locator('#rumi-library');await expect(library).toHaveCount(1);
+  await expect(library.locator('img')).toHaveAttribute('src',/images\/projects\/rumi-library.webp$/);
+  await expect(library.locator('img')).toHaveAttribute('width','1280');await expect(library.locator('img')).toHaveAttribute('height','800');
+  await library.locator('img').evaluate(i=>i.decode());
+  for(const [label,url] of [['Live Demo','https://rumi-library.vercel.app/'],['View Code','https://github.com/SalmanAliAqdas/rumi-library-system']]){
+   const link=library.getByRole('link',{name:new RegExp('^'+label)});
+   await expect(link).toHaveAttribute('href',url);await expect(link).toHaveAttribute('target','_blank');await expect(link).toHaveAttribute('rel','noopener noreferrer');
+  }
+  await page.locator('[data-filter=business-applications]').click();await expect(library).toBeVisible();await expect(page.locator('#expense-tracker')).toBeVisible();
+  await page.locator('[data-filter=websites]').click();await expect(library).toBeHidden();
+  await page.locator('[data-filter=all]').click();await expect(library).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  }
 });
