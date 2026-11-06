@@ -61,7 +61,7 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
   await page.goto('/careers/'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(2);
+  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(3);
   await expect(page.locator('a[href$="blog/fast-mobile-website/"]')).toHaveCount(0);
   await page.locator('a.more[href$="blog/future-of-ai/"]').click();
   await expect(page.locator('h1')).toHaveText('The Future of AI: What It Means for Businesses, Jobs, and Everyday Life');
@@ -85,7 +85,8 @@ test('social metadata references a real 1200 by 630 asset and production canonic
     const social=await request.get(image);expect(social.status()).toBe(200);
     const bytes=await social.body();expect(bytes.readUInt32BE(16)).toBe(1200);expect(bytes.readUInt32BE(20)).toBe(630);
     const description=await page.locator('meta[name=description]').getAttribute('content');
-    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',description);
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content',sourcePages[source].socialDescription||description);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content',sourcePages[source].socialTitle||sourcePages[source].title);
     expect(await page.locator('link[rel=icon]').evaluate(el=>el.href)).toBe(new URL('/images/favicon.png',page.url()).href);
     if(file!=='404.html') expect(await page.locator('link[rel=canonical]').getAttribute('href')).toMatch(/^https:\/\/rumiware\.com\//);
   }

@@ -156,5 +156,24 @@
       "datePublished": "2026-11-02",
       "dateModified": "2026-11-02"
     }
+  },
+  "blog/hormuz-internet-cables-gulf-impact/index.html": {
+    "title": "Hormuz Internet Cable Cuts: Gulf and Global Impacts | RumiWare",
+    "description": "Explore how hypothetical internet cable cuts in the Strait of Hormuz could affect Gulf banking, businesses, families and global connectivity.",
+    "type": "article",
+    "schemas": [],
+    "legacyRedirect": false,
+    "socialTitle": "What If Iran Cut Internet Cables in the Strait of Hormuz?",
+    "socialDescription": "A practical look at the possible social and economic effects of a major Gulf cable disruption, the limits of backup routes and lessons for digital resilience.",
+    "socialImage": "/images/social-preview.png",
+    "socialImageAlt": "Rumiware — Websites, mobile apps and AI solutions. Lahore, Pakistan.",
+    "article": {
+      "headline": "What If Iran Cut Internet Cables in the Strait of Hormuz?",
+      "author": "Salman Ali Aqdas",
+      "role": "Founder & CEO, RumiWare",
+      "category": "Technology & Digital Infrastructure",
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06"
+    }
   }
 }

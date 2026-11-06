@@ -8,7 +8,7 @@ const root=path.resolve(__dirname,'..');
 
 test('central route inventory drives output, canonical metadata, structured data and sitemap',()=>{
  const canonical=Object.entries(routes).filter(([file])=>file!=='404.html');
- expect(canonical).toHaveLength(20);
+ expect(canonical).toHaveLength(21);
  for(const [file,route] of canonical){
   const html=fs.readFileSync(path.join(root,'dist',outputFile(file)),'utf8');
   expect(html).toContain(`<link rel="canonical" href="${site.url+route}">`);
