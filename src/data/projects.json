@@ -97,6 +97,26 @@
     "alt": "Coin Runner browser-game start screen with keyboard instructions"
   },
   {
+    "id": "pong-game",
+    "visible": true,
+    "name": "Pong Game",
+    "status": "Published game",
+    "category": "Games",
+    "categoryId": "games",
+    "subcategory": "",
+    "technologies": "HTML, CSS, JavaScript, Canvas",
+    "url": "https://salmanaliaqdas.github.io/pong-game/",
+    "sourceUrl": "https://github.com/SalmanAliAqdas/pong-game",
+    "summary": "A browser-based Pong game with computer, two-player and team modes, adjustable difficulty, live scores and a match timer.",
+    "featured": false,
+    "linkLabel": "Play Game",
+    "image": "pong-game.webp",
+    "imageSmall": "pong-game-640.webp",
+    "width": 1280,
+    "height": 1000,
+    "alt": "Pong match in progress against the computer, showing two paddles, the moving ball, live scores and match timer"
+  },
+  {
     "id": "weather",
     "visible": true,
     "name": "Rumiware Weather App",

@@ -1,13 +1,31 @@
 const {test,expect}=require('@playwright/test');
 const fs=require('node:fs');
 const projects=require('../src/data/projects.json');
+
+test('Pong appears once under Games with gameplay previews and exact play/code links',async({page,context})=>{
+ await page.goto('/portfolio/');
+ const card=page.locator('#pong-game');await expect(card).toHaveCount(1);
+ await page.getByRole('button',{name:'Games',exact:true}).click();
+ await expect(card).toBeVisible();await expect(page.locator('.proj:visible')).toHaveCount(2);
+ const image=card.locator('img');await image.scrollIntoViewIfNeeded();await image.evaluate(i=>i.decode());
+ await expect(image).toHaveAttribute('srcset',/pong-game-640\.webp 640w/);
+ await expect(card.locator('figcaption, .preview-hint, .project-presentation')).toHaveCount(0);
+ for(const [name,url] of [['Play Game','https://salmanaliaqdas.github.io/pong-game/'],['View Code','https://github.com/SalmanAliAqdas/pong-game']]){
+  const link=card.getByRole('link',{name:new RegExp('^'+name+'\\s*:\\s*Pong Game')});
+  await expect(link).toHaveAttribute('href',url);await expect(link).toHaveAttribute('target','_blank');
+  await context.route(url,r=>r.fulfill({body:'Linked destination'}));
+  const opened=context.waitForEvent('page');await link.click();const popup=await opened;await popup.waitForLoadState();expect(popup.url()).toBe(url);await popup.close();
+ }
+ await page.getByRole('button',{name:'Websites',exact:true}).click();await expect(card).toBeHidden();
+ await page.getByRole('button',{name:'All projects',exact:true}).click();await expect(card).toBeVisible();
+});
 test.beforeEach(async({context})=>{await context.route(/formspree\.io|api\.web3forms\.com/,r=>r.abort());});
 
 test('portfolio records publish exact URLs, safe previews and project status at both mounts',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- expect(projects).toHaveLength(12);expect(new Set(projects.map(p=>p.id)).size).toBe(12);
+ expect(projects).toHaveLength(13);expect(new Set(projects.map(p=>p.id)).size).toBe(13);
  for(const mount of ['/','/rumiware.com/']){
-  await page.goto(mount+'portfolio/');await expect(page.locator('.proj')).toHaveCount(12);
+  await page.goto(mount+'portfolio/');await expect(page.locator('.proj')).toHaveCount(13);
   await expect(page.locator('main')).toContainText('development status supplied by the project owner');
   await expect(page.locator('main')).not.toContainText(/contribution|Sample project/);
   await expect(page.locator('main iframe')).toHaveCount(0);
@@ -35,7 +53,7 @@ for(const width of [375,1440])for(const theme of ['dark','light'])test(`project 
  for(const [route,selector] of [['/','.home-work'],['/portfolio/','.portfolio-grid']]){
   await page.goto(route);const decline=page.getByRole('button',{name:'Decline analytics',exact:true});if(await decline.isVisible())await decline.click();
   await page.evaluate(()=>document.fonts.ready);
-  const cards=page.locator(selector+' .project-card');await expect(cards).toHaveCount(route==='/'?3:12);
+  const cards=page.locator(selector+' .project-card');await expect(cards).toHaveCount(route==='/'?3:13);
   await expect(cards.locator('figcaption, .preview-hint')).toHaveCount(0);
   expect((await cards.allTextContents()).join(' ')).not.toMatch(/not inspected|at capture|records were changed|no .* (?:submitted|uploaded|processed|generated)|gameplay was not exercised|public .* screen|workspace overview|catalogue navigation/i);
   const enquiry=route==='/'?cards.nth(1):page.locator('#portfolio-demo');
@@ -96,7 +114,7 @@ test('homepage selection preserves card order, enquiry presentation and the port
 for(const mode of ['disabled','failed'])test('portfolio remains readable with JavaScript '+mode,async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:mode!=='disabled'});if(mode==='failed')await context.route(/\/script\.js(?:\?.*)?$/,r=>r.abort());
  const page=await context.newPage();await page.goto('http://127.0.0.1:4173/rumiware.com/portfolio/#expense-tracker');
- await expect(page.locator('.proj:visible')).toHaveCount(12);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
+ await expect(page.locator('.proj:visible')).toHaveCount(13);await expect(page.locator('.filters')).toBeHidden();await expect(page.locator('#expense-tracker a.more')).toHaveAttribute('href','https://rumiware-expense-tracker.streamlit.app/');await context.close();
 });
 
 test('project collection reflows with enlarged text at all requested widths',async({page})=>{
