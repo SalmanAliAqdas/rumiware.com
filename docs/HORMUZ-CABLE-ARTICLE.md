@@ -35,9 +35,10 @@ for every other page. This supports the supplied distinct SEO and Open Graph
 wording. Twitter uses the same social wording. BlogPosting retains the supplied
 headline, description, author, role, category and publication dates.
 
-The article explicitly uses the existing `/images/social-preview.png` for social
-metadata and BlogPosting; it does not use another article's illustration. There
-is no fabricated cover image. Tags are visible topics, not a meta-keywords tag.
+The article uses its original `/images/blog/hormuz-internet-cables-social.png`
+for social metadata and BlogPosting, with a responsive WebP cover and Blog card
+thumbnail. The caption identifies the artwork as conceptual, not a cable-route
+map or an image of a confirmed attack. Tags are visible topics, not a meta-keywords tag.
 The existing build adds Facebook, LinkedIn, WhatsApp and Copy Link controls;
 no article-specific sharing markup or third-party social scripts are added.
 
@@ -50,7 +51,7 @@ two to three; assertions for the other articles remain intact.
 
 Release uses the existing Hostinger GitHub Actions workflow after build, static,
 HTML, deployment safety and full browser checks. Production verification must
-compare the article, Blog listing, sitemap and default image with the build
+compare the article, Blog listing, sitemap and article images with the build
 using real HTTP GETs after deployment completes.
 
 ## Local release results
@@ -69,3 +70,19 @@ using real HTTP GETs after deployment completes.
   sitemap and both local URL mounts passed. External sources separately returned
   HTTP 200. Generated contrast/accessibility reports from the wider regression
   suite were restored to avoid unrelated verification-file changes.
+
+## Original cover follow-up
+
+Generated with the built-in image-generation tool on 6 November 2026. Delivery
+assets: `images/blog/hormuz-internet-cables-cover.webp` (1200×630),
+`images/blog/hormuz-internet-cables-cover-640.webp` (640×336), and
+`images/blog/hormuz-internet-cables-social.png` (1200×630). Pillow performs the
+same resize/optimisation work used for existing article images. The article body
+and canonical URL are unchanged. Only the focused article/card browser checks
+and build are repeated locally; mandatory CI runs normally.
+Build and all five focused article/card browser checks passed, including image
+loading and dimensions at mobile/desktop widths in both themes.
+
+Final generation prompt:
+
+> Use case: stylized-concept. Asset type: original professional editorial cover for RumiWare's hypothetical analysis 'What If Iran Cut Internet Cables in the Strait of Hormuz?'. Create a polished wide landscape conceptual illustration, aspect ratio approximately 1200:630. Show intact submarine fibre-optic communication cables sweeping along a textured seabed beneath calm deep blue sea, with restrained glowing teal data pulses. Above the waterline in the distance, show stylized Gulf coastal cities and a subtle abstract digital connectivity motif linking coastal buildings. Sophisticated navy (#0B1E2D), teal (#16A6A3, #3FD0CB), warm cream and subtle gold accents, matching a professional technology publication. Balanced clear composition, detailed yet readable at Blog-card thumbnail size. Keep key subjects inside safe margins for a 1.9:1 export. This is conceptual artwork, not a geographic cable-route map. Do not draw a map, national borders, route labels, flags, military equipment, explosions, cut cables or an attack. No text, logos or watermarks. Calm, thoughtful digital infrastructure theme.

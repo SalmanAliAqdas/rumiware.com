@@ -165,8 +165,8 @@
     "legacyRedirect": false,
     "socialTitle": "What If Iran Cut Internet Cables in the Strait of Hormuz?",
     "socialDescription": "A practical look at the possible social and economic effects of a major Gulf cable disruption, the limits of backup routes and lessons for digital resilience.",
-    "socialImage": "/images/social-preview.png",
-    "socialImageAlt": "Rumiware — Websites, mobile apps and AI solutions. Lahore, Pakistan.",
+    "socialImage": "/images/blog/hormuz-internet-cables-social.png",
+    "socialImageAlt": "Conceptual illustration of submarine communication cables beneath the sea, Gulf coastal skylines and glowing digital connections.",
     "article": {
       "headline": "What If Iran Cut Internet Cables in the Strait of Hormuz?",
       "author": "Salman Ali Aqdas",
@@ -174,6 +174,11 @@
       "category": "Technology & Digital Infrastructure",
       "datePublished": "2026-11-06",
       "dateModified": "2026-11-06"
-    }
+    },
+    "assets": [
+      "images/blog/hormuz-internet-cables-cover.webp",
+      "images/blog/hormuz-internet-cables-cover-640.webp",
+      "images/blog/hormuz-internet-cables-social.png"
+    ]
   }
 }
