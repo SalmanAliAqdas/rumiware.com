@@ -180,5 +180,27 @@
       "images/blog/hormuz-internet-cables-cover-640.webp",
       "images/blog/hormuz-internet-cables-social.png"
     ]
+  },
+  "blog/nvidia-jensen-huang-investigation/index.html": {
+    "title": "Nvidia’s Jensen Huang Investigation: Facts & AI Impact",
+    "description": "What Nvidia has confirmed about the Jensen Huang investigation, what remains unproven, and the possible implications for AI businesses and developers.",
+    "type": "article",
+    "schemas": [],
+    "legacyRedirect": false,
+    "socialImage": "/images/blog/nvidia-jensen-huang-investigation-social.png",
+    "socialImageAlt": "Conceptual editorial illustration of an AI processor, server racks and a magnifying glass representing scrutiny, with teal and green circuit patterns on dark navy.",
+    "assets": [
+      "images/blog/nvidia-jensen-huang-investigation-cover.webp",
+      "images/blog/nvidia-jensen-huang-investigation-cover-640.webp",
+      "images/blog/nvidia-jensen-huang-investigation-social.png"
+    ],
+    "article": {
+      "headline": "Nvidia’s Jensen Huang Investigation: What Is Confirmed—and What It Means for the AI Industry",
+      "author": "Salman Ali Aqdas",
+      "role": "Founder & CEO, RumiWare",
+      "category": "AI Industry & Technology",
+      "datePublished": "2026-11-12",
+      "dateModified": "2026-11-12"
+    }
   }
 }

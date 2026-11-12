@@ -8,7 +8,7 @@ test.beforeEach(async({context})=>{
 });
 test('release output contains complete public documents and excludes all development sources',async({request})=>{
  expect(fs.readdirSync(out).filter(f=>f.endsWith('.html'))).toHaveLength(2);
- expect(fs.readdirSync(out,{recursive:true}).filter(f=>f.endsWith('.html'))).toHaveLength(22);
+ expect(fs.readdirSync(out,{recursive:true}).filter(f=>f.endsWith('.html'))).toHaveLength(23);
  for(const file of ['head.html','header.html','footer.html','get-quote-preview.html','.vscode/sftp.json','reference/phase2/index.html','package.json']){
   expect(fs.existsSync(path.join(out,file))).toBe(false);
   // The legacy quote preview is a test-only compatibility route, not a release file.
@@ -59,7 +59,7 @@ test('all public images and font resources load at the repository mount',async({
 });
 test('generated output is reproducible and declined analytics stay absent and active placeholder destinations do not return',async({page})=>{
  const before=fingerprint();
- const inputs=JSON.parse(fs.readFileSync(path.join(root,'src/data/pages.json'),'utf8'));expect(Object.keys(inputs)).toHaveLength(22);
+ const inputs=JSON.parse(fs.readFileSync(path.join(root,'src/data/pages.json'),'utf8'));expect(Object.keys(inputs)).toHaveLength(23);
  const network=[];page.on('request',r=>{if(/googletagmanager|google-analytics|\/g\/collect/.test(r.url()))network.push(r.url());});await page.goto('/');await page.locator('footer [data-privacy-open]').click();await page.getByRole('button',{name:'Decline analytics'}).click();
  await page.goto('/contact/');expect(network).toEqual([]);
  execFileSync(process.execPath,[path.join(root,'scripts/build.cjs')],{cwd:root});

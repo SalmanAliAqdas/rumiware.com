@@ -14,7 +14,7 @@ for(const theme of ['dark','light'])for(const width of [375,1440])test(`Hormuz a
  for(const mount of ['/','/rumiware.com/']){
   expect((await page.goto(mount+'blog/')).status()).toBe(200);
   const decline=page.getByRole('button',{name:'Decline analytics',exact:true});if(await decline.isVisible())await decline.click();
-  await expect(page.locator('main article')).toHaveCount(3);
+  await expect(page.locator('main article')).toHaveCount(4);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
   if(mount==='/'){
    await page.screenshot({path:path.join(output,`blog-${width}-${theme}.png`),fullPage:true});

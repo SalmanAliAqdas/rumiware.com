@@ -61,7 +61,7 @@ test('truthful homepage, careers, blog and article metadata', async ({page, requ
   await expect(page.locator('.avatar-photo')).toHaveCount(4);
   await page.goto('/careers/'); await expect(page.locator('main')).toContainText('No current openings');
   await expect(page.locator('form')).toHaveCount(0);
-  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(3);
+  await page.goto('/blog/'); await expect(page.locator('main article')).toHaveCount(4);
   await expect(page.locator('a[href$="blog/fast-mobile-website/"]')).toHaveCount(0);
   await page.locator('a.more[href$="blog/future-of-ai/"]').click();
   await expect(page.locator('h1')).toHaveText('The Future of AI: What It Means for Businesses, Jobs, and Everyday Life');

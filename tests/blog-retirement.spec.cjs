@@ -53,7 +53,7 @@ for(const theme of ['dark','light'])for(const width of [375,1440])test(`AI poste
  const failures=[];page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1')&&r.status()>=400)failures.push(r.url())});
  for(const mount of ['/','/rumiware.com/']){
   await page.goto(mount+'blog/');const decline=page.getByRole('button',{name:'Decline analytics',exact:true});if(await decline.isVisible())await decline.click();
-  await expect(page.locator('main article')).toHaveCount(3);
+  await expect(page.locator('main article')).toHaveCount(4);
   const card=page.locator('main article').filter({has:page.locator('a.more[href$="blog/future-of-ai/"]')});await card.scrollIntoViewIfNeeded();
   const thumb=card.locator('img');await expect.poll(()=>thumb.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
   if(mount==='/')await card.screenshot({path:path.join(out,`ai-card-${width}-${theme}.png`)});
