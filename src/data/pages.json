@@ -182,8 +182,8 @@
     ]
   },
   "blog/nvidia-jensen-huang-investigation/index.html": {
-    "title": "Nvidia’s Jensen Huang Investigation: Facts & AI Impact",
-    "description": "What Nvidia has confirmed about the Jensen Huang investigation, what remains unproven, and the possible implications for AI businesses and developers.",
+    "title": "Jensen Huang Resigns from Nvidia: Facts and AI Impact",
+    "description": "Nvidia confirms Jensen Huang’s resignation. Explore the leadership transition, investigation background and practical implications for AI businesses.",
     "type": "article",
     "schemas": [],
     "legacyRedirect": false,
@@ -195,12 +195,12 @@
       "images/blog/nvidia-jensen-huang-investigation-social.png"
     ],
     "article": {
-      "headline": "Nvidia’s Jensen Huang Investigation: What Is Confirmed—and What It Means for the AI Industry",
+      "headline": "Jensen Huang Resigns from Nvidia: Confirmed Facts and What Comes Next",
       "author": "Salman Ali Aqdas",
       "role": "Founder & CEO, RumiWare",
       "category": "AI Industry & Technology",
       "datePublished": "2026-11-12",
-      "dateModified": "2026-11-12"
+      "dateModified": "2026-11-15"
     }
   }
 }

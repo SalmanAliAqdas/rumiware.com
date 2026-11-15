@@ -92,7 +92,7 @@ for(const asset of new Set(Object.values(pages).flatMap(p=>p.assets||[]))){
  if(!/^images\/blog\/[a-z0-9-]+\.(?:svg|webp|png)$/.test(asset))throw Error('Invalid article asset: '+asset);
  const dest=path.join(out,asset);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,asset),dest);
 }
-fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc></url>`).join('')}</urlset>\n`);
+fs.writeFileSync(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).filter(f=>f!=='404.html').map(f=>`<url><loc>${site.url}${pagePath(f)}</loc>${pages[f].article?.dateModified?`<lastmod>${pages[f].article.dateModified}</lastmod>`:''}</url>`).join('')}</urlset>\n`);
 fs.writeFileSync(path.join(out,'robots.txt'),`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 // A tag document with a real HTTP URL, no forms and no inherited referrer.
 const frameScript=read('src/assets/analytics-frame.js').replace('PRODUCTION_ORIGINS',json(site.analytics.productionOrigins)).replace('MEASUREMENT_ID',json(site.analytics.measurementId));
